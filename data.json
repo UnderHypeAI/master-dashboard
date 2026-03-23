@@ -5,8 +5,7 @@
       "patient_gangster",
       "4evr",
       "underhype",
-      "home_property",
-      "melear_mining"
+      "personal_finance"
     ]
   },
   "patient_gangster": {
@@ -84,28 +83,27 @@
     },
     "active_clients": []
   },
-  "home_property": {
-    "status": "demo",
-    "demo": true,
-    "last_synced": "2026-03-23T15:19:00-06:00",
-    "kpis": {
-      "estimated_value": 1027700,
-      "home_equity": 415300,
-      "monthly_expenses": 3060,
-      "active_projects": 1,
-      "maintenance_alerts": 3
-    },
-    "maintenance_summary": {
-      "green": 9,
-      "yellow": 2,
-      "red": 1
-    }
-  },
-  "melear_mining": {
-    "status": "standby",
-    "kpis": {
-      "active_miners": 0,
-      "daily_revenue": 0
+  "personal_finance": {
+    "status": "live",
+    "net_worth": 0,
+    "total_assets": 0,
+    "total_btc_units": 0,
+    "btc_usd": 0,
+    "total_fixed_annual": 0,
+    "total_variable_annual": 0,
+    "total_asset_income_annual": 0,
+    "total_biz_income_monthly": 0,
+    "cashflow_net": 0,
+    "cashflow_income": 0,
+    "cashflow_expenses": 0,
+    "savings_rate": 0,
+    "by_category": {
+      "Cash & Banking": 0,
+      "Equities": 0,
+      "Retirement": 0,
+      "Bitcoin": 0,
+      "Business Equity": 0,
+      "Real Estate": 0
     }
   },
   "live_endpoints": {
