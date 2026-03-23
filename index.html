@@ -36,6 +36,8 @@
     --accent-uh: #C4652A;
     --accent-4evr: #e8b94a;
     --accent-pg: #F7931A;
+    --accent-home: #5B8C5A;
+    --accent-mm: #F7931A;
     --green: #34d399;
     --red: #f87171;
     --yellow: #fbbf24;
@@ -142,6 +144,8 @@
   .health-card.uh::before { background: var(--accent-uh); }
   .health-card.forevr::before { background: var(--accent-4evr); }
   .health-card.pg::before { background: var(--accent-pg); }
+  .health-card.home::before { background: var(--accent-home); }
+  .health-card.mm::before { background: var(--accent-mm); }
 
   .health-card .biz-name {
     font-size: 0.9rem;
@@ -520,6 +524,11 @@
     <!-- Populated by JS -->
   </div>
 
+  <!-- Personal Dashboards Health Row -->
+  <div class="health-row" id="personalHealthRow" style="grid-template-columns: repeat(2, 1fr);">
+    <!-- Populated by JS -->
+  </div>
+
   <!-- 4EVR System Status Bar -->
   <div class="system-bar" id="systemBar">
     <div class="bar-title">4EVR.ink System</div>
@@ -579,6 +588,20 @@
     </div>
   </div>
 
+  <!-- Home & Property Section -->
+  <div class="biz-section" id="homeSection">
+    <div class="card">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="accent-dot" style="background:var(--accent-home)"></span>
+          Home & Property
+        </div>
+        <a href="https://underhypeai.github.io/home-dashboard/" class="view-link" target="_blank">View Full Dashboard &rarr;</a>
+      </div>
+      <div id="homeContent"><div class="awaiting">Awaiting data sync</div></div>
+    </div>
+  </div>
+
   <!-- Financial Overview Placeholder -->
   <div class="placeholder-card">
     <h3>Awaiting Mercury + QuickBooks Connection</h3>
@@ -591,6 +614,7 @@
       <a href="https://underhypeai.github.io/underhype-dashboard/" target="_blank">UnderHype AI</a>
       <a href="https://underhypeai.github.io/4evr-dashboard/" target="_blank">4EVR.ink</a>
       <a href="https://underhypeai.github.io/pg-dashboard/" target="_blank">Patient Gangster</a>
+      <a href="https://underhypeai.github.io/home-dashboard/" target="_blank">Home & Property</a>
     </div>
     <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
   </footer>
@@ -650,10 +674,12 @@
     }
 
     renderHealthRow();
+    renderPersonalHealthRow();
     renderSystemBar(DATA.forevr?.system);
     renderUH(DATA.underhype);
     render4EVR(DATA.forevr);
     renderPG(DATA.patient_gangster);
+    renderHome(DATA.home_property);
   }
 
   // ─── Health Row ───
@@ -695,6 +721,69 @@
   }
 
   function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
+
+  // ─── Personal Health Row ───
+  function renderPersonalHealthRow() {
+    const row = $('#personalHealthRow');
+    const home = DATA.home_property || {};
+    const mm = DATA.melear_mining || {};
+
+    const homeK = home.kpis || {};
+    const mmK = mm.kpis || {};
+
+    row.innerHTML = `
+      <div class="health-card home">
+        <div class="biz-name">Home & Property</div>
+        <div class="stage-badge">2685 Cherry Circle</div>
+        <div>
+          <span class="status-dot ${home.status === 'live' ? 'live' : 'demo'}"></span>
+          <span class="health-metric">${fmtUSD(homeK.estimated_value || 0)}</span>
+          <span class="health-label"> est. value &middot; ${homeK.maintenance_alerts || 0} alerts</span>
+        </div>
+      </div>
+      <div class="health-card mm">
+        <div class="biz-name">Melear Mining Co.</div>
+        <div class="stage-badge">${mm.status === 'live' ? 'Mining' : 'Standby'}</div>
+        <div>
+          <span class="status-dot ${mm.status === 'live' ? 'live' : 'demo'}"></span>
+          <span class="health-metric">${fmt(mmK.active_miners || 0)}</span>
+          <span class="health-label"> miners &middot; ${fmtUSD(mmK.daily_revenue || 0)}/day</span>
+        </div>
+      </div>
+    `;
+  }
+
+  // ─── Home & Property Section ───
+  function renderHome(d) {
+    const el = $('#homeContent');
+    if (!d) {
+      el.innerHTML = '<div class="awaiting">Awaiting data sync</div>';
+      return;
+    }
+    const k = d.kpis || {};
+    const maint = d.maintenance_summary || {};
+
+    let html = `
+      <div class="kpi-row">
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-home)">${fmtUSD(k.estimated_value)}</div><div class="kpi-label">Estimated Value</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-home)">${fmtUSD(k.home_equity)}</div><div class="kpi-label">Home Equity</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-home)">${fmtUSD(k.monthly_expenses)}</div><div class="kpi-label">Monthly Expenses</div></div>
+        <div class="kpi"><div class="kpi-val">${fmt(k.active_projects)}</div><div class="kpi-label">Active Projects</div></div>
+      </div>
+      <div style="font-size:0.7rem;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem;">Maintenance Status</div>
+      <div style="display:flex;gap:1.5rem;font-size:0.8rem;color:var(--text-secondary);">
+        <div><span class="status-dot live"></span> On Track: <span style="font-family:var(--font-mono);color:var(--text-primary);font-weight:600;">${fmt(maint.green || 0)}</span></div>
+        <div><span class="status-dot demo"></span> Due Soon: <span style="font-family:var(--font-mono);color:var(--yellow);font-weight:600;">${fmt(maint.yellow || 0)}</span></div>
+        <div><span class="status-dot offline"></span> Past Due: <span style="font-family:var(--font-mono);color:var(--red);font-weight:600;">${fmt(maint.red || 0)}</span></div>
+      </div>
+    `;
+
+    if (d.demo) {
+      html = '<div style="float:right;"><span class="mode-badge demo">DEMO</span></div>' + html;
+    }
+
+    el.innerHTML = html;
+  }
 
   // ─── 4EVR System Status (live ping) ───
   let lastCheckTime = null;

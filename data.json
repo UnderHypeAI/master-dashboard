@@ -4,7 +4,9 @@
     "businesses": [
       "patient_gangster",
       "4evr",
-      "underhype"
+      "underhype",
+      "home_property",
+      "melear_mining"
     ]
   },
   "patient_gangster": {
@@ -81,6 +83,30 @@
       "Closed": 0
     },
     "active_clients": []
+  },
+  "home_property": {
+    "status": "demo",
+    "demo": true,
+    "last_synced": "2026-03-23T15:19:00-06:00",
+    "kpis": {
+      "estimated_value": 1027700,
+      "home_equity": 415300,
+      "monthly_expenses": 3060,
+      "active_projects": 1,
+      "maintenance_alerts": 3
+    },
+    "maintenance_summary": {
+      "green": 9,
+      "yellow": 2,
+      "red": 1
+    }
+  },
+  "melear_mining": {
+    "status": "standby",
+    "kpis": {
+      "active_miners": 0,
+      "daily_revenue": 0
+    }
   },
   "live_endpoints": {
     "4evr_health": "https://4evr-app-production.up.railway.app/api/health",
