@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  /* ─── Reset & Base ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0c0c0e;
+    --card: #141416;
+    --card-border: #232326;
+    --text-primary: #e8e4df;
+    --text-secondary: #9a9590;
+    --text-faint: #5a5754;
+    --accent-uh: #C4652A;
+    --accent-4evr: #e8b94a;
+    --accent-pg: #F7931A;
+    --green: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', 'Fira Code', ui-monospace, monospace;
+  }
+
+  html { font-size: 15px; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Layout ─── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  /* ─── Header ─── */
+  .header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+  .header .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.15rem;
+  }
+  .header .sync-time {
+    font-size: 0.75rem;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+  }
+
+  /* ─── Cards ─── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-title .accent-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* ─── Health Summary Row ─── */
+  .health-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .health-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .health-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+  .health-card.uh::before { background: var(--accent-uh); }
+  .health-card.forevr::before { background: var(--accent-4evr); }
+  .health-card.pg::before { background: var(--accent-pg); }
+
+  .health-card .biz-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .health-card .stage-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-secondary);
+    margin-bottom: 0.6rem;
+  }
+  .health-card .health-metric {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .health-card .health-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    margin-top: 0.1rem;
+  }
+  .status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 0.35rem;
+    vertical-align: middle;
+  }
+  .status-dot.live { background: var(--green); }
+  .status-dot.offline { background: var(--red); }
+  .status-dot.demo { background: var(--yellow); }
+
+  /* ─── 4EVR System Status Bar ─── */
+  .system-bar {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 0.85rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+  }
+  .system-bar .bar-title {
+    font-weight: 600;
+    color: var(--accent-4evr);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+  }
+  .system-bar .services {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .system-bar .svc {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+  .system-bar .svc .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .system-bar .svc .dot.ok { background: var(--green); }
+  .system-bar .svc .dot.down { background: var(--red); }
+  .system-bar .svc .dot.demo { background: var(--yellow); }
+  .system-bar .bar-meta {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    flex-wrap: wrap;
+  }
+  .system-bar .mode-badge {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    border-radius: 100px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .mode-badge.live { background: rgba(52,211,153,0.15); color: var(--green); }
+  .mode-badge.demo { background: rgba(251,191,36,0.15); color: var(--yellow); }
+
+  /* ─── KPI Row ─── */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .kpi {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+  }
+  .kpi .kpi-val {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums lining-nums;
+    line-height: 1.2;
+  }
+  .kpi .kpi-label {
+    font-size: 0.68rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── Section ─── */
+  .biz-section {
+    margin-bottom: 1.5rem;
+  }
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  .view-link {
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .view-link:hover { color: var(--text-secondary); }
+
+  /* ─── Funnel ─── */
+  .funnel-bars { display: flex; flex-direction: column; gap: 0.4rem; }
+  .funnel-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+  }
+  .funnel-row .stage-label {
+    width: 140px;
+    text-align: right;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .funnel-row .bar-track {
+    flex: 1;
+    height: 18px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  .funnel-row .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s ease;
+    min-width: 0;
+  }
+  .funnel-row .count {
+    width: 24px;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+  }
+
+  /* ─── Table ─── */
+  .mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .mini-table th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--card-border);
+    padding: 0.5rem 0.6rem;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .mini-table td {
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    color: var(--text-primary);
+  }
+  .mini-table tr:last-child td { border-bottom: none; }
+
+  /* ─── Chart Container ─── */
+  .chart-wrap {
+    position: relative;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  /* ─── Ambassador Stats ─── */
+  .ambassador-row {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+  }
+  .ambassador-row span {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* ─── Placeholder ─── */
+  .placeholder-card {
+    background: var(--card);
+    border: 1px dashed var(--card-border);
+    border-radius: var(--radius);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .placeholder-card h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.35rem;
+  }
+  .placeholder-card p {
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* ─── Footer ─── */
+  footer {
+    border-top: 1px solid var(--card-border);
+    margin-top: 1rem;
+    padding-top: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.72rem;
+    color: var(--text-faint);
+  }
+  footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--text-primary); }
+  .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+
+  /* ─── Awaiting Data ─── */
+  .awaiting {
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+
+  /* ─── Grid helpers ─── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* ─── Responsive ─── */
+  @media (max-width: 768px) {
+    html { font-size: 14px; }
+    .health-row { grid-template-columns: 1fr; }
+    .system-bar { flex-direction: column; align-items: flex-start; }
+    .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .funnel-row .stage-label { width: 100px; font-size: 0.68rem; }
+    .header { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .container { padding: 1.25rem 1rem 2rem; }
+    .kpi-row { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container" id="app">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <h1>Portfolio Dashboard</h1>
+      <div class="subtitle">Executive Overview</div>
+    </div>
+    <div class="sync-time" id="syncTime">Loading...</div>
+  </div>
+
+  <!-- Portfolio Health Summary -->
+  <div class="health-row" id="healthRow">
+    <!-- Populated by JS -->
+  </div>
+
+  <!-- 4EVR System Status Bar -->
+  <div class="system-bar" id="systemBar">
+    <div class="bar-title">4EVR.ink System</div>
+    <div class="services" id="svcList">
+      <span class="svc"><span class="dot" id="dot-api"></span>API</span>
+      <span class="svc"><span class="dot" id="dot-stripe"></span>Stripe</span>
+      <span class="svc"><span class="dot" id="dot-opennode"></span>OpenNode</span>
+      <span class="svc"><span class="dot" id="dot-bitcoin"></span>Bitcoin</span>
+      <span class="svc"><span class="dot" id="dot-creativehub"></span>CreativeHub</span>
+    </div>
+    <div class="bar-meta">
+      <span id="modeDisplay"></span>
+      <span id="feeDisplay"></span>
+      <span id="lastChecked">Checking...</span>
+    </div>
+  </div>
+
+  <!-- UnderHype AI Section -->
+  <div class="biz-section" id="uhSection">
+    <div class="card">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="accent-dot" style="background:var(--accent-uh)"></span>
+          UnderHype AI
+        </div>
+        <a href="https://underhypeai.github.io/underhype-dashboard/" class="view-link" target="_blank">View Full Dashboard →</a>
+      </div>
+      <div id="uhContent"><div class="awaiting">Awaiting data sync</div></div>
+    </div>
+  </div>
+
+  <!-- 4EVR.ink Section -->
+  <div class="biz-section" id="forevrSection">
+    <div class="card">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="accent-dot" style="background:var(--accent-4evr)"></span>
+          4EVR.ink
+        </div>
+        <a href="https://underhypeai.github.io/4evr-dashboard/" class="view-link" target="_blank">View Full Dashboard →</a>
+      </div>
+      <div id="forevrContent"><div class="awaiting">Awaiting data sync</div></div>
+    </div>
+  </div>
+
+  <!-- Patient Gangster Section -->
+  <div class="biz-section" id="pgSection">
+    <div class="card">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="accent-dot" style="background:var(--accent-pg)"></span>
+          Patient Gangster
+        </div>
+        <a href="https://underhypeai.github.io/pg-dashboard/" class="view-link" target="_blank">View Full Dashboard →</a>
+      </div>
+      <div id="pgContent"><div class="awaiting">Awaiting data sync</div></div>
+    </div>
+  </div>
+
+  <!-- Financial Overview Placeholder -->
+  <div class="placeholder-card">
+    <h3>Awaiting Mercury + QuickBooks Connection</h3>
+    <p>Cross-business financial summary, cash positions, and P&L will appear here.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://underhypeai.github.io/underhype-dashboard/" target="_blank">UnderHype AI</a>
+      <a href="https://underhypeai.github.io/4evr-dashboard/" target="_blank">4EVR.ink</a>
+      <a href="https://underhypeai.github.io/pg-dashboard/" target="_blank">Patient Gangster</a>
+    </div>
+    <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+  </footer>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ─── Utilities ───
+  const $ = (sel) => document.querySelector(sel);
+  const fmt = (n) => {
+    if (n == null) return '—';
+    if (typeof n === 'number') {
+      if (n >= 1000) return n.toLocaleString('en-US');
+      return n.toString();
+    }
+    return n;
+  };
+  const fmtUSD = (n) => {
+    if (n == null) return '—';
+    if (n >= 1000) return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    return '$' + n.toFixed(n % 1 === 0 ? 0 : 2);
+  };
+  const fmtPct = (n) => {
+    if (n == null || n === 0) return '0%';
+    return n.toFixed(1) + '%';
+  };
+
+  // ─── Data ───
+  let DATA = null;
+
+  // ─── Load Data ───
+  async function loadData() {
+    try {
+      const resp = await fetch('data.json');
+      DATA = await resp.json();
+      render();
+    } catch (e) {
+      console.warn('Could not load data.json:', e);
+      $('#syncTime').textContent = 'Data not available';
+    }
+  }
+
+  // ─── Render All ───
+  function render() {
+    if (!DATA) return;
+
+    // Sync time
+    const synced = DATA._meta?.last_synced;
+    if (synced) {
+      const d = new Date(synced);
+      $('#syncTime').textContent = 'Last synced: ' + d.toLocaleString('en-US', {
+        month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true
+      });
+    }
+
+    renderHealthRow();
+    renderSystemBar(DATA.forevr?.system);
+    renderUH(DATA.underhype);
+    render4EVR(DATA.forevr);
+    renderPG(DATA.patient_gangster);
+  }
+
+  // ─── Health Row ───
+  function renderHealthRow() {
+    const row = $('#healthRow');
+    const uh = DATA.underhype || {};
+    const fv = DATA.forevr || {};
+    const pg = DATA.patient_gangster || {};
+
+    row.innerHTML = `
+      <div class="health-card uh">
+        <div class="biz-name">UnderHype AI</div>
+        <div class="stage-badge">Revenue Stage</div>
+        <div>
+          <span class="status-dot ${uh.status === 'live' ? 'live' : 'offline'}"></span>
+          <span class="health-metric">${fmt(uh.kpis?.active_clients || 0)}</span>
+          <span class="health-label"> clients &middot; ${fmtUSD(uh.kpis?.total_mrr || 0)} MRR</span>
+        </div>
+      </div>
+      <div class="health-card forevr">
+        <div class="biz-name">4EVR.ink</div>
+        <div class="stage-badge">Live Product</div>
+        <div>
+          <span class="status-dot ${fv.status === 'live' ? 'live' : 'offline'}"></span>
+          <span class="health-metric">${capitalize(fv.system?.mode || '—')}</span>
+          <span class="health-label"> &middot; ${fmt(fv.kpis?.total_declarations || 0)} declarations</span>
+        </div>
+      </div>
+      <div class="health-card pg">
+        <div class="biz-name">Patient Gangster</div>
+        <div class="stage-badge">Pre-Launch</div>
+        <div>
+          <span class="status-dot ${pg.status === 'live' ? 'live' : 'offline'}"></span>
+          <span class="health-metric">${fmt(pg.kpis?.waitlist_total || 0)}</span>
+          <span class="health-label"> on waitlist</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
+
+  // ─── 4EVR System Status (live ping) ───
+  let lastCheckTime = null;
+  let checkTimer = null;
+
+  function renderSystemBar(sys) {
+    if (!sys) return;
+    const h = sys.health || {};
+    setDotStatus('dot-api', h.status === 'ok' ? 'ok' : 'down');
+    setDotStatus('dot-stripe', svcStatus(h.stripe));
+    setDotStatus('dot-opennode', svcStatus(h.opennode));
+    setDotStatus('dot-bitcoin', svcStatus(h.bitcoin));
+    setDotStatus('dot-creativehub', svcStatus(h.creativehub));
+
+    const mode = (h.mode || sys.mode || 'unknown').toLowerCase();
+    $('#modeDisplay').innerHTML = `<span class="mode-badge ${mode}">${mode.toUpperCase()}</span>`;
+
+    const fees = sys.fees || {};
+    if (fees.feeRate != null) {
+      $('#feeDisplay').textContent = `${fees.feeRate} sat/vB · $${fees.feeUsd || '?'}`;
+    }
+  }
+
+  function svcStatus(val) {
+    if (!val) return 'down';
+    if (val === 'live' || val === 'ok' || val === 'connected') return 'ok';
+    if (val === 'demo') return 'demo';
+    return 'down';
+  }
+
+  function setDotStatus(id, status) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.className = 'dot ' + status;
+  }
+
+  async function pingHealth() {
+    const healthUrl = DATA?.live_endpoints?.['4evr_health'];
+    const feesUrl = DATA?.live_endpoints?.['4evr_fees'];
+    if (!healthUrl) return;
+
+    try {
+      const [hResp, fResp] = await Promise.all([
+        fetch(healthUrl, { mode: 'cors' }).then(r => r.json()).catch(() => null),
+        feesUrl ? fetch(feesUrl, { mode: 'cors' }).then(r => r.json()).catch(() => null) : null
+      ]);
+
+      if (hResp) {
+        renderSystemBar({ health: hResp, fees: fResp || DATA?.forevr?.system?.fees, mode: hResp.mode });
+      }
+      lastCheckTime = Date.now();
+    } catch (e) {
+      console.warn('Health ping failed:', e);
+    }
+  }
+
+  function updateLastChecked() {
+    if (!lastCheckTime) return;
+    const secs = Math.floor((Date.now() - lastCheckTime) / 1000);
+    const el = $('#lastChecked');
+    if (el) el.textContent = `Checked ${secs}s ago`;
+  }
+
+  // ─── UnderHype Section ───
+  function renderUH(d) {
+    const el = $('#uhContent');
+    if (!d || d.status === 'offline') {
+      el.innerHTML = '<div class="awaiting">Awaiting data sync</div>';
+      return;
+    }
+    const k = d.kpis || {};
+    let html = `
+      <div class="kpi-row">
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-uh)">${fmt(k.active_clients)}</div><div class="kpi-label">Active Clients</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-uh)">${fmtUSD(k.total_mrr)}</div><div class="kpi-label">MRR</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-uh)">${fmtUSD(k.pipeline_value)}</div><div class="kpi-label">Pipeline Value</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-uh)">${fmt(k.total_assessments)}</div><div class="kpi-label">Assessments</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-uh)">${fmtUSD(k.total_project_revenue)}</div><div class="kpi-label">Project Revenue</div></div>
+      </div>
+    `;
+
+    // Funnel
+    const funnel = d.funnel || {};
+    const entries = Object.entries(funnel);
+    if (entries.length > 0) {
+      const maxVal = Math.max(...entries.map(e => e[1]), 1);
+      html += '<div class="two-col"><div>';
+      html += '<div style="font-size:0.7rem;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem;">Pipeline Funnel</div>';
+      html += '<div class="funnel-bars">';
+      for (const [stage, count] of entries) {
+        const pct = (count / maxVal) * 100;
+        html += `<div class="funnel-row">
+          <span class="stage-label">${stage}</span>
+          <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:var(--accent-uh);opacity:${count > 0 ? 0.8 : 0.15}"></div></div>
+          <span class="count">${count}</span>
+        </div>`;
+      }
+      html += '</div></div>';
+
+      // Active clients table
+      const clients = d.active_clients || [];
+      html += '<div>';
+      html += '<div style="font-size:0.7rem;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem;">Active Clients</div>';
+      if (clients.length > 0) {
+        html += '<table class="mini-table"><thead><tr><th>Contact</th><th>Business</th><th>Stage</th><th>MRR</th></tr></thead><tbody>';
+        for (const c of clients) {
+          html += `<tr><td>${c.contact || '—'}</td><td>${c.business || '—'}</td><td>${c.stage || '—'}</td><td>${fmtUSD(c.mrr)}</td></tr>`;
+        }
+        html += '</tbody></table>';
+      } else {
+        html += '<div class="awaiting" style="padding:1rem 0;">No active clients yet</div>';
+      }
+      html += '</div></div>';
+    }
+
+    el.innerHTML = html;
+  }
+
+  // ─── 4EVR.ink Section ───
+  function render4EVR(d) {
+    const el = $('#forevrContent');
+    if (!d || d.status === 'offline') {
+      el.innerHTML = '<div class="awaiting">Awaiting data sync</div>';
+      return;
+    }
+    const k = d.kpis || {};
+    const amb = d.ambassadors || {};
+
+    let html = `
+      <div class="kpi-row">
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-4evr)">${fmt(k.total_declarations)}</div><div class="kpi-label">Total Declarations</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-4evr)">${fmt(k.confirmed)}</div><div class="kpi-label">Confirmed</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-4evr)">${fmt(k.this_week)}</div><div class="kpi-label">This Week</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-4evr)">${fmtUSD(k.est_revenue)}</div><div class="kpi-label">Est. Revenue</div></div>
+      </div>
+    `;
+
+    // Ambassador program
+    html += `
+      <div style="font-size:0.7rem;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem;">Ambassador Program</div>
+      <div class="ambassador-row">
+        <div>Active: <span>${fmt(amb.active)}</span> / <span>${fmt(amb.cap)}</span></div>
+        <div>Spots Remaining: <span>${fmt(amb.spots_remaining)}</span></div>
+        <div>Waitlist: <span>${fmt(amb.waitlist)}</span></div>
+      </div>
+    `;
+
+    el.innerHTML = html;
+  }
+
+  // ─── Patient Gangster Section ───
+  let sourcesChart = null;
+
+  function renderPG(d) {
+    const el = $('#pgContent');
+    if (!d || d.status === 'offline') {
+      el.innerHTML = '<div class="awaiting">Awaiting data sync</div>';
+      return;
+    }
+    const k = d.kpis || {};
+    const convRate = k.waitlist_total > 0 ? (k.converted / k.waitlist_total) * 100 : 0;
+
+    let html = `
+      <div class="kpi-row">
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-pg)">${fmt(k.waitlist_total)}</div><div class="kpi-label">Waitlist Total</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-pg)">${fmt(k.waitlist_active)}</div><div class="kpi-label">Active</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-pg)">${fmt(k.this_week)}</div><div class="kpi-label">This Week</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-pg)">${fmtPct(convRate)}</div><div class="kpi-label">Conversion Rate</div></div>
+      </div>
+    `;
+
+    // Sources donut
+    const sources = d.sources || {};
+    const srcEntries = Object.entries(sources);
+    if (srcEntries.length > 0) {
+      html += `
+        <div style="font-size:0.7rem;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.5rem;">Signup Sources</div>
+        <div class="two-col" style="align-items:center;">
+          <div class="chart-wrap"><canvas id="sourcesChart" width="200" height="200"></canvas></div>
+          <div id="sourcesLegend"></div>
+        </div>
+      `;
+    }
+
+    el.innerHTML = html;
+
+    // Draw chart after DOM insert
+    if (srcEntries.length > 0) {
+      drawSourcesChart(srcEntries);
+    }
+  }
+
+  function drawSourcesChart(entries) {
+    const ctx = document.getElementById('sourcesChart');
+    if (!ctx) return;
+
+    const colors = ['#F7931A', '#e8b94a', '#C4652A', '#9a9590', '#5a5754'];
+    const labels = entries.map(e => e[0]);
+    const values = entries.map(e => e[1]);
+
+    if (sourcesChart) sourcesChart.destroy();
+    sourcesChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels,
+        datasets: [{
+          data: values,
+          backgroundColor: colors.slice(0, entries.length),
+          borderColor: '#141416',
+          borderWidth: 2,
+        }]
+      },
+      options: {
+        responsive: true,
+        cutout: '65%',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#1c1c1e',
+            titleColor: '#e8e4df',
+            bodyColor: '#9a9590',
+            borderColor: '#232326',
+            borderWidth: 1,
+            cornerRadius: 6,
+            padding: 10,
+          }
+        },
+        animation: { duration: 800, easing: 'easeOutQuart' }
+      }
+    });
+
+    // Custom legend
+    const legendEl = document.getElementById('sourcesLegend');
+    if (legendEl) {
+      legendEl.innerHTML = entries.map((e, i) => `
+        <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;margin-bottom:0.35rem;">
+          <span style="width:10px;height:10px;border-radius:2px;background:${colors[i % colors.length]};flex-shrink:0;"></span>
+          <span style="color:var(--text-secondary)">${e[0]}</span>
+          <span style="font-family:var(--font-mono);color:var(--text-primary);margin-left:auto;font-variant-numeric:tabular-nums">${e[1]}</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  // ─── Init ───
+  loadData().then(() => {
+    // Start live health pinging every 60 seconds
+    pingHealth();
+    setInterval(pingHealth, 60000);
+    // Update "checked X seconds ago" every second
+    setInterval(updateLastChecked, 1000);
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+  "_meta": {
+    "last_synced": "2026-03-23T06:16:10.299732+00:00",
+    "businesses": [
+      "patient_gangster",
+      "4evr",
+      "underhype"
+    ]
+  },
+  "patient_gangster": {
+    "status": "live",
+    "stage": "pre-launch",
+    "last_synced": "2026-03-22T21:00:00-06:00",
+    "kpis": {
+      "waitlist_total": 27,
+      "waitlist_active": 25,
+      "this_week": 8,
+      "converted": 0
+    },
+    "sources": {
+      "Coming Soon Page": 16,
+      "Social": 6,
+      "Referral": 3,
+      "Shopify": 2
+    }
+  },
+  "forevr": {
+    "status": "live",
+    "stage": "live-product",
+    "last_synced": "2026-03-23T04:15:18.726161+00:00",
+    "kpis": {
+      "total_declarations": 7,
+      "confirmed": 7,
+      "this_week": 2,
+      "est_revenue": 14
+    },
+    "system": {
+      "health": {
+        "status": "ok",
+        "stripe": "live",
+        "opennode": "demo",
+        "bitcoin": "demo",
+        "creativehub": "demo",
+        "mode": "demo"
+      },
+      "fees": {
+        "feeRate": 1,
+        "feeSats": 250,
+        "feeUsd": 0.17
+      },
+      "mode": "demo"
+    },
+    "ambassadors": {
+      "active": 0,
+      "cap": 10,
+      "spots_remaining": 10,
+      "waitlist": 0
+    }
+  },
+  "underhype": {
+    "status": "live",
+    "stage": "revenue",
+    "last_synced": "2026-03-23T06:03:48.673109+00:00",
+    "kpis": {
+      "active_clients": 0,
+      "total_mrr": 0,
+      "pipeline_value": 62900.0,
+      "total_assessments": 0,
+      "total_project_revenue": 26000.0
+    },
+    "funnel": {
+      "Lead": 2,
+      "Outreach": 1,
+      "Interested": 1,
+      "Consultation Scheduled": 1,
+      "Proposal Sent": 0,
+      "Pilot": 1,
+      "Active - Building": 0,
+      "Active - Support": 0,
+      "Paused": 1,
+      "Closed": 0
+    },
+    "active_clients": []
+  },
+  "live_endpoints": {
+    "4evr_health": "https://4evr-app-production.up.railway.app/api/health",
+    "4evr_fees": "https://4evr-app-production.up.railway.app/api/fees"
+  }
+}
