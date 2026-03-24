@@ -39,6 +39,7 @@
     --accent-pf: #34d399;
     --accent-home: #5B8C5A;
     --accent-mm: #e8894a;
+    --accent-dad: #6B8FD4;
     --green: #34d399;
     --red: #f87171;
     --yellow: #fbbf24;
@@ -148,6 +149,7 @@
   .health-card.pf::before { background: var(--accent-pf); }
   .health-card.home::before { background: var(--accent-home); }
   .health-card.mm::before { background: var(--accent-mm); }
+  .health-card.dad::before { background: var(--accent-dad); }
 
   .health-card .biz-name {
     font-size: 0.9rem;
@@ -609,6 +611,20 @@
     </div>
   </div>
 
+  <!-- Dad Life Section -->
+  <div class="biz-section" id="dadSection">
+    <div class="card">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="accent-dot" style="background:var(--accent-dad)"></span>
+          Dad Life
+        </div>
+        <a href="https://underhypeai.github.io/dad-dashboard/" class="view-link" target="_blank">View Full Dashboard &rarr;</a>
+      </div>
+      <div id="dadContent"><div class="awaiting">Awaiting data sync</div></div>
+    </div>
+  </div>
+
   <!-- Melear Mining Section -->
   <div class="biz-section" id="mmSection">
     <div class="card">
@@ -632,6 +648,7 @@
       <a href="https://underhypeai.github.io/pf-dashboard/" target="_blank">Personal Finance</a>
       <a href="https://underhypeai.github.io/home-dashboard/" target="_blank">Home & Property</a>
       <a href="https://underhypeai.github.io/mm-dashboard/" target="_blank">Melear Mining</a>
+      <a href="https://underhypeai.github.io/dad-dashboard/" target="_blank">Dad Life</a>
     </div>
     <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
   </footer>
@@ -697,6 +714,7 @@
     renderPG(DATA.patient_gangster);
     renderPF(DATA.personal_finance);
     renderHome(DATA.home_property);
+    renderDad(DATA.dad_life);
     renderMM(DATA.melear_mining);
   }
 
@@ -709,6 +727,7 @@
     const pf = DATA.personal_finance || {};
     const hp = DATA.home_property || {};
     const mm = DATA.melear_mining || {};
+    const dad = DATA.dad_life || {};
 
     row.innerHTML = `
       <div class="health-card uh">
@@ -763,6 +782,15 @@
           <span class="status-dot ${mm.status === 'live' ? 'live' : 'demo'}"></span>
           <span class="health-metric">${fmt(mm.fleet_hashrate || 0)} TH/s</span>
           <span class="health-label"> fleet &middot; ${fmtUSD(mm.daily_revenue || 0)}/day</span>
+        </div>
+      </div>
+      <div class="health-card dad">
+        <div class="biz-name">Dad Life</div>
+        <div class="stage-badge">All Systems</div>
+        <div>
+          <span class="status-dot ${(dad.dad_score || 0) >= 70 ? 'live' : 'offline'}"></span>
+          <span class="health-metric">${fmt(dad.dad_score || 0)}</span>
+          <span class="health-label"> dad score &middot; ${fmt(dad.date_night_days || 0)}d since date night</span>
         </div>
       </div>
     `;
@@ -1061,6 +1089,30 @@
     el.innerHTML = html;
   }
 
+
+  // ─── Dad Life Section ───
+  function renderDad(d) {
+    const el = $('#dadContent');
+    if (!d || d.status === 'offline') {
+      el.innerHTML = '<div class="awaiting">Awaiting data sync</div>';
+      return;
+    }
+
+    const dateStatus = (d.date_night_days || 0) > 30 ? 'var(--red)' : (d.date_night_days || 0) > 14 ? 'var(--yellow)' : 'var(--green)';
+    const weightStatus = (d.weight || 0) < 190 ? 'var(--red)' : (d.weight || 0) > 205 ? 'var(--yellow)' : 'var(--green)';
+
+    let html = `
+      <div class="kpi-row">
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-dad)">${fmt(d.dad_score || 0)}</div><div class="kpi-label">Dad Score</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:${weightStatus}">${fmt(d.weight || 0)} lbs</div><div class="kpi-label">Weight (target 190-205)</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-dad)">${fmt(d.sleep_score || 0)}</div><div class="kpi-label">Sleep Score</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:${dateStatus}">${fmt(d.date_night_days || 0)}d</div><div class="kpi-label">Since Date Night</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-dad)">${fmt(d.projects_active || 0)}</div><div class="kpi-label">Kid Projects Active</div></div>
+      </div>
+    `;
+
+    el.innerHTML = html;
+  }
 
   // ─── Home & Property Section ───
   function renderHome(d) {

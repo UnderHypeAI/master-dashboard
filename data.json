@@ -7,7 +7,8 @@
       "underhype",
       "personal_finance",
       "home_property",
-      "melear_mining"
+      "melear_mining",
+      "dad_life"
     ]
   },
   "patient_gangster": {
@@ -126,5 +127,13 @@
     "workers_total": 18,
     "daily_revenue": 42,
     "daily_profit": 12
+  },
+  "dad_life": {
+    "status": "demo",
+    "dad_score": 72,
+    "weight": 174,
+    "sleep_score": 78,
+    "date_night_days": 37,
+    "projects_active": 3
   }
 }
