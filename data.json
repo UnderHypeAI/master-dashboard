@@ -5,7 +5,9 @@
       "patient_gangster",
       "4evr",
       "underhype",
-      "personal_finance"
+      "personal_finance",
+      "home_property",
+      "melear_mining"
     ]
   },
   "patient_gangster": {
@@ -109,5 +111,20 @@
   "live_endpoints": {
     "4evr_health": "https://4evr-app-production.up.railway.app/api/health",
     "4evr_fees": "https://4evr-app-production.up.railway.app/api/fees"
+  },
+  "home_property": {
+    "status": "demo",
+    "zestimate": 1027700,
+    "active_projects": 2,
+    "monthly_expenses": 3200,
+    "maintenance_overdue": 0
+  },
+  "melear_mining": {
+    "status": "demo",
+    "fleet_hashrate": 1746,
+    "workers_online": 18,
+    "workers_total": 18,
+    "daily_revenue": 42,
+    "daily_profit": 12
   }
 }

@@ -37,6 +37,8 @@
     --accent-4evr: #e8b94a;
     --accent-pg: #F7931A;
     --accent-pf: #34d399;
+    --accent-home: #5B8C5A;
+    --accent-mm: #e8894a;
     --green: #34d399;
     --red: #f87171;
     --yellow: #fbbf24;
@@ -144,6 +146,8 @@
   .health-card.forevr::before { background: var(--accent-4evr); }
   .health-card.pg::before { background: var(--accent-pg); }
   .health-card.pf::before { background: var(--accent-pf); }
+  .health-card.home::before { background: var(--accent-home); }
+  .health-card.mm::before { background: var(--accent-mm); }
 
   .health-card .biz-name {
     font-size: 0.9rem;
@@ -478,18 +482,13 @@
 </div>
 <script>
 (function() {
-  var k = 'dashboard_auth', h = 'SmVzc2ljYUxlaWdo';
-  if (sessionStorage.getItem(k) === h) {
-    document.getElementById('password-overlay').style.display = 'none';
-    return;
-  }
+  var h = 'SmVzc2ljYUxlaWdo';
   var inp = document.getElementById('pw-input');
   var err = document.getElementById('pw-error');
   inp.focus();
   inp.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
       if (btoa(inp.value) === h) {
-        sessionStorage.setItem(k, h);
         document.getElementById('password-overlay').style.display = 'none';
       } else {
         err.style.opacity = '1';
@@ -518,7 +517,7 @@
   </div>
 
   <!-- Portfolio Health Summary -->
-  <div class="health-row" style="grid-template-columns: repeat(4, 1fr);" id="healthRow">
+  <div class="health-row" style="grid-template-columns: repeat(3, 1fr);" id="healthRow">
     <!-- Populated by JS -->
   </div>
 
@@ -595,6 +594,35 @@
     </div>
   </div>
 
+
+  <!-- Home & Property Section -->
+  <div class="biz-section" id="homeSection">
+    <div class="card">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="accent-dot" style="background:var(--accent-home)"></span>
+          Home & Property
+        </div>
+        <a href="https://underhypeai.github.io/home-dashboard/" class="view-link" target="_blank">View Full Dashboard &rarr;</a>
+      </div>
+      <div id="homeContent"><div class="awaiting">Awaiting data sync</div></div>
+    </div>
+  </div>
+
+  <!-- Melear Mining Section -->
+  <div class="biz-section" id="mmSection">
+    <div class="card">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="accent-dot" style="background:var(--accent-mm)"></span>
+          Melear Mining Co.
+        </div>
+        <a href="https://underhypeai.github.io/mm-dashboard/" class="view-link" target="_blank">View Full Dashboard &rarr;</a>
+      </div>
+      <div id="mmContent"><div class="awaiting">Awaiting data sync</div></div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div class="footer-links">
@@ -602,6 +630,8 @@
       <a href="https://underhypeai.github.io/4evr-dashboard/" target="_blank">4EVR.ink</a>
       <a href="https://underhypeai.github.io/pg-dashboard/" target="_blank">Patient Gangster</a>
       <a href="https://underhypeai.github.io/pf-dashboard/" target="_blank">Personal Finance</a>
+      <a href="https://underhypeai.github.io/home-dashboard/" target="_blank">Home & Property</a>
+      <a href="https://underhypeai.github.io/mm-dashboard/" target="_blank">Melear Mining</a>
     </div>
     <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
   </footer>
@@ -666,6 +696,8 @@
     render4EVR(DATA.forevr);
     renderPG(DATA.patient_gangster);
     renderPF(DATA.personal_finance);
+    renderHome(DATA.home_property);
+    renderMM(DATA.melear_mining);
   }
 
   // ─── Health Row ───
@@ -675,6 +707,8 @@
     const fv = DATA.forevr || {};
     const pg = DATA.patient_gangster || {};
     const pf = DATA.personal_finance || {};
+    const hp = DATA.home_property || {};
+    const mm = DATA.melear_mining || {};
 
     row.innerHTML = `
       <div class="health-card uh">
@@ -711,6 +745,24 @@
           <span class="status-dot ${pf.status === 'live' ? 'live' : 'demo'}"></span>
           <span class="health-metric">${fmtUSD(pf.net_worth || 0)}</span>
           <span class="health-label"> net worth &middot; ${fmtUSD(pf.total_asset_income_annual || 0)}/yr income</span>
+        </div>
+      </div>
+      <div class="health-card home">
+        <div class="biz-name">Home & Property</div>
+        <div class="stage-badge">Demo Data</div>
+        <div>
+          <span class="status-dot ${hp.status === 'live' ? 'live' : 'demo'}"></span>
+          <span class="health-metric">${fmtUSD(hp.zestimate || 0)}</span>
+          <span class="health-label"> Zestimate &middot; ${fmt(hp.active_projects || 0)} active projects</span>
+        </div>
+      </div>
+      <div class="health-card mm">
+        <div class="biz-name">Melear Mining</div>
+        <div class="stage-badge">Mining</div>
+        <div>
+          <span class="status-dot ${mm.status === 'live' ? 'live' : 'demo'}"></span>
+          <span class="health-metric">${fmt(mm.fleet_hashrate || 0)} TH/s</span>
+          <span class="health-label"> fleet &middot; ${fmtUSD(mm.daily_revenue || 0)}/day</span>
         </div>
       </div>
     `;
@@ -1003,6 +1055,47 @@
         <div class="kpi"><div class="kpi-val" style="color:var(--yellow)">${fmtUSD(varAnn)}</div><div class="kpi-label">Variable Income / yr</div></div>
         <div class="kpi"><div class="kpi-val" style="color:var(--accent-uh)">${fmtUSD(bizNet)}</div><div class="kpi-label">Business Net / mo</div></div>
         <div class="kpi"><div class="kpi-val" style="color:${cfNet >= 0 ? 'var(--green)' : 'var(--red)'}">${fmtUSD(cfNet)}</div><div class="kpi-label">Cash Flow / mo</div></div>
+      </div>
+    `;
+
+    el.innerHTML = html;
+  }
+
+
+  // ─── Home & Property Section ───
+  function renderHome(d) {
+    const el = $('#homeContent');
+    if (!d || d.status === 'offline') {
+      el.innerHTML = '<div class="awaiting">Awaiting data sync</div>';
+      return;
+    }
+
+    let html = `
+      <div class="kpi-row">
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-home)">${fmtUSD(d.zestimate || 0)}</div><div class="kpi-label">Zestimate</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-home)">${fmt(d.active_projects || 0)}</div><div class="kpi-label">Active Projects</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-home)">${fmtUSD(d.monthly_expenses || 0)}</div><div class="kpi-label">Monthly Expenses</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:${(d.maintenance_overdue || 0) > 0 ? 'var(--red)' : 'var(--green)'}">${fmt(d.maintenance_overdue || 0)}</div><div class="kpi-label">Maintenance Overdue</div></div>
+      </div>
+    `;
+
+    el.innerHTML = html;
+  }
+
+  // ─── Melear Mining Section ───
+  function renderMM(d) {
+    const el = $('#mmContent');
+    if (!d || d.status === 'offline') {
+      el.innerHTML = '<div class="awaiting">Awaiting data sync</div>';
+      return;
+    }
+
+    let html = `
+      <div class="kpi-row">
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-mm)">${fmt(d.fleet_hashrate || 0)} TH/s</div><div class="kpi-label">Fleet Hashrate</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-mm)">${fmt(d.workers_online || 0)} / ${fmt(d.workers_total || 0)}</div><div class="kpi-label">Workers Online</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:var(--accent-mm)">${fmtUSD(d.daily_revenue || 0)}</div><div class="kpi-label">Daily Revenue</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:${(d.daily_profit || 0) >= 0 ? 'var(--green)' : 'var(--red)'}">${fmtUSD(d.daily_profit || 0)}</div><div class="kpi-label">Daily Profit</div></div>
       </div>
     `;
 
