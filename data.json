@@ -1,139 +1,162 @@
 {
   "_meta": {
-    "last_synced": "2026-03-23T06:16:10.299732+00:00",
+    "last_synced": "2026-04-05T23:35:00.000000+00:00",
+    "version": "3.0",
     "businesses": [
-      "patient_gangster",
-      "4evr",
-      "underhype",
-      "personal_finance",
-      "home_property",
-      "melear_mining",
-      "dad_life"
+      "underhype", "4evr", "patient_gangster", "melear_mining",
+      "black_canyon_jj", "bitcoin_navigator", "emmett_weekly"
     ]
   },
-  "patient_gangster": {
-    "status": "live",
-    "stage": "pre-launch",
-    "last_synced": "2026-03-22T21:00:00-06:00",
-    "kpis": {
-      "waitlist_total": 27,
-      "waitlist_active": 25,
-      "this_week": 8,
-      "converted": 0
+
+  "critical_few": {
+    "last_synced": "2026-04-05T23:35:00.000000+00:00",
+    "source": "todoist",
+    "project": "Critical Few",
+    "items": [
+      {
+        "id": "6gJF5PjQ6m7RFP43",
+        "content": "Help make Coleen's visit better",
+        "subtasks": ["Make sure room and bathroom are clean"]
+      },
+      {
+        "id": "6gJF5VxcqJ6358X3",
+        "content": "Take steps forward with business ventures",
+        "description": "Top focus: 4EVR.ink launch → UnderHype freemium → Patient Gangster, Emmett Weekly, MAR Candle Co.",
+        "subtasks": []
+      },
+      {
+        "id": "6gJF5qJ8m7fqpj63",
+        "content": "Get Personal OS built for further efficiency",
+        "subtasks": [
+          "Build simpler Todoist system",
+          "Transition to Mercury Bank",
+          "Iterate Master Dash",
+          "Create weekly cadence"
+        ]
+      },
+      {
+        "id": "6gJFPF7GCCjV85V3",
+        "content": "Finish Taxes",
+        "subtasks": []
+      }
+    ]
+  },
+
+  "financial_targets": {
+    "dividend_target_monthly": 10000,
+    "dividend_stretch_monthly": 25000,
+    "business_target_monthly": 10000,
+    "business_stretch_monthly": 25000,
+    "dividend_actual_monthly": 0,
+    "business_actual_monthly": 0,
+    "net_worth": 0,
+    "cash_position": 0,
+    "positions": [
+      {"ticker": "STRK", "name": "Strategy Strike", "type": "fixed", "yield_pct": 8.0, "shares": 0, "value": 0, "monthly_income": 0},
+      {"ticker": "STRF", "name": "Strategy Strife", "type": "fixed", "yield_pct": 10.0, "shares": 0, "value": 0, "monthly_income": 0},
+      {"ticker": "STRC", "name": "Strategy Stretch", "type": "fixed", "yield_pct": 11.5, "shares": 0, "value": 0, "monthly_income": 0},
+      {"ticker": "STRD", "name": "Strategy Stride", "type": "fixed", "yield_pct": 10.0, "shares": 0, "value": 0, "monthly_income": 0},
+      {"ticker": "SATA", "name": "Strive SATA", "type": "variable", "yield_pct": 12.75, "shares": 0, "value": 0, "monthly_income": 0}
+    ]
+  },
+
+  "melear_mining": {
+    "status": "standby",
+    "last_synced": "2026-04-05T23:35:00.000000+00:00",
+    "fleet": {
+      "machines": 18,
+      "model": "S19J Pro",
+      "workers_online": 18,
+      "workers_total": 18,
+      "avg_hashrate_th": 97,
+      "fleet_hashrate_ph": 1.746,
+      "power_draw_kw": 51.5,
+      "energy_cost_kwh": 0.0475,
+      "pool_fee_pct": 2
     },
-    "sources": {
-      "Coming Soon Page": 16,
-      "Social": 6,
-      "Referral": 3,
-      "Shopify": 2
+    "economics": {
+      "daily_revenue": 56.44,
+      "daily_power_cost": 58.72,
+      "daily_profit": -2.28,
+      "monthly_profit": -63.87,
+      "btc_mined_monthly": 0.0244,
+      "breakeven_btc_price": 73026,
+      "profit_margin_pct": -3.9
+    },
+    "network": {
+      "btc_price": 0,
+      "hashprice_per_ph_day": 0,
+      "network_difficulty_t": 0,
+      "network_hashrate_eh": 0
     }
   },
+
+  "underhype": {
+    "status": "live",
+    "stage": "revenue",
+    "last_synced": "2026-04-05T23:35:00.000000+00:00",
+    "kpis": {
+      "active_clients": 0,
+      "total_mrr": 0,
+      "pipeline_value": 62900.0,
+      "total_project_revenue": 26000.0
+    },
+    "funnel": {
+      "Lead": 2, "Outreach": 1, "Interested": 1,
+      "Consultation Scheduled": 1, "Proposal Sent": 0,
+      "Pilot": 1, "Active - Building": 0, "Active - Support": 0,
+      "Paused": 1, "Closed": 0
+    }
+  },
+
   "forevr": {
     "status": "live",
     "stage": "live-product",
-    "last_synced": "2026-03-23T04:15:18.726161+00:00",
+    "last_synced": "2026-04-05T23:35:00.000000+00:00",
     "kpis": {
       "total_declarations": 7,
       "confirmed": 7,
       "this_week": 2,
       "est_revenue": 14
-    },
-    "system": {
-      "health": {
-        "status": "ok",
-        "stripe": "live",
-        "opennode": "demo",
-        "bitcoin": "demo",
-        "creativehub": "demo",
-        "mode": "demo"
-      },
-      "fees": {
-        "feeRate": 1,
-        "feeSats": 250,
-        "feeUsd": 0.17
-      },
-      "mode": "demo"
-    },
-    "ambassadors": {
-      "active": 0,
-      "cap": 10,
-      "spots_remaining": 10,
-      "waitlist": 0
     }
   },
-  "underhype": {
+
+  "patient_gangster": {
     "status": "live",
-    "stage": "revenue",
-    "last_synced": "2026-03-23T06:03:48.673109+00:00",
+    "stage": "pre-launch",
+    "last_synced": "2026-04-05T23:35:00.000000+00:00",
     "kpis": {
-      "active_clients": 0,
-      "total_mrr": 0,
-      "pipeline_value": 62900.0,
-      "total_assessments": 0,
-      "total_project_revenue": 26000.0
-    },
-    "funnel": {
-      "Lead": 2,
-      "Outreach": 1,
-      "Interested": 1,
-      "Consultation Scheduled": 1,
-      "Proposal Sent": 0,
-      "Pilot": 1,
-      "Active - Building": 0,
-      "Active - Support": 0,
-      "Paused": 1,
-      "Closed": 0
-    },
-    "active_clients": []
-  },
-  "personal_finance": {
-    "status": "live",
-    "net_worth": 0,
-    "total_assets": 0,
-    "total_btc_units": 0,
-    "btc_usd": 0,
-    "total_fixed_annual": 0,
-    "total_variable_annual": 0,
-    "total_asset_income_annual": 0,
-    "total_biz_income_monthly": 0,
-    "cashflow_net": 0,
-    "cashflow_income": 0,
-    "cashflow_expenses": 0,
-    "savings_rate": 0,
-    "by_category": {
-      "Cash & Banking": 0,
-      "Equities": 0,
-      "Retirement": 0,
-      "Bitcoin": 0,
-      "Business Equity": 0,
-      "Real Estate": 0
+      "waitlist_total": 27,
+      "waitlist_active": 25,
+      "this_week": 8,
+      "converted": 0
     }
   },
-  "live_endpoints": {
-    "4evr_health": "https://4evr-app-production.up.railway.app/api/health",
-    "4evr_fees": "https://4evr-app-production.up.railway.app/api/fees"
+
+  "black_canyon_jj": {
+    "status": "paused",
+    "stage": "planning",
+    "kpis": {"members": 0, "mrr": 0}
   },
+
+  "bitcoin_navigator": {
+    "status": "building",
+    "stage": "building",
+    "kpis": {"subscribers": 0, "mrr": 0}
+  },
+
+  "emmett_weekly": {
+    "status": "live",
+    "stage": "building",
+    "kpis": {"subscribers": 0, "sponsors": 0, "mrr": 0}
+  },
+
   "home_property": {
-    "status": "demo",
+    "status": "live",
     "zestimate": 1027700,
+    "address": "2685 Cherry Circle, Emmett ID",
     "active_projects": 2,
     "monthly_expenses": 3200,
     "maintenance_overdue": 0
-  },
-  "melear_mining": {
-    "status": "demo",
-    "fleet_hashrate": 1746,
-    "workers_online": 18,
-    "workers_total": 18,
-    "daily_revenue": 42,
-    "daily_profit": 12
-  },
-  "dad_life": {
-    "status": "demo",
-    "dad_score": 72,
-    "weight": 174,
-    "sleep_score": 78,
-    "date_night_days": 37,
-    "projects_active": 3
   }
 }
