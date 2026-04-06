@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "last_synced": "2026-04-05T23:35:00.000000+00:00",
-    "version": "3.0",
+    "last_synced": "2026-04-06T20:48:00.000000+00:00",
+    "version": "4.0",
     "businesses": [
       "underhype", "4evr", "patient_gangster", "melear_mining",
       "black_canyon_jj", "bitcoin_navigator", "emmett_weekly"
@@ -40,6 +40,128 @@
         "subtasks": []
       }
     ]
+  },
+
+  "upcoming_meetings": [
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-06T23:00:00Z",
+      "end": "2026-04-07T02:00:00Z",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Midway Septic Pumping",
+      "start": "2026-04-07T16:00:00Z",
+      "end": "2026-04-07T19:00:00Z",
+      "location": "Google Meet",
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-07T23:00:00Z",
+      "end": "2026-04-08T02:00:00Z",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-08T21:30:00Z",
+      "end": "2026-04-09T01:00:00Z",
+      "location": null,
+      "is_all_day": false
+    }
+  ],
+
+  "overdue_tasks": [],
+
+  "upcoming_tasks": [
+    {
+      "id": "6gCQhvw2fRFGc9hV",
+      "content": "End-to-end test: real Stripe payment → OP_RETURN → confirmation",
+      "due": "2026-04-08",
+      "project": "4EVR.ink",
+      "priority": 2
+    },
+    {
+      "id": "6gCQj2g5jh8HpV8V",
+      "content": "Full mobile QA pass (iPhone + Android)",
+      "due": "2026-04-08",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gCQj2gRHHpmc6xV",
+      "content": "Post launch announcement on Nostr",
+      "due": "2026-04-08",
+      "project": "4EVR.ink",
+      "priority": 2
+    },
+    {
+      "id": "6gCQj2gWw82mJ8rV",
+      "content": "Post on r/Bitcoin",
+      "due": "2026-04-08",
+      "project": "4EVR.ink",
+      "priority": 2
+    },
+    {
+      "id": "6gCQhw2fp7jr4643",
+      "content": "Set OpenNode webhook URL in OpenNode dashboard",
+      "due": "2026-04-08",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gCQj2hFvw7XQh9V",
+      "content": "Write launch X thread (announcement + demo)",
+      "due": "2026-04-08",
+      "project": "4EVR.ink",
+      "priority": 3
+    }
+  ],
+
+  "habits": {
+    "project_id": "6gJRp2cGH6mw47H8",
+    "date": "2026-04-06",
+    "items": [
+      { "name": "100 Pushups", "completed": false },
+      { "name": "25 Pullups", "completed": false },
+      { "name": "50 Squats", "completed": false }
+    ],
+    "all_done_today": false,
+    "completion_rate_30d": 0,
+    "streak": 0,
+    "note": "Day 1 — streak starts today"
+  },
+
+  "banking": {
+    "accounts": [
+      {
+        "name": "Personal Checking",
+        "bank": "Your Bank",
+        "last4": "----",
+        "type": "personal",
+        "balance": null,
+        "note": "Update manually or connect Plaid"
+      },
+      {
+        "name": "Personal Savings",
+        "bank": "Your Bank",
+        "last4": "----",
+        "type": "personal",
+        "balance": null,
+        "note": "Update manually"
+      },
+      {
+        "name": "UnderHype Business",
+        "bank": "Mercury",
+        "last4": "----",
+        "type": "business",
+        "balance": null,
+        "note": "Open after EIN + Certificate of Organization"
+      }
+    ],
+    "last_updated": null
   },
 
   "financial_targets": {

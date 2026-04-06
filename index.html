@@ -44,6 +44,7 @@
     --yellow: #f1c40f;
     --yellow-dim: rgba(241,196,15,0.12);
     --blue: #3498db;
+    --blue-dim: rgba(52,152,219,0.12);
     --radius: 12px;
     --radius-sm: 8px;
     --font: 'Inter', system-ui, sans-serif;
@@ -259,21 +260,243 @@
     margin-top: 4px;
   }
 
-  /* ── Two-column layout ── */
+  /* ── Grid Layouts ── */
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
 
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 1100px) {
+    .three-col { grid-template-columns: 1fr 1fr; }
+  }
+
   @media (max-width: 900px) {
     .two-col { grid-template-columns: 1fr; }
+    .three-col { grid-template-columns: 1fr; }
     .critical-few-grid { grid-template-columns: 1fr 1fr; }
   }
 
   @media (max-width: 600px) {
     .critical-few-grid { grid-template-columns: 1fr; }
     .main { padding: 16px; }
+    .habits-row { flex-direction: column; }
+  }
+
+  /* ── Command Center ── */
+  .cc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .cc-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-2);
+  }
+
+  .cc-subtitle {
+    font-size: 11px;
+    color: var(--text-3);
+  }
+
+  .cc-count-zero {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--green);
+  }
+
+  .cc-count-nonzero {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--red);
+  }
+
+  /* Meeting items */
+  .meeting-item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .meeting-item:last-child { border-bottom: none; }
+
+  .meeting-day-badge {
+    display: inline-block;
+    background: var(--orange-dim);
+    color: var(--orange);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+  }
+
+  .meeting-day-badge.today {
+    background: rgba(46,204,113,0.15);
+    color: var(--green);
+  }
+
+  .meeting-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+
+  .meeting-meta {
+    font-size: 11px;
+    color: var(--text-3);
+  }
+
+  /* Task items */
+  .task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .task-item:last-child { border-bottom: none; }
+
+  .task-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .task-dot.overdue { background: var(--red); }
+  .task-dot.upcoming { background: var(--orange); }
+  .task-dot.today { background: var(--yellow); }
+
+  .task-content {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.3;
+    flex: 1;
+  }
+
+  .task-meta {
+    font-size: 11px;
+    color: var(--text-3);
+    margin-top: 2px;
+  }
+
+  .task-meta.overdue { color: rgba(231,76,60,0.7); }
+
+  .task-overflow {
+    font-size: 11px;
+    color: var(--text-3);
+    padding: 6px 0 2px;
+    font-style: italic;
+  }
+
+  .cc-all-clear {
+    padding: 14px 0 4px;
+    font-size: 12px;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cc-empty {
+    padding: 14px 0 4px;
+    font-size: 12px;
+    color: var(--text-3);
+    font-style: italic;
+  }
+
+  /* ── Daily Habits ── */
+  .habits-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .habit-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .habit-item.done {
+    border-color: rgba(46,204,113,0.3);
+    background: rgba(46,204,113,0.05);
+  }
+
+  .habit-check {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--text-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .habit-check.done {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .habit-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .habit-name.done {
+    color: var(--text-2);
+    text-decoration: line-through;
+    text-decoration-color: rgba(46,204,113,0.4);
+  }
+
+  .habits-stats-row {
+    display: flex;
+    gap: 28px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--card-border);
+    flex-wrap: wrap;
+  }
+
+  .habit-stat-item {
+    font-size: 12px;
+    color: var(--text-2);
+  }
+
+  .habit-stat-item span {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .habit-goal-note {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--text-3);
+    font-style: italic;
+    align-self: center;
   }
 
   /* ── Financial Pulse ── */
@@ -500,6 +723,71 @@
     font-style: italic;
   }
 
+  /* ── Banking ── */
+  .banking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .bank-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+
+  .bank-card.personal { border-top: 2px solid var(--blue); }
+  .bank-card.business { border-top: 2px solid var(--orange); }
+
+  .bank-institution {
+    font-size: 10px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+  }
+
+  .bank-account-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .bank-balance {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .bank-balance.manual {
+    color: var(--text-3);
+    font-size: 18px;
+  }
+
+  .bank-last4 {
+    font-size: 11px;
+    color: var(--text-3);
+  }
+
+  .bank-type-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-top: 8px;
+  }
+
+  .bank-type-badge.personal { background: var(--blue-dim); color: var(--blue); }
+  .bank-type-badge.business { background: var(--orange-dim); color: var(--orange); }
+
   /* ── Ventures ── */
   .ventures-grid {
     display: grid;
@@ -644,7 +932,65 @@
     </div>
 
     <!-- ─────────────────────────────────────────────────── -->
-    <!--  SECTION 2+3: FINANCIAL PULSE + MINING             -->
+    <!--  SECTION 2: COMMAND CENTER                         -->
+    <!-- ─────────────────────────────────────────────────── -->
+    <div>
+      <div class="section-label">COMMAND CENTER</div>
+      <div class="three-col">
+
+        <!-- Upcoming Meetings -->
+        <div class="card-sm">
+          <div class="cc-header">
+            <span class="cc-title">Upcoming Meetings</span>
+            <span class="cc-subtitle">Next 3 days</span>
+          </div>
+          <div id="meetings-list">
+            <div class="cc-empty">Syncing...</div>
+          </div>
+        </div>
+
+        <!-- Overdue Tasks -->
+        <div class="card-sm">
+          <div class="cc-header">
+            <span class="cc-title">Overdue</span>
+            <span id="overdue-count-badge"></span>
+          </div>
+          <div id="overdue-list">
+            <div class="cc-empty">Syncing...</div>
+          </div>
+        </div>
+
+        <!-- Due Next 3 Days -->
+        <div class="card-sm">
+          <div class="cc-header">
+            <span class="cc-title">Due Soon</span>
+            <span class="cc-subtitle">Next 3 days</span>
+          </div>
+          <div id="upcoming-tasks-list">
+            <div class="cc-empty">Syncing...</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────── -->
+    <!--  SECTION 3: DAILY HABITS                           -->
+    <!-- ─────────────────────────────────────────────────── -->
+    <div>
+      <div class="section-label">DAILY HABITS</div>
+      <div class="card-sm">
+        <div class="habits-row" id="habits-row">
+          <!-- Populated by JS -->
+        </div>
+        <div class="habits-stats-row" id="habits-stats">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────── -->
+    <!--  SECTION 4+5: FINANCIAL PULSE + MINING             -->
     <!-- ─────────────────────────────────────────────────── -->
     <div class="two-col">
 
@@ -777,7 +1123,17 @@
     </div>
 
     <!-- ─────────────────────────────────────────────────── -->
-    <!--  SECTION 4: VENTURES                               -->
+    <!--  SECTION 6: BANKING                                -->
+    <!-- ─────────────────────────────────────────────────── -->
+    <div>
+      <div class="section-label">BANKING</div>
+      <div class="banking-grid" id="banking-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────── -->
+    <!--  SECTION 7: VENTURES                               -->
     <!-- ─────────────────────────────────────────────────── -->
     <div>
       <div class="section-label">VENTURES</div>
@@ -789,7 +1145,7 @@
   </div><!-- /main -->
 
   <div class="footer">
-    Life OS · Built with Perplexity Computer · Data refreshes every 6 hours
+    Life OS · Built with Perplexity Computer · Data refreshes hourly
   </div>
 
 </div><!-- /app -->
@@ -840,6 +1196,12 @@ function fmt$(n, decimals = 0) {
   return (n < 0 ? '-$' : '$') + abs.toFixed(decimals);
 }
 
+function fmt$Full(n) {
+  if (n === null || n === undefined) return '—';
+  const abs = Math.abs(n);
+  return (n < 0 ? '-$' : '$') + abs.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
 function fmtMoney(n, dec=2) {
   if (n === 0) return '—';
   const sign = n < 0 ? '-' : '';
@@ -878,6 +1240,27 @@ function stageLabel(stage) {
   return map[stage] || stage;
 }
 
+function dayLabel(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const target = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const diff = Math.round((target - today) / 86400000);
+  if (diff === 0) return 'Today';
+  if (diff === 1) return 'Tomorrow';
+  if (diff === -1) return 'Yesterday';
+  if (diff > 0) return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  return Math.abs(diff) + 'd ago';
+}
+
+function daysOverdue(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const target = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  return Math.round((today - target) / 86400000);
+}
+
 // ── Load Data ─────────────────────────────────────────────────────────
 fetch('data.json?t=' + Date.now())
   .then(r => r.json())
@@ -891,8 +1274,13 @@ function render(d) {
   }
 
   renderCriticalFew(d.critical_few);
+  renderMeetings(d.upcoming_meetings);
+  renderOverdueTasks(d.overdue_tasks);
+  renderUpcomingTasks(d.upcoming_tasks);
+  renderHabits(d.habits);
   renderFinancial(d.financial_targets);
   renderMining(d.melear_mining);
+  renderBanking(d.banking);
   renderVentures(d);
 }
 
@@ -931,6 +1319,163 @@ function renderCriticalFew(cf) {
   });
 }
 
+// ── Meetings ──────────────────────────────────────────────────────────
+function renderMeetings(meetings) {
+  const list = document.getElementById('meetings-list');
+
+  if (!meetings || !meetings.length) {
+    list.innerHTML = '<div class="cc-empty">No upcoming meetings</div>';
+    return;
+  }
+
+  const now = new Date();
+  const boiseNow = new Date(now.toLocaleString('en-US', { timeZone: 'America/Boise' }));
+  const todayBoise = new Date(boiseNow.getFullYear(), boiseNow.getMonth(), boiseNow.getDate());
+  const tomorrowBoise = new Date(todayBoise.getTime() + 86400000);
+
+  list.innerHTML = meetings.map(m => {
+    const start = new Date(m.start);
+    const startBoise = new Date(start.toLocaleString('en-US', { timeZone: 'America/Boise' }));
+    const startDay = new Date(startBoise.getFullYear(), startBoise.getMonth(), startBoise.getDate());
+
+    let label, isToday;
+    if (startDay.getTime() === todayBoise.getTime()) {
+      label = 'Today';
+      isToday = true;
+    } else if (startDay.getTime() === tomorrowBoise.getTime()) {
+      label = 'Tomorrow';
+      isToday = false;
+    } else {
+      label = start.toLocaleDateString('en-US', {
+        weekday: 'short', month: 'short', day: 'numeric',
+        timeZone: 'America/Boise'
+      });
+      isToday = false;
+    }
+
+    const timeStr = start.toLocaleTimeString('en-US', {
+      hour: 'numeric', minute: '2-digit', hour12: true,
+      timeZone: 'America/Boise'
+    });
+
+    const metaParts = [timeStr];
+    if (m.location) metaParts.push(m.location);
+
+    return `
+      <div class="meeting-item">
+        <div class="meeting-day-badge ${isToday ? 'today' : ''}">${label}</div>
+        <div class="meeting-title">${m.title}</div>
+        <div class="meeting-meta">${metaParts.join(' · ')}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ── Overdue Tasks ─────────────────────────────────────────────────────
+function renderOverdueTasks(tasks) {
+  const list = document.getElementById('overdue-list');
+  const badge = document.getElementById('overdue-count-badge');
+
+  if (!tasks || !tasks.length) {
+    badge.className = 'cc-count-zero';
+    badge.textContent = '0';
+    list.innerHTML = '<div class="cc-all-clear"><svg width="13" height="10" viewBox="0 0 13 10"><polyline points="1,5 5,9 12,1" fill="none" stroke="#2ecc71" stroke-width="2"/></svg> All clear</div>';
+    return;
+  }
+
+  badge.className = 'cc-count-nonzero';
+  badge.textContent = tasks.length;
+
+  const MAX = 8;
+  const shown = tasks.slice(0, MAX);
+
+  list.innerHTML = shown.map(t => {
+    const od = t.due ? daysOverdue(t.due) : 0;
+    const dueText = od > 0 ? `${od}d overdue` : (od === 0 ? 'Due today' : 'Overdue');
+    const proj = t.project ? ` · ${t.project}` : '';
+    return `
+      <div class="task-item">
+        <div class="task-dot overdue"></div>
+        <div style="flex:1;min-width:0;">
+          <div class="task-content">${t.content}</div>
+          <div class="task-meta overdue">${dueText}${proj}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (tasks.length > MAX) {
+    list.innerHTML += `<div class="task-overflow">+${tasks.length - MAX} more overdue</div>`;
+  }
+}
+
+// ── Upcoming Tasks ────────────────────────────────────────────────────
+function renderUpcomingTasks(tasks) {
+  const list = document.getElementById('upcoming-tasks-list');
+
+  if (!tasks || !tasks.length) {
+    list.innerHTML = '<div class="cc-empty">Nothing due soon</div>';
+    return;
+  }
+
+  const MAX = 8;
+  const shown = tasks.slice(0, MAX);
+
+  list.innerHTML = shown.map(t => {
+    const label = t.due ? dayLabel(t.due) : '';
+    const isToday = label === 'Today';
+    const proj = t.project ? ` · ${t.project}` : '';
+    return `
+      <div class="task-item">
+        <div class="task-dot ${isToday ? 'today' : 'upcoming'}"></div>
+        <div style="flex:1;min-width:0;">
+          <div class="task-content">${t.content}</div>
+          <div class="task-meta">${label}${proj}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  if (tasks.length > MAX) {
+    list.innerHTML += `<div class="task-overflow">+${tasks.length - MAX} more</div>`;
+  }
+}
+
+// ── Daily Habits ──────────────────────────────────────────────────────
+function renderHabits(habits) {
+  const row = document.getElementById('habits-row');
+  const stats = document.getElementById('habits-stats');
+
+  const defaultItems = [
+    { name: '100 Pushups', completed: false },
+    { name: '25 Pullups', completed: false },
+    { name: '50 Squats', completed: false }
+  ];
+
+  const items = (habits && habits.items) ? habits.items : defaultItems;
+
+  row.innerHTML = items.map(h => `
+    <div class="habit-item ${h.completed ? 'done' : ''}">
+      <div class="habit-check ${h.completed ? 'done' : ''}">
+        ${h.completed
+          ? '<svg width="10" height="8" viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+          : ''}
+      </div>
+      <div class="habit-name ${h.completed ? 'done' : ''}">${h.name}</div>
+    </div>
+  `).join('');
+
+  const rate = (habits && habits.completion_rate_30d) ? habits.completion_rate_30d : 0;
+  const streak = (habits && habits.streak) ? habits.streak : 0;
+  const rateColor = rate >= 50 ? 'var(--green)' : rate > 20 ? 'var(--yellow)' : 'var(--red)';
+
+  stats.innerHTML = `
+    <div class="habit-stat-item">30-day rate: <span style="color:${rate ? rateColor : 'var(--text-2)'};">${rate ? Math.round(rate) + '%' : '—'}</span></div>
+    <div class="habit-stat-item">Streak: <span>${streak ? streak + ' day' + (streak !== 1 ? 's' : '') : '—'}</span></div>
+    <div class="habit-goal-note">Goal: 50%+ · Aim: daily</div>
+  `;
+}
+
 // ── Financial Pulse ───────────────────────────────────────────────────
 function renderFinancial(ft) {
   if (!ft) return;
@@ -944,9 +1489,8 @@ function renderFinancial(ft) {
 
   // Dividend
   document.getElementById('div-actual').textContent = divActual ? fmt$(divActual) : '$0';
-  const divPct = pct(divActual, divStretch); // use stretch as 100%
+  const divPct = pct(divActual, divStretch);
   document.getElementById('div-bar').style.width = divPct + '%';
-  const divTargetMark = (divTarget / divStretch * 100).toFixed(1);
   document.getElementById('div-target-label').textContent =
     `target ${fmt$(divTarget)} → stretch ${fmt$(divStretch)}`;
 
@@ -1030,6 +1574,32 @@ function renderMining(m) {
 
   document.getElementById('breakeven').textContent =
     econ.breakeven_btc_price ? '$' + econ.breakeven_btc_price.toLocaleString() : '—';
+}
+
+// ── Banking ───────────────────────────────────────────────────────────
+function renderBanking(banking) {
+  const grid = document.getElementById('banking-grid');
+
+  if (!banking || !banking.accounts || !banking.accounts.length) {
+    grid.innerHTML = '<div class="empty-pill">No accounts configured</div>';
+    return;
+  }
+
+  grid.innerHTML = banking.accounts.map(acc => {
+    const isManual = acc.balance === null || acc.balance === undefined;
+    const balanceDisplay = isManual ? 'Manual' : fmt$Full(acc.balance);
+    const balanceClass = isManual ? 'bank-balance manual' : 'bank-balance';
+
+    return `
+      <div class="bank-card ${acc.type}">
+        <div class="bank-institution">${acc.bank}</div>
+        <div class="bank-account-name">${acc.name}</div>
+        <div class="${balanceClass}">${balanceDisplay}</div>
+        ${acc.last4 && acc.last4 !== '----' ? `<div class="bank-last4">···· ${acc.last4}</div>` : ''}
+        <div class="bank-type-badge ${acc.type}">${acc.type}</div>
+      </div>
+    `;
+  }).join('');
 }
 
 // ── Ventures ──────────────────────────────────────────────────────────
