@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-06T22:45:00Z",
+    "last_synced": "2026-04-06T23:44:36Z",
     "version": "4.0",
     "businesses": [
       "underhype",
@@ -142,18 +142,18 @@
     "items": [
       {
         "name": "100 Pushups",
-        "completed": true
+        "completed": false
       },
       {
         "name": "25 Pullups",
-        "completed": true
+        "completed": false
       },
       {
         "name": "50 Squats",
         "completed": true
       }
     ],
-    "all_done_today": true,
+    "all_done_today": false,
     "completion_rate_30d": 0,
     "streak": 0,
     "note": "Day 1 — streak starts today"
