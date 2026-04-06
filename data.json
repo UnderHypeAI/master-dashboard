@@ -1,13 +1,17 @@
 {
   "_meta": {
-    "last_synced": "2026-04-06T20:48:00.000000+00:00",
+    "last_synced": "2026-04-06T22:45:00Z",
     "version": "4.0",
     "businesses": [
-      "underhype", "4evr", "patient_gangster", "melear_mining",
-      "black_canyon_jj", "bitcoin_navigator", "emmett_weekly"
+      "underhype",
+      "4evr",
+      "patient_gangster",
+      "melear_mining",
+      "black_canyon_jj",
+      "bitcoin_navigator",
+      "emmett_weekly"
     ]
   },
-
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
     "source": "todoist",
@@ -16,7 +20,9 @@
       {
         "id": "6gJF5PjQ6m7RFP43",
         "content": "Help make Coleen's visit better",
-        "subtasks": ["Make sure room and bathroom are clean"]
+        "subtasks": [
+          "Make sure room and bathroom are clean"
+        ]
       },
       {
         "id": "6gJF5VxcqJ6358X3",
@@ -41,40 +47,44 @@
       }
     ]
   },
-
   "upcoming_meetings": [
     {
       "title": "Jiu Jitsu",
-      "start": "2026-04-06T23:00:00Z",
-      "end": "2026-04-07T02:00:00Z",
+      "start": "2026-04-06T23:00:00+00:00",
+      "end": "2026-04-07T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     },
     {
-      "title": "Midway Septic Pumping",
-      "start": "2026-04-07T16:00:00Z",
-      "end": "2026-04-07T19:00:00Z",
+      "title": "Midway Septic pumping",
+      "start": "2026-04-07T16:00:00+00:00",
+      "end": "2026-04-07T19:00:00+00:00",
       "location": "Google Meet",
       "is_all_day": false
     },
     {
       "title": "Jiu Jitsu",
-      "start": "2026-04-07T23:00:00Z",
-      "end": "2026-04-08T02:00:00Z",
+      "start": "2026-04-07T23:00:00+00:00",
+      "end": "2026-04-08T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     },
     {
       "title": "Jiu Jitsu",
-      "start": "2026-04-08T21:30:00Z",
-      "end": "2026-04-09T01:00:00Z",
+      "start": "2026-04-08T21:30:00+00:00",
+      "end": "2026-04-09T01:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-09T23:00:00+00:00",
+      "end": "2026-04-10T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
   ],
-
   "overdue_tasks": [],
-
   "upcoming_tasks": [
     {
       "id": "6gCQhvw2fRFGc9hV",
@@ -99,7 +109,7 @@
     },
     {
       "id": "6gCQj2gWw82mJ8rV",
-      "content": "Post on r/Bitcoin",
+      "content": "Post on r/Bitcoin (educational, not salesy)",
       "due": "2026-04-08",
       "project": "4EVR.ink",
       "priority": 2
@@ -117,23 +127,37 @@
       "due": "2026-04-08",
       "project": "4EVR.ink",
       "priority": 3
+    },
+    {
+      "id": "6gFX2MghPCg32FgV",
+      "content": "[Kristo/Aaron - Demo] Inform Kristo of official product launch date and next steps for engagement and partnership discussions",
+      "due": "2026-04-08",
+      "project": "4EVR.ink",
+      "priority": 3
     }
   ],
-
   "habits": {
     "project_id": "6gJRp2cGH6mw47H8",
     "date": "2026-04-06",
     "items": [
-      { "name": "100 Pushups", "completed": false },
-      { "name": "25 Pullups", "completed": false },
-      { "name": "50 Squats", "completed": false }
+      {
+        "name": "100 Pushups",
+        "completed": true
+      },
+      {
+        "name": "25 Pullups",
+        "completed": true
+      },
+      {
+        "name": "50 Squats",
+        "completed": true
+      }
     ],
-    "all_done_today": false,
+    "all_done_today": true,
     "completion_rate_30d": 0,
     "streak": 0,
     "note": "Day 1 — streak starts today"
   },
-
   "banking": {
     "accounts": [
       {
@@ -163,7 +187,6 @@
     ],
     "last_updated": null
   },
-
   "financial_targets": {
     "dividend_target_monthly": 10000,
     "dividend_stretch_monthly": 25000,
@@ -174,14 +197,53 @@
     "net_worth": 0,
     "cash_position": 0,
     "positions": [
-      {"ticker": "STRK", "name": "Strategy Strike", "type": "fixed", "yield_pct": 8.0, "shares": 0, "value": 0, "monthly_income": 0},
-      {"ticker": "STRF", "name": "Strategy Strife", "type": "fixed", "yield_pct": 10.0, "shares": 0, "value": 0, "monthly_income": 0},
-      {"ticker": "STRC", "name": "Strategy Stretch", "type": "fixed", "yield_pct": 11.5, "shares": 0, "value": 0, "monthly_income": 0},
-      {"ticker": "STRD", "name": "Strategy Stride", "type": "fixed", "yield_pct": 10.0, "shares": 0, "value": 0, "monthly_income": 0},
-      {"ticker": "SATA", "name": "Strive SATA", "type": "variable", "yield_pct": 12.75, "shares": 0, "value": 0, "monthly_income": 0}
+      {
+        "ticker": "STRK",
+        "name": "Strategy Strike",
+        "type": "fixed",
+        "yield_pct": 8.0,
+        "shares": 0,
+        "value": 0,
+        "monthly_income": 0
+      },
+      {
+        "ticker": "STRF",
+        "name": "Strategy Strife",
+        "type": "fixed",
+        "yield_pct": 10.0,
+        "shares": 0,
+        "value": 0,
+        "monthly_income": 0
+      },
+      {
+        "ticker": "STRC",
+        "name": "Strategy Stretch",
+        "type": "fixed",
+        "yield_pct": 11.5,
+        "shares": 0,
+        "value": 0,
+        "monthly_income": 0
+      },
+      {
+        "ticker": "STRD",
+        "name": "Strategy Stride",
+        "type": "fixed",
+        "yield_pct": 10.0,
+        "shares": 0,
+        "value": 0,
+        "monthly_income": 0
+      },
+      {
+        "ticker": "SATA",
+        "name": "Strive SATA",
+        "type": "variable",
+        "yield_pct": 12.75,
+        "shares": 0,
+        "value": 0,
+        "monthly_income": 0
+      }
     ]
   },
-
   "melear_mining": {
     "status": "standby",
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -212,7 +274,6 @@
       "network_hashrate_eh": 0
     }
   },
-
   "underhype": {
     "status": "live",
     "stage": "revenue",
@@ -224,13 +285,18 @@
       "total_project_revenue": 26000.0
     },
     "funnel": {
-      "Lead": 2, "Outreach": 1, "Interested": 1,
-      "Consultation Scheduled": 1, "Proposal Sent": 0,
-      "Pilot": 1, "Active - Building": 0, "Active - Support": 0,
-      "Paused": 1, "Closed": 0
+      "Lead": 2,
+      "Outreach": 1,
+      "Interested": 1,
+      "Consultation Scheduled": 1,
+      "Proposal Sent": 0,
+      "Pilot": 1,
+      "Active - Building": 0,
+      "Active - Support": 0,
+      "Paused": 1,
+      "Closed": 0
     }
   },
-
   "forevr": {
     "status": "live",
     "stage": "live-product",
@@ -242,7 +308,6 @@
       "est_revenue": 14
     }
   },
-
   "patient_gangster": {
     "status": "live",
     "stage": "pre-launch",
@@ -254,25 +319,31 @@
       "converted": 0
     }
   },
-
   "black_canyon_jj": {
     "status": "paused",
     "stage": "planning",
-    "kpis": {"members": 0, "mrr": 0}
+    "kpis": {
+      "members": 0,
+      "mrr": 0
+    }
   },
-
   "bitcoin_navigator": {
     "status": "building",
     "stage": "building",
-    "kpis": {"subscribers": 0, "mrr": 0}
+    "kpis": {
+      "subscribers": 0,
+      "mrr": 0
+    }
   },
-
   "emmett_weekly": {
     "status": "live",
     "stage": "building",
-    "kpis": {"subscribers": 0, "sponsors": 0, "mrr": 0}
+    "kpis": {
+      "subscribers": 0,
+      "sponsors": 0,
+      "mrr": 0
+    }
   },
-
   "home_property": {
     "status": "live",
     "zestimate": 1027700,
