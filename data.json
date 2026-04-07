@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-07T01:47:36Z",
+    "last_synced": "2026-04-07T02:48:18Z",
     "version": "4.0",
     "businesses": [
       "underhype",
@@ -27,7 +27,7 @@
       {
         "id": "6gJF5VxcqJ6358X3",
         "content": "Take steps forward with business ventures",
-        "description": "Top focus: 4EVR.ink launch → UnderHype freemium → Patient Gangster, Emmett Weekly, MAR Candle Co.",
+        "description": "Top focus: 4EVR.ink launch \u2192 UnderHype freemium \u2192 Patient Gangster, Emmett Weekly, MAR Candle Co.",
         "subtasks": []
       },
       {
@@ -87,13 +87,6 @@
   "overdue_tasks": [],
   "upcoming_tasks": [
     {
-      "id": "6gCQhvw2fRFGc9hV",
-      "content": "End-to-end test: real Stripe payment → OP_RETURN → confirmation",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 2
-    },
-    {
       "id": "6gCQj2g5jh8HpV8V",
       "content": "Full mobile QA pass (iPhone + Android)",
       "due": "2026-04-08",
@@ -113,13 +106,6 @@
       "due": "2026-04-08",
       "project": "4EVR.ink",
       "priority": 2
-    },
-    {
-      "id": "6gCQhw2fp7jr4643",
-      "content": "Set OpenNode webhook URL in OpenNode dashboard",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
     },
     {
       "id": "6gCQj2hFvw7XQh9V",
@@ -142,21 +128,21 @@
     "items": [
       {
         "name": "100 Pushups",
-        "completed": false
+        "completed": true
       },
       {
         "name": "25 Pullups",
-        "completed": false
+        "completed": true
       },
       {
         "name": "50 Squats",
         "completed": true
       }
     ],
-    "all_done_today": false,
+    "all_done_today": true,
     "completion_rate_30d": 0,
     "streak": 0,
-    "note": "Day 1 — streak starts today"
+    "note": "Day 1 \u2014 streak starts today"
   },
   "banking": {
     "accounts": [
