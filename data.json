@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-07T14:51:01.239164Z",
+    "last_synced": "2026-04-07T15:52:18.598893Z",
     "version": "4.0",
     "businesses": [
       "underhype",
@@ -27,7 +27,7 @@
       {
         "id": "6gJF5VxcqJ6358X3",
         "content": "Take steps forward with business ventures",
-        "description": "Top focus: 4EVR.ink launch \u2192 UnderHype freemium \u2192 Patient Gangster, Emmett Weekly, MAR Candle Co.",
+        "description": "Top focus: 4EVR.ink launch → UnderHype freemium → Patient Gangster, Emmett Weekly, MAR Candle Co.",
         "subtasks": []
       },
       {
@@ -79,27 +79,6 @@
   ],
   "overdue_tasks": [],
   "upcoming_tasks": [
-    {
-      "id": "6gJgJjmV9ffWrCW8",
-      "content": "CRM follow-up: Text Nik (West Idaho BJJ) + propose 20-min in-person at gym; sensitive re newborn timing",
-      "due": "2026-04-07",
-      "project": "Inbox",
-      "priority": 4
-    },
-    {
-      "id": "6gJgJmwxhhjWVJP8",
-      "content": "CRM follow-up: Josh (MAR Candle Co) \u2014 check Draft phase progress + decide next phase scope/timeline",
-      "due": "2026-04-07",
-      "project": "Inbox",
-      "priority": 3
-    },
-    {
-      "id": "6gJgJpX6qHX8fX7g",
-      "content": "CRM follow-up: Ken Craig \u2014 confirm 3/24 consultation outcome; update Stage + set Next Follow-Up",
-      "due": "2026-04-07",
-      "project": "Inbox",
-      "priority": 3
-    },
     {
       "id": "6gJWmwggfXCFvm5V",
       "content": "Order swag for the Bitcoin Conference",
@@ -180,7 +159,7 @@
         "completed": false
       },
       {
-        "name": "10 Pullups",
+        "name": "25 Pullups",
         "completed": false
       },
       {
@@ -191,7 +170,7 @@
     "all_done_today": false,
     "completion_rate_30d": 0,
     "streak": 0,
-    "note": "Day 1 \u2014 streak starts today",
+    "note": "Day 1 — streak starts today",
     "history": [
       {
         "date": "2026-04-06",
