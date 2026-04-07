@@ -322,6 +322,59 @@
   .habit-legend-swatch.red    { background: var(--red); }
   .habit-legend-swatch.empty  { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); }
 
+  .habit-streak-row {
+    display: flex;
+    gap: 0;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .habit-streak-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .habit-streak-stat.divider {
+    padding-left: 20px;
+    margin-left: 20px;
+    border-left: 1px solid var(--card-border);
+  }
+
+  .habit-streak-num {
+    font-family: var(--font-display);
+    font-size: 36px;
+    line-height: 1;
+    color: var(--text-2);
+    letter-spacing: 0.01em;
+  }
+
+  .habit-streak-num.streak-on {
+    color: var(--green);
+    text-shadow: 0 0 18px rgba(46,204,113,0.35);
+  }
+
+  .habit-streak-num.pb-on {
+    color: var(--orange);
+    text-shadow: 0 0 18px rgba(247,147,26,0.3);
+  }
+
+  .habit-streak-lbl {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .habit-streak-sub {
+    font-size: 11px;
+    color: var(--text-3);
+    margin-top: 1px;
+  }
+
   /* ── Critical Few ── */
   .critical-few-grid {
     display: grid;
@@ -1621,9 +1674,9 @@ function renderHabitTracker(history) {
   for (let i = 28; i >= 1; i--) {
     const d = new Date(today);
     d.setDate(d.getDate() - i);
-    const yr  = d.getFullYear();
-    const mo  = String(d.getMonth() + 1).padStart(2, '0');
-    const dy  = String(d.getDate()).padStart(2, '0');
+    const yr = d.getFullYear();
+    const mo = String(d.getMonth() + 1).padStart(2, '0');
+    const dy = String(d.getDate()).padStart(2, '0');
     days.push({ dateStr: `${yr}-${mo}-${dy}`, d });
   }
 
@@ -1633,13 +1686,51 @@ function renderHabitTracker(history) {
     history.forEach(h => { histMap[h.date] = h; });
   }
 
-  // Short date formatter
-  const fmt = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  // ── Streak calculations ───────────────────────────────────────────
+  // Current streak: consecutive greens walking backwards from yesterday
+  let currentStreak = 0;
+  for (let i = days.length - 1; i >= 0; i--) {
+    const e = histMap[days[i].dateStr];
+    if (e && e.status === 'green') {
+      currentStreak++;
+    } else {
+      break;
+    }
+  }
 
-  // Date range label
+  // Personal best: longest consecutive green run in the 28-day window
+  let bestStreak = 0;
+  let run = 0;
+  for (let i = 0; i < days.length; i++) {
+    const e = histMap[days[i].dateStr];
+    if (e && e.status === 'green') {
+      run++;
+      if (run > bestStreak) bestStreak = run;
+    } else {
+      run = 0;
+    }
+  }
+  // PB is at least the current streak
+  if (currentStreak > bestStreak) bestStreak = currentStreak;
+
+  // Streak display values
+  const streakDisplay = currentStreak > 0 ? currentStreak : '—';
+  const pbDisplay     = bestStreak > 0     ? bestStreak     : '—';
+  const streakUnit    = currentStreak === 1 ? 'day' : 'days';
+  const pbUnit        = bestStreak === 1    ? 'day' : 'days';
+  const streakClass   = currentStreak > 0 ? 'streak-on' : '';
+  const pbClass       = bestStreak > 0    ? 'pb-on'     : '';
+  const streakSub     = currentStreak > 0
+    ? (currentStreak === 1 ? 'Keep it going!' : `${currentStreak} ${streakUnit} strong`)
+    : 'Hit all 3 to start';
+  const pbSub = bestStreak > 0
+    ? `${bestStreak} ${pbUnit} in a row`
+    : 'No streak yet';
+
+  // ── Grid ───────────────────────────────────────────────────
+  const fmt = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   const rangeLabel = `${fmt(days[0].d)} → ${fmt(days[27].d)}`;
 
-  // Build 4 week groups
   const weekGroups = [0, 1, 2, 3].map(w => {
     const week = days.slice(w * 7, w * 7 + 7);
     const boxes = week.map(({ dateStr, d }) => {
@@ -1656,6 +1747,18 @@ function renderHabitTracker(history) {
   const gridHtml = weekGroups.join('<div class="habit-week-gap"></div>');
 
   container.innerHTML = `
+    <div class="habit-streak-row">
+      <div class="habit-streak-stat">
+        <span class="habit-streak-num ${streakClass}">${streakDisplay}</span>
+        <span class="habit-streak-lbl">Current Streak</span>
+        <span class="habit-streak-sub">${streakSub}</span>
+      </div>
+      <div class="habit-streak-stat divider">
+        <span class="habit-streak-num ${pbClass}">${pbDisplay}</span>
+        <span class="habit-streak-lbl">Personal Best</span>
+        <span class="habit-streak-sub">${pbSub}</span>
+      </div>
+    </div>
     <div class="habit-tracker-header">
       <span class="habit-tracker-label">28‑Day History</span>
       <span class="habit-tracker-range">${rangeLabel}</span>
