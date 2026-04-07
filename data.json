@@ -1,16 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-07T15:52:18.598893Z",
-    "version": "4.0",
-    "businesses": [
-      "underhype",
-      "4evr",
-      "patient_gangster",
-      "melear_mining",
-      "black_canyon_jj",
-      "bitcoin_navigator",
-      "emmett_weekly"
-    ]
+    "last_synced": "2026-04-07T16:49:33.701498Z"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -27,7 +17,7 @@
       {
         "id": "6gJF5VxcqJ6358X3",
         "content": "Take steps forward with business ventures",
-        "description": "Top focus: 4EVR.ink launch → UnderHype freemium → Patient Gangster, Emmett Weekly, MAR Candle Co.",
+        "description": "Top focus: 4EVR.ink launch \u2192 UnderHype freemium \u2192 Patient Gangster, Emmett Weekly, MAR Candle Co.",
         "subtasks": []
       },
       {
@@ -56,6 +46,13 @@
       "is_all_day": false
     },
     {
+      "title": "Blocked For Work",
+      "start": "2026-04-07T16:00:00Z",
+      "end": "2026-04-07T22:00:00Z",
+      "location": null,
+      "is_all_day": false
+    },
+    {
       "title": "Jiu Jitsu",
       "start": "2026-04-07T23:00:00Z",
       "end": "2026-04-08T02:00:00Z",
@@ -70,6 +67,13 @@
       "is_all_day": false
     },
     {
+      "title": "Blocked for Work",
+      "start": "2026-04-09T16:00:00Z",
+      "end": "2026-04-09T22:00:00Z",
+      "location": null,
+      "is_all_day": false
+    },
+    {
       "title": "Jiu Jitsu",
       "start": "2026-04-09T23:00:00Z",
       "end": "2026-04-10T02:00:00Z",
@@ -78,107 +82,11 @@
     }
   ],
   "overdue_tasks": [],
-  "upcoming_tasks": [
-    {
-      "id": "6gJWmwggfXCFvm5V",
-      "content": "Order swag for the Bitcoin Conference",
-      "due": "2026-04-07",
-      "project": "4EVR.ink",
-      "priority": 4
-    },
-    {
-      "id": "6gCQj2g5jh8HpV8V",
-      "content": "Full mobile QA pass (iPhone + Android)",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gCQj2gRHHpmc6xV",
-      "content": "Post launch announcement on Nostr",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 2
-    },
-    {
-      "id": "6gCQj2gWw82mJ8rV",
-      "content": "Post on r/Bitcoin (educational, not salesy)",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 2
-    },
-    {
-      "id": "6gCQj2hFvw7XQh9V",
-      "content": "Write launch X thread (announcement + demo)",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gFX2MghPCg32FgV",
-      "content": "[Kristo/Aaron - Demo] Inform Kristo of official product launch date and next steps for engagement and partnership discussions",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gJWr8QVWgF7RJcM",
-      "content": "Ask Silas if he wants the job",
-      "due": "2026-04-09",
-      "project": "Property",
-      "priority": 1
-    },
-    {
-      "id": "6gJWf83XJFWv5JcR",
-      "content": "Check in with Seth to see when he is available to help",
-      "due": "2026-04-10",
-      "project": "6gJWcPHCHP5QpjfR",
-      "priority": 1
-    },
-    {
-      "id": "6gCQhvw33Xh2pCvV",
-      "content": "End-to-end test: OpenNode Bitcoin payment flow",
-      "due": "2026-04-10",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gCQj2mgVqP3Vv7V",
-      "content": "Test failure paths: payment declined, BTC broadcast fails, network timeout",
-      "due": "2026-04-10",
-      "project": "4EVR.ink",
-      "priority": 3
-    }
-  ],
+  "upcoming_tasks": [],
   "habits": {
-    "project_id": "6gJRp2cGH6mw47H8",
     "date": "2026-04-07",
-    "items": [
-      {
-        "name": "100 Pushups",
-        "completed": false
-      },
-      {
-        "name": "25 Pullups",
-        "completed": false
-      },
-      {
-        "name": "50 Squats",
-        "completed": false
-      }
-    ],
-    "all_done_today": false,
-    "completion_rate_30d": 0,
-    "streak": 0,
-    "note": "Day 1 — streak starts today",
-    "history": [
-      {
-        "date": "2026-04-06",
-        "completed": 3,
-        "total": 3,
-        "status": "green"
-      }
-    ]
+    "items": [],
+    "all_done_today": false
   },
   "banking": {
     "accounts": [
