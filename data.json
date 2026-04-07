@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-07T10:49:23Z",
+    "last_synced": "2026-04-07T11:52:02Z",
     "version": "4.0",
     "businesses": [
       "underhype",
@@ -27,7 +27,7 @@
       {
         "id": "6gJF5VxcqJ6358X3",
         "content": "Take steps forward with business ventures",
-        "description": "Top focus: 4EVR.ink launch → UnderHype freemium → Patient Gangster, Emmett Weekly, MAR Candle Co.",
+        "description": "Top focus: 4EVR.ink launch \u2192 UnderHype freemium \u2192 Patient Gangster, Emmett Weekly, MAR Candle Co.",
         "subtasks": []
       },
       {
@@ -50,29 +50,29 @@
   "upcoming_meetings": [
     {
       "title": "Midway Septic pumping",
-      "start": "2026-04-07T16:00:00+00:00",
-      "end": "2026-04-07T19:00:00+00:00",
+      "start": "2026-04-07T16:00:00Z",
+      "end": "2026-04-07T19:00:00Z",
       "location": "Google Meet",
       "is_all_day": false
     },
     {
       "title": "Jiu Jitsu",
-      "start": "2026-04-07T23:00:00+00:00",
-      "end": "2026-04-08T02:00:00+00:00",
+      "start": "2026-04-07T23:00:00Z",
+      "end": "2026-04-08T02:00:00Z",
       "location": null,
       "is_all_day": false
     },
     {
       "title": "Jiu Jitsu",
-      "start": "2026-04-08T21:30:00+00:00",
-      "end": "2026-04-09T01:00:00+00:00",
+      "start": "2026-04-08T21:30:00Z",
+      "end": "2026-04-09T01:00:00Z",
       "location": null,
       "is_all_day": false
     },
     {
       "title": "Jiu Jitsu",
-      "start": "2026-04-09T23:00:00+00:00",
-      "end": "2026-04-10T02:00:00+00:00",
+      "start": "2026-04-09T23:00:00Z",
+      "end": "2026-04-10T02:00:00Z",
       "location": null,
       "is_all_day": false
     }
@@ -170,7 +170,7 @@
     "all_done_today": false,
     "completion_rate_30d": 0,
     "streak": 0,
-    "note": "Day 1 — streak starts today"
+    "note": "Day 1 \u2014 streak starts today"
   },
   "banking": {
     "accounts": [
