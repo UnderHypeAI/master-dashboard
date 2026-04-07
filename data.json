@@ -191,7 +191,10 @@
     "all_done_today": false,
     "completion_rate_30d": 0,
     "streak": 0,
-    "note": "Day 1 \u2014 streak starts today"
+    "note": "Day 1 \u2014 streak starts today",
+    "history": [
+      { "date": "2026-04-06", "completed": 1, "total": 3, "status": "yellow" }
+    ]
   },
   "banking": {
     "accounts": [
