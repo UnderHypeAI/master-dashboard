@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-07T06:47:32Z",
+    "last_synced": "2026-04-07T07:51:30Z",
     "version": "4.0",
     "businesses": [
       "underhype",
@@ -27,7 +27,7 @@
       {
         "id": "6gJF5VxcqJ6358X3",
         "content": "Take steps forward with business ventures",
-        "description": "Top focus: 4EVR.ink launch → UnderHype freemium → Patient Gangster, Emmett Weekly, MAR Candle Co.",
+        "description": "Top focus: 4EVR.ink launch \u2192 UnderHype freemium \u2192 Patient Gangster, Emmett Weekly, MAR Candle Co.",
         "subtasks": []
       },
       {
@@ -170,7 +170,7 @@
     "all_done_today": false,
     "completion_rate_30d": 0,
     "streak": 0,
-    "note": "Day 1 — streak starts today"
+    "note": "Day 1 \u2014 streak starts today"
   },
   "banking": {
     "accounts": [
