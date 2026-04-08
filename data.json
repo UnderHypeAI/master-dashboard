@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-08T09:55:00Z"
+    "last_synced": "2026-04-08T10:49:03Z"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -17,7 +17,7 @@
       {
         "id": "6gJF5VxcqJ6358X3",
         "content": "Take steps forward with business ventures",
-        "description": "Top focus: 4EVR.ink launch \u2192 UnderHype freemium \u2192 Patient Gangster, Emmett Weekly, MAR Candle Co.",
+        "description": "Top focus: 4EVR.ink launch → UnderHype freemium → Patient Gangster, Emmett Weekly, MAR Candle Co.",
         "subtasks": []
       },
       {
@@ -40,22 +40,22 @@
   "upcoming_meetings": [
     {
       "title": "Jiu Jitsu",
-      "start": "2026-04-08T21:30:00Z",
-      "end": "2026-04-09T01:00:00Z",
+      "start": "2026-04-08T21:30:00+00:00",
+      "end": "2026-04-09T01:00:00+00:00",
       "location": null,
       "is_all_day": false
     },
     {
       "title": "Blocked for Work",
-      "start": "2026-04-09T16:00:00Z",
-      "end": "2026-04-09T22:00:00Z",
+      "start": "2026-04-09T16:00:00+00:00",
+      "end": "2026-04-09T22:00:00+00:00",
       "location": null,
       "is_all_day": false
     },
     {
       "title": "Jiu Jitsu",
-      "start": "2026-04-09T23:00:00Z",
-      "end": "2026-04-10T02:00:00Z",
+      "start": "2026-04-09T23:00:00+00:00",
+      "end": "2026-04-10T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -86,7 +86,7 @@
     },
     {
       "id": "6gCQj2gWw82mJ8rV",
-      "content": "Post on r/Bitcoin",
+      "content": "Post on r/Bitcoin (educational, not salesy)",
       "due": "2026-04-08",
       "project": "4EVR.ink",
       "priority": 2
@@ -100,16 +100,23 @@
     },
     {
       "id": "6gFX2MghPCg32FgV",
-      "content": "Inform Kristo of launch date and next steps",
+      "content": "[Kristo/Aaron - Demo] Inform Kristo of official product launch date and next steps for engagement and partnership discussions",
       "due": "2026-04-08",
       "project": "4EVR.ink",
       "priority": 3
     },
     {
       "id": "6gJWr8QVWgF7RJcM",
-      "content": "Ask Silas if he wants the fence post job",
+      "content": "Ask Silas if he wants the job",
       "due": "2026-04-09",
       "project": "Property",
+      "priority": 1
+    },
+    {
+      "id": "6gJWf83XJFWv5JcR",
+      "content": "Check in with Seth to see when he is available to help",
+      "due": "2026-04-10",
+      "project": "Home Projects",
       "priority": 1
     },
     {
@@ -121,17 +128,10 @@
     },
     {
       "id": "6gCQj2mgVqP3Vv7V",
-      "content": "Test failure paths: payment declined, BTC broadcast fails",
+      "content": "Test failure paths: payment declined, BTC broadcast fails, network timeout",
       "due": "2026-04-10",
       "project": "4EVR.ink",
       "priority": 3
-    },
-    {
-      "id": "6gJWf83XJFWv5JcR",
-      "content": "Check in with Seth about weed treatment availability",
-      "due": "2026-04-10",
-      "project": "Home Projects",
-      "priority": 1
     },
     {
       "id": "6g9wRMxvPvH34jGM",
