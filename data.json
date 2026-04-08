@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-08T02:50:01Z"
+    "last_synced": "2026-04-08T03:51:55Z"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -82,78 +82,7 @@
     }
   ],
   "overdue_tasks": [],
-  "upcoming_tasks": [
-    {
-      "id": "6gJWmwggfXCFvm5V",
-      "content": "Order swag for the Bitcoin Conference",
-      "due": "2026-04-07",
-      "project": "4EVR.ink",
-      "priority": 4
-    },
-    {
-      "id": "6gCQj2g5jh8HpV8V",
-      "content": "Full mobile QA pass (iPhone + Android)",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gCQj2gRHHpmc6xV",
-      "content": "Post launch announcement on Nostr",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 2
-    },
-    {
-      "id": "6gCQj2gWw82mJ8rV",
-      "content": "Post on r/Bitcoin (educational, not salesy)",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 2
-    },
-    {
-      "id": "6gCQj2hFvw7XQh9V",
-      "content": "Write launch X thread (announcement + demo)",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gFX2MghPCg32FgV",
-      "content": "[Kristo/Aaron - Demo] Inform Kristo of official product launch date and next steps for engagement and partnership discussions",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gJWr8QVWgF7RJcM",
-      "content": "Ask Silas if he wants the job",
-      "due": "2026-04-09",
-      "project": "Property",
-      "priority": 1
-    },
-    {
-      "id": "6gJWf83XJFWv5JcR",
-      "content": "Check in with Seth to see when he is available to help",
-      "due": "2026-04-10",
-      "project": "6gJWcPHCHP5QpjfR",
-      "priority": 1
-    },
-    {
-      "id": "6gCQhvw33Xh2pCvV",
-      "content": "End-to-end test: OpenNode Bitcoin payment flow",
-      "due": "2026-04-10",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gCQj2mgVqP3Vv7V",
-      "content": "Test failure paths: payment declined, BTC broadcast fails, network timeout",
-      "due": "2026-04-10",
-      "project": "4EVR.ink",
-      "priority": 3
-    }
-  ],
+  "upcoming_tasks": [],
   "habits": {
     "date": "2026-04-07",
     "items": [
