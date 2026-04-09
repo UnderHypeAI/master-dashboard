@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-09T01:43:47Z"
+    "last_synced": "2026-04-09T02:47:06Z"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -39,21 +39,21 @@
   },
   "upcoming_meetings": [
     {
-      "title": "<event>\n<event_id>ef53c4b49945471ea27c6a9da9ac3c72_20260408T213000Z</event_id><title>Jiu Jitsu</title><start_date>Wednesday, April 08, 2026, 9:30 PM UTC</start_date><end_date>Thursday, April 09, 2026, 1:00 AM UTC</end_date><organizer>aaronmelear@gmail.com</organizer></event>",
+      "title": "Jiu Jitsu",
       "start": "2026-04-08T21:30:00+00:00",
       "end": "2026-04-09T01:00:00+00:00",
       "location": null,
       "is_all_day": false
     },
     {
-      "title": "<event>\n<event_id>4f7c0080e0e7435e979a8de83c50d6c3</event_id><title>Blocked for Work</title><start_date>Thursday, April 09, 2026, 4:00 PM UTC</start_date><end_date>Thursday, April 09, 2026, 10:00 PM UTC</end_date><organizer>aaronmelear@gmail.com</organizer></event>",
+      "title": "Blocked for Work",
       "start": "2026-04-09T16:00:00+00:00",
       "end": "2026-04-09T22:00:00+00:00",
       "location": null,
       "is_all_day": false
     },
     {
-      "title": "<event>\n<event_id>f1786cadd1544fcebcd39706386ab05a_20260409T230000Z</event_id><title>Jiu Jitsu</title><start_date>Thursday, April 09, 2026, 11:00 PM UTC</start_date><end_date>Friday, April 10, 2026, 2:00 AM UTC</end_date><organizer>aaronmelear@gmail.com</organizer></event>",
+      "title": "Jiu Jitsu",
       "start": "2026-04-09T23:00:00+00:00",
       "end": "2026-04-10T02:00:00+00:00",
       "location": null,
