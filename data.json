@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-09T07:49:50Z"
+    "last_synced": "2026-04-09T08:49:55Z"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -159,21 +159,18 @@
     "date": "2026-04-09",
     "items": [
       {
+        "id": "6gJVPMq38frhMRr8",
+        "name": "100 Pushups",
+        "completed": false
+      },
+      {
         "id": "6gJVPPCjg5w2J5c8",
         "name": "10 Pullups",
-        "due": "2026-04-07",
         "completed": false
       },
       {
         "id": "6gJVPPVG9PPGv8Qg",
         "name": "50 Squats",
-        "due": "2026-04-07",
-        "completed": false
-      },
-      {
-        "id": "6gJVPMq38frhMRr8",
-        "name": "100 Pushups",
-        "due": "2026-04-09",
         "completed": false
       }
     ],
