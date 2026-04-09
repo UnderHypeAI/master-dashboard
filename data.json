@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-09T05:48:50Z"
+    "last_synced": "2026-04-09T06:49:07Z"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -17,7 +17,7 @@
       {
         "id": "6gJF5VxcqJ6358X3",
         "content": "Take steps forward with business ventures",
-        "description": "Top focus: 4EVR.ink launch → UnderHype freemium → Patient Gangster, Emmett Weekly, MAR Candle Co.",
+        "description": "Top focus: 4EVR.ink launch \u2192 UnderHype freemium \u2192 Patient Gangster, Emmett Weekly, MAR Candle Co.",
         "subtasks": []
       },
       {
@@ -37,7 +37,22 @@
       }
     ]
   },
-  "upcoming_meetings": [],
+  "upcoming_meetings": [
+    {
+      "title": "Blocked for Work",
+      "start": "2026-04-09T16:00:00Z",
+      "end": "2026-04-09T22:00:00Z",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-09T23:00:00Z",
+      "end": "2026-04-10T02:00:00Z",
+      "location": null,
+      "is_all_day": false
+    }
+  ],
   "overdue_tasks": [
     {
       "id": "6gJWmwggfXCFvm5V",
@@ -45,9 +60,7 @@
       "due": "2026-04-07",
       "project": "4EVR.ink",
       "priority": 4
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gCQj2g5jh8HpV8V",
       "content": "Full mobile QA pass (iPhone + Android)",
@@ -85,7 +98,7 @@
     },
     {
       "id": "6gJvq993g4rJ9Qhg",
-      "content": "Follow up w/ Josh (MAR Candle Co) — log outcome of 3/24 + next phase",
+      "content": "Follow up w/ Josh (MAR Candle Co) \u2014 log outcome of 3/24 + next phase",
       "due": "2026-04-08",
       "project": "Inbox",
       "priority": 4
@@ -96,10 +109,12 @@
       "due": "2026-04-08",
       "project": "4EVR.ink",
       "priority": 3
-    },
+    }
+  ],
+  "upcoming_tasks": [
     {
       "id": "6gJvq9q78r7h62h8",
-      "content": "Update CRM: Ken Craig — log outcome of 3/24 consult + update stage/next step",
+      "content": "Update CRM: Ken Craig \u2014 log outcome of 3/24 consult + update stage/next step",
       "due": "2026-04-09",
       "project": "Inbox",
       "priority": 3
@@ -141,21 +156,24 @@
     }
   ],
   "habits": {
-    "date": "2026-04-08",
+    "date": "2026-04-09",
     "items": [
-      {
-        "id": "6gJVPPVG9PPGv8Qg",
-        "name": "50 Squats",
-        "completed": false
-      },
       {
         "id": "6gJVPMq38frhMRr8",
         "name": "100 Pushups",
-        "completed": true
+        "due": "2026-04-09",
+        "completed": false
+      },
+      {
+        "id": "6gJVPPVG9PPGv8Qg",
+        "name": "50 Squats",
+        "due": "2026-04-07",
+        "completed": false
       },
       {
         "id": "6gJVPPCjg5w2J5c8",
         "name": "10 Pullups",
+        "due": "2026-04-07",
         "completed": false
       }
     ],
