@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-10T05:47:14.320236+00:00"
+    "last_synced": "2026-04-10T06:45:40.765703+00:00"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -39,16 +39,9 @@
   },
   "upcoming_meetings": [
     {
-      "title": "Blocked for Work",
-      "start": "2026-04-09T16:00:00+00:00",
-      "end": "2026-04-09T22:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
       "title": "Jiu Jitsu",
-      "start": "2026-04-09T23:00:00+00:00",
-      "end": "2026-04-10T02:00:00+00:00",
+      "start": "2026-04-13T23:00:00+00:00",
+      "end": "2026-04-14T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -109,9 +102,7 @@
       "due": "2026-04-08",
       "project": "4EVR.ink",
       "priority": 3
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gJvq9q78r7h62h8",
       "content": "Update CRM: Ken Craig \u2014 log outcome of 3/24 consult + update stage/next step",
@@ -125,7 +116,9 @@
       "due": "2026-04-09",
       "project": "Property",
       "priority": 1
-    },
+    }
+  ],
+  "upcoming_tasks": [
     {
       "id": "6gJWf83XJFWv5JcR",
       "content": "Check in with Seth to see when he is available to help",
@@ -156,18 +149,18 @@
     }
   ],
   "habits": {
-    "date": "2026-04-09",
+    "date": "2026-04-10",
     "items": [
+      {
+        "name": "50 Squats",
+        "completed": false
+      },
       {
         "name": "100 Pushups",
         "completed": false
       },
       {
         "name": "10 Pullups",
-        "completed": false
-      },
-      {
-        "name": "50 Squats",
         "completed": false
       }
     ],
