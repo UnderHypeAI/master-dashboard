@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-10T13:42:35.315874+00:00"
+    "last_synced": "2026-04-10T15:50:46.981387+00:00"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -139,6 +139,27 @@
       "due": "2026-04-10",
       "project": "4EVR.ink",
       "priority": 3
+    },
+    {
+      "id": "6gMJph4M8gv74wMg",
+      "content": "CRM follow-up: Shani Razor (UnderHype) \u2014 schedule intro / partnership call",
+      "due": "2026-04-10",
+      "project": "Inbox",
+      "priority": 3
+    },
+    {
+      "id": "6gMJphRpj78rpjQ8",
+      "content": "CRM follow-up: Patriot Auto Glass (Matt) \u2014 reach out + book discovery call",
+      "due": "2026-04-10",
+      "project": "Inbox",
+      "priority": 2
+    },
+    {
+      "id": "6gMJphwX7QMhWGH8",
+      "content": "CRM follow-up: Apparel Company (Jake) \u2014 get status + decide if split record vs HODL Card",
+      "due": "2026-04-10",
+      "project": "Inbox",
+      "priority": 2
     },
     {
       "id": "6g9wRMxvPvH34jGM",
