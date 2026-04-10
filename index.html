@@ -619,11 +619,26 @@
     border-radius: var(--radius-sm);
     padding: 14px 16px;
     transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .habit-item:hover {
+    background: rgba(255,255,255,0.06);
+  }
+
+  .habit-item:active {
+    transform: scale(0.97);
   }
 
   .habit-item.done {
     border-color: rgba(46,204,113,0.3);
     background: rgba(46,204,113,0.05);
+  }
+
+  .habit-item.done:hover {
+    background: rgba(46,204,113,0.08);
   }
 
   .habit-check {
@@ -634,11 +649,19 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: all 0.2s ease;
   }
 
   .habit-check.done {
     background: var(--green);
     border-color: var(--green);
+    animation: habitPop 0.3s ease;
+  }
+
+  @keyframes habitPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
   }
 
   .habit-name {
@@ -1450,7 +1473,10 @@ function daysOverdue(dateStr) {
 fetch('data.json?t=' + Date.now())
   .then(r => r.json())
   .then(d => render(d))
-  .catch(() => console.warn('data.json not found, using fallback'));
+  .catch(() => {
+    console.warn('data.json not found, using fallback');
+    renderHabitsLocal();  // habits always render from localStorage
+  });
 
 function render(d) {
   const meta = d._meta || {};
@@ -1462,7 +1488,8 @@ function render(d) {
   renderMeetings(d.upcoming_meetings);
   renderOverdueTasks(d.overdue_tasks);
   renderUpcomingTasks(d.upcoming_tasks);
-  renderHabits(d.habits);
+  migrateHabitHistory(d.habits);  // one-time migration from data.json
+  renderHabitsLocal();  // habits now self-contained via localStorage
   renderFinancial(d.financial_targets);
   renderMining(d.melear_mining);
   renderBanking(d.banking);
@@ -1626,96 +1653,193 @@ function renderUpcomingTasks(tasks) {
   }
 }
 
-// ── Daily Habits ──────────────────────────────────────────────────────
-function renderHabits(habits) {
-  const row = document.getElementById('habits-row');
-  const stats = document.getElementById('habits-stats');
+// ── Daily Habits (Self-Contained, localStorage) ──────────────────────
+const HABIT_DEFS = [
+  { id: 'pushups',  name: '100 Pushups' },
+  { id: 'pullups',  name: '10 Pullups' },
+  { id: 'squats',   name: '50 Squats' }
+];
 
-  const defaultItems = [
-    { name: '100 Pushups', completed: false },
-    { name: '10 Pullups', completed: false },
-    { name: '50 Squats', completed: false }
-  ];
+const HABITS_STORAGE_KEY = 'lifeos_habits';
 
-  const items = (habits && habits.items) ? habits.items : defaultItems;
-
-  row.innerHTML = items.map(h => `
-    <div class="habit-item ${h.completed ? 'done' : ''}">
-      <div class="habit-check ${h.completed ? 'done' : ''}">
-        ${h.completed
-          ? '<svg width="10" height="8" viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          : ''}
-      </div>
-      <div class="habit-name ${h.completed ? 'done' : ''}">${h.name}</div>
-    </div>
-  `).join('');
-
-  const rate = (habits && habits.completion_rate_30d) ? habits.completion_rate_30d : 0;
-  const streak = (habits && habits.streak) ? habits.streak : 0;
-  const rateColor = rate >= 50 ? 'var(--green)' : rate > 20 ? 'var(--yellow)' : 'var(--red)';
-
-  stats.innerHTML = `
-    <div class="habit-stat-item">30-day rate: <span style="color:${rate ? rateColor : 'var(--text-2)'};">${rate ? Math.round(rate) + '%' : '—'}</span></div>
-    <div class="habit-stat-item">Streak: <span>${streak ? streak + ' day' + (streak !== 1 ? 's' : '') : '—'}</span></div>
-    <div class="habit-goal-note">Goal: 50%+ · Aim: daily</div>
-  `;
-
-  renderHabitTracker(habits ? habits.history : null);
+// Migrate existing data.json history into localStorage (runs once)
+function migrateHabitHistory(habits) {
+  if (!habits || !habits.history || localStorage.getItem('lifeos_habits_migrated')) return;
+  const data = loadHabitData();
+  let migrated = 0;
+  habits.history.forEach(h => {
+    if (h.date && !data[h.date]) {
+      data[h.date] = {};
+      // Map completed count back to individual habits
+      const completedCount = h.completed || 0;
+      HABIT_DEFS.forEach((def, i) => {
+        data[h.date][def.id] = i < completedCount;
+      });
+      migrated++;
+    }
+  });
+  // Also migrate today's state if present
+  if (habits.items && habits.date) {
+    const today = habits.date;
+    if (!data[today]) data[today] = {};
+    habits.items.forEach(item => {
+      const match = HABIT_DEFS.find(d => d.name === item.name);
+      if (match && data[today][match.id] === undefined) {
+        data[today][match.id] = item.completed;
+      }
+    });
+  }
+  if (migrated > 0) saveHabitData(data);
+  localStorage.setItem('lifeos_habits_migrated', 'true');
 }
 
-// ── Habit 28-Day Tracker ───────────────────────────────────────────────
-function renderHabitTracker(history) {
-  const container = document.getElementById('habit-tracker');
-  if (!container) return;
+// Get today's date string in Boise timezone
+function getTodayBoise() {
+  const now = new Date();
+  const boise = new Date(now.toLocaleString('en-US', { timeZone: 'America/Boise' }));
+  const yr = boise.getFullYear();
+  const mo = String(boise.getMonth() + 1).padStart(2, '0');
+  const dy = String(boise.getDate()).padStart(2, '0');
+  return `${yr}-${mo}-${dy}`;
+}
 
-  // Build 28-day window: days -28 through -1 (yesterday)
-  const today = new Date();
-  const days = [];
-  for (let i = 28; i >= 1; i--) {
-    const d = new Date(today);
+// Load all habit data from localStorage
+function loadHabitData() {
+  try {
+    const raw = localStorage.getItem(HABITS_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch(e) { return {}; }
+}
+
+// Save all habit data to localStorage
+function saveHabitData(data) {
+  localStorage.setItem(HABITS_STORAGE_KEY, JSON.stringify(data));
+}
+
+// Get today's habit state, initializing if needed
+function getTodayHabits() {
+  const data = loadHabitData();
+  const today = getTodayBoise();
+  if (!data[today]) {
+    data[today] = {};
+    HABIT_DEFS.forEach(h => { data[today][h.id] = false; });
+    saveHabitData(data);
+  }
+  return data[today];
+}
+
+// Toggle a habit and re-render
+function toggleHabit(habitId) {
+  const data = loadHabitData();
+  const today = getTodayBoise();
+  if (!data[today]) {
+    data[today] = {};
+    HABIT_DEFS.forEach(h => { data[today][h.id] = false; });
+  }
+  data[today][habitId] = !data[today][habitId];
+  saveHabitData(data);
+  renderHabitsLocal();
+}
+
+// Build history array from localStorage for the last N days
+function buildHabitHistory(numDays) {
+  const data = loadHabitData();
+  const now = new Date();
+  const boise = new Date(now.toLocaleString('en-US', { timeZone: 'America/Boise' }));
+  const history = [];
+
+  for (let i = numDays; i >= 1; i--) {
+    const d = new Date(boise);
     d.setDate(d.getDate() - i);
     const yr = d.getFullYear();
     const mo = String(d.getMonth() + 1).padStart(2, '0');
     const dy = String(d.getDate()).padStart(2, '0');
-    days.push({ dateStr: `${yr}-${mo}-${dy}`, d });
-  }
+    const dateStr = `${yr}-${mo}-${dy}`;
+    const dayData = data[dateStr];
 
-  // History lookup map
-  const histMap = {};
-  if (Array.isArray(history)) {
-    history.forEach(h => { histMap[h.date] = h; });
-  }
-
-  // ── Streak calculations ───────────────────────────────────────────
-  // Current streak: consecutive greens walking backwards from yesterday
-  let currentStreak = 0;
-  for (let i = days.length - 1; i >= 0; i--) {
-    const e = histMap[days[i].dateStr];
-    if (e && e.status === 'green') {
-      currentStreak++;
+    if (dayData) {
+      const total = HABIT_DEFS.length;
+      const completed = HABIT_DEFS.filter(h => dayData[h.id]).length;
+      let status;
+      if (completed === total) status = 'green';
+      else if (completed > 0) status = 'yellow';
+      else status = 'red';
+      history.push({ date: dateStr, status, completed, total, d: new Date(d) });
     } else {
-      break;
+      history.push({ date: dateStr, status: null, completed: 0, total: HABIT_DEFS.length, d: new Date(d) });
     }
   }
+  return history;
+}
 
-  // Personal best: longest consecutive green run in the 28-day window
+// Main render function for the habits component
+function renderHabitsLocal() {
+  const row = document.getElementById('habits-row');
+  const stats = document.getElementById('habits-stats');
+
+  const todayState = getTodayHabits();
+
+  // Render clickable habit items
+  row.innerHTML = HABIT_DEFS.map(h => {
+    const done = todayState[h.id];
+    return `
+      <div class="habit-item ${done ? 'done' : ''}" onclick="toggleHabit('${h.id}')">
+        <div class="habit-check ${done ? 'done' : ''}">
+          ${done
+            ? '<svg width="10" height="8" viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+            : ''}
+        </div>
+        <div class="habit-name ${done ? 'done' : ''}">${h.name}</div>
+      </div>
+    `;
+  }).join('');
+
+  // Build history and compute stats
+  const history = buildHabitHistory(28);
+  const daysWithData = history.filter(h => h.status !== null);
+  const greenDays = daysWithData.filter(h => h.status === 'green').length;
+  const rate = daysWithData.length > 0 ? (greenDays / daysWithData.length) * 100 : 0;
+
+  // Current streak: consecutive greens walking back from yesterday
+  let currentStreak = 0;
+  for (let i = history.length - 1; i >= 0; i--) {
+    if (history[i].status === 'green') currentStreak++;
+    else break;
+  }
+
+  // Personal best: longest consecutive green run (look back 90 days)
+  const allHistory = buildHabitHistory(90);
   let bestStreak = 0;
   let run = 0;
-  for (let i = 0; i < days.length; i++) {
-    const e = histMap[days[i].dateStr];
-    if (e && e.status === 'green') {
+  for (let i = 0; i < allHistory.length; i++) {
+    if (allHistory[i].status === 'green') {
       run++;
       if (run > bestStreak) bestStreak = run;
     } else {
       run = 0;
     }
   }
-  // PB is at least the current streak
   if (currentStreak > bestStreak) bestStreak = currentStreak;
 
+  const rateColor = rate >= 50 ? 'var(--green)' : rate > 20 ? 'var(--yellow)' : 'var(--red)';
+
+  stats.innerHTML = `
+    <div class="habit-stat-item">30-day rate: <span style="color:${daysWithData.length > 0 ? rateColor : 'var(--text-2)'};">${daysWithData.length > 0 ? Math.round(rate) + '%' : '\u2014'}</span></div>
+    <div class="habit-stat-item">Streak: <span>${currentStreak ? currentStreak + ' day' + (currentStreak !== 1 ? 's' : '') : '\u2014'}</span></div>
+    <div class="habit-goal-note">Goal: 50%+ \u00b7 Aim: daily</div>
+  `;
+
+  renderHabitTrackerLocal(history, currentStreak, bestStreak);
+}
+
+// ── Habit 28-Day Tracker (localStorage) ──────────────────────────────
+function renderHabitTrackerLocal(history, currentStreak, bestStreak) {
+  const container = document.getElementById('habit-tracker');
+  if (!container) return;
+
   // Streak display values
-  const streakDisplay = currentStreak > 0 ? currentStreak : '—';
-  const pbDisplay     = bestStreak > 0     ? bestStreak     : '—';
+  const streakDisplay = currentStreak > 0 ? currentStreak : '\u2014';
+  const pbDisplay     = bestStreak > 0     ? bestStreak     : '\u2014';
   const streakUnit    = currentStreak === 1 ? 'day' : 'days';
   const pbUnit        = bestStreak === 1    ? 'day' : 'days';
   const streakClass   = currentStreak > 0 ? 'streak-on' : '';
@@ -1727,18 +1851,18 @@ function renderHabitTracker(history) {
     ? `${bestStreak} ${pbUnit} in a row`
     : 'No streak yet';
 
-  // ── Grid ───────────────────────────────────────────────────
-  const fmt = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  const rangeLabel = `${fmt(days[0].d)} → ${fmt(days[27].d)}`;
+  // Grid
+  const fmtD = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const rangeLabel = `${fmtD(history[0].d)} \u2192 ${fmtD(history[history.length - 1].d)}`;
 
   const weekGroups = [0, 1, 2, 3].map(w => {
-    const week = days.slice(w * 7, w * 7 + 7);
-    const boxes = week.map(({ dateStr, d }) => {
-      const e = histMap[dateStr];
-      const cls = e ? e.status : '';
-      const tip = e
-        ? `${fmt(d)}  ·  ${e.completed}/${e.total} done`
-        : `${fmt(d)}  ·  no data`;
+    const week = history.slice(w * 7, w * 7 + 7);
+    const boxes = week.map(h => {
+      const cls = h.status || '';
+      const dateLabel = fmtD(h.d);
+      const tip = h.status
+        ? `${dateLabel}  \u00b7  ${h.completed}/${h.total} done`
+        : `${dateLabel}  \u00b7  no data`;
       return `<div class="habit-day${cls ? ' ' + cls : ''}" data-tip="${tip}"></div>`;
     }).join('');
     return `<div class="habit-week-group">${boxes}</div>`;
@@ -1760,7 +1884,7 @@ function renderHabitTracker(history) {
       </div>
     </div>
     <div class="habit-tracker-header">
-      <span class="habit-tracker-label">28‑Day History</span>
+      <span class="habit-tracker-label">28\u2011Day History</span>
       <span class="habit-tracker-range">${rangeLabel}</span>
     </div>
     <div class="habit-tracker-grid">${gridHtml}</div>
