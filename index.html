@@ -273,6 +273,38 @@
     box-shadow: 0 0 5px rgba(231,76,60,0.3);
   }
 
+  .habit-day.today {
+    animation: todayPulse 2.4s ease-in-out infinite;
+    border-width: 2px;
+    z-index: 10;
+  }
+
+  /* Unchecked today: subtle white border pulse */
+  .habit-day.today:not(.green):not(.yellow) {
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* Partial today: gold glow */
+  .habit-day.today.yellow {
+    box-shadow: 0 0 8px rgba(241,196,15,0.5), 0 0 16px rgba(241,196,15,0.15);
+  }
+
+  /* All-done today: green glow */
+  .habit-day.today.green {
+    box-shadow: 0 0 8px rgba(46,204,113,0.55), 0 0 16px rgba(46,204,113,0.2);
+  }
+
+  @keyframes todayPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  .habit-day.today:hover {
+    animation: none;
+    transform: scale(1.35);
+  }
+
   /* CSS tooltip */
   .habit-day[data-tip]:hover::after {
     content: attr(data-tip);
@@ -2050,7 +2082,7 @@ function buildHabitHistory(numDays) {
   const boise = new Date(now.toLocaleString('en-US', { timeZone: 'America/Boise' }));
   const history = [];
 
-  for (let i = numDays; i >= 1; i--) {
+  for (let i = numDays; i >= 0; i--) {
     const d = new Date(boise);
     d.setDate(d.getDate() - i);
     const yr = d.getFullYear();
@@ -2066,9 +2098,9 @@ function buildHabitHistory(numDays) {
       if (completed === total) status = 'green';
       else if (completed > 0) status = 'yellow';
       else status = 'red';
-      history.push({ date: dateStr, status, completed, total, d: new Date(d) });
+      history.push({ date: dateStr, status, completed, total, d: new Date(d), isToday: i === 0 });
     } else {
-      history.push({ date: dateStr, status: null, completed: 0, total: HABIT_DEFS.length, d: new Date(d) });
+      history.push({ date: dateStr, status: null, completed: 0, total: HABIT_DEFS.length, d: new Date(d), isToday: i === 0 });
     }
   }
   return history;
@@ -2102,9 +2134,13 @@ function renderHabitsLocal() {
   const greenDays = daysWithData.filter(h => h.status === 'green').length;
   const rate = daysWithData.length > 0 ? (greenDays / daysWithData.length) * 100 : 0;
 
-  // Current streak: consecutive greens walking back from yesterday
+  // Current streak: consecutive greens walking back
+  // Skip today (last entry) unless it's already green — today is still in progress
   let currentStreak = 0;
-  for (let i = history.length - 1; i >= 0; i--) {
+  const startIdx = (history.length > 0 && history[history.length - 1].isToday && history[history.length - 1].status !== 'green')
+    ? history.length - 2
+    : history.length - 1;
+  for (let i = startIdx; i >= 0; i--) {
     if (history[i].status === 'green') currentStreak++;
     else break;
   }
@@ -2155,17 +2191,21 @@ function renderHabitTrackerLocal(history, currentStreak, bestStreak) {
 
   // Grid
   const fmtD = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  const rangeLabel = `${fmtD(history[0].d)} \u2192 ${fmtD(history[history.length - 1].d)}`;
+  const last = history[history.length - 1];
+  const endLabel = last.isToday ? 'Today' : fmtD(last.d);
+  const rangeLabel = `${fmtD(history[0].d)} \u2192 ${endLabel}`;
 
   const weekGroups = [0, 1, 2, 3].map(w => {
     const week = history.slice(w * 7, w * 7 + 7);
     const boxes = week.map(h => {
       const cls = h.status || '';
+      const todayCls = h.isToday ? ' today' : '';
       const dateLabel = fmtD(h.d);
+      const todayLabel = h.isToday ? '  (today)' : '';
       const tip = h.status
-        ? `${dateLabel}  \u00b7  ${h.completed}/${h.total} done`
-        : `${dateLabel}  \u00b7  no data`;
-      return `<div class="habit-day${cls ? ' ' + cls : ''}" data-tip="${tip}"></div>`;
+        ? `${dateLabel}${todayLabel}  \u00b7  ${h.completed}/${h.total} done`
+        : `${dateLabel}${todayLabel}  \u00b7  no data`;
+      return `<div class="habit-day${cls ? ' ' + cls : ''}${todayCls}" data-tip="${tip}"></div>`;
     }).join('');
     return `<div class="habit-week-group">${boxes}</div>`;
   });
