@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-11T15:48:41.369492+00:00"
+    "last_synced": "2026-04-11T16:51:20.734331+00:00"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -187,15 +187,15 @@
     "date": "2026-04-11",
     "items": [
       {
-        "name": "10 Pullups",
-        "completed": false
-      },
-      {
         "name": "100 Pushups",
         "completed": false
       },
       {
         "name": "50 Squats",
+        "completed": false
+      },
+      {
+        "name": "10 Pullups",
         "completed": false
       }
     ],
