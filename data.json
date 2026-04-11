@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-11T22:42:15.236292+00:00"
+    "last_synced": "2026-04-11T23:43:29.404284+00:00"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -62,34 +62,6 @@
   ],
   "overdue_tasks": [
     {
-      "id": "6gJWmwggfXCFvm5V",
-      "content": "Order swag for the Bitcoin Conference",
-      "due": "2026-04-07",
-      "project": "4EVR.ink",
-      "priority": 4
-    },
-    {
-      "id": "6gCQj2g5jh8HpV8V",
-      "content": "Full mobile QA pass (iPhone + Android)",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gCQj2gRHHpmc6xV",
-      "content": "Post launch announcement on Nostr",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 2
-    },
-    {
-      "id": "6gCQj2gWw82mJ8rV",
-      "content": "Post on r/Bitcoin (educational, not salesy)",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 2
-    },
-    {
       "id": "6gJvq8MJHgmRwcXg",
       "content": "Text Nik (West Idaho BJJ) re: proposal PDFs + quick 20-min in-person",
       "due": "2026-04-08",
@@ -97,25 +69,11 @@
       "priority": 4
     },
     {
-      "id": "6gCQj2hFvw7XQh9V",
-      "content": "Write launch X thread (announcement + demo)",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
       "id": "6gJvq993g4rJ9Qhg",
       "content": "Follow up w/ Josh (MAR Candle Co) \u2014 log outcome of 3/24 + next phase",
       "due": "2026-04-08",
       "project": "Inbox",
       "priority": 4
-    },
-    {
-      "id": "6gFX2MghPCg32FgV",
-      "content": "[Kristo/Aaron - Demo] Inform Kristo of official product launch date and next steps for engagement and partnership discussions",
-      "due": "2026-04-08",
-      "project": "4EVR.ink",
-      "priority": 3
     },
     {
       "id": "6gJvq9q78r7h62h8",
@@ -137,20 +95,6 @@
       "due": "2026-04-10",
       "project": "Home Projects",
       "priority": 1
-    },
-    {
-      "id": "6gCQhvw33Xh2pCvV",
-      "content": "End-to-end test: OpenNode Bitcoin payment flow",
-      "due": "2026-04-10",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gCQj2mgVqP3Vv7V",
-      "content": "Test failure paths: payment declined, BTC broadcast fails, network timeout",
-      "due": "2026-04-10",
-      "project": "4EVR.ink",
-      "priority": 3
     },
     {
       "id": "6gMJph4M8gv74wMg",
@@ -181,6 +125,13 @@
       "due": "2026-04-11",
       "project": "Property",
       "priority": 1
+    },
+    {
+      "id": "6gJWmwggfXCFvm5V",
+      "content": "Order swag for the Bitcoin Conference",
+      "due": "2026-04-12",
+      "project": "4EVR.ink",
+      "priority": 4
     }
   ],
   "habits": {
