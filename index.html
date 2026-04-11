@@ -389,6 +389,7 @@
     padding: 18px 20px;
     border-left: 3px solid var(--orange);
     transition: border-color 0.2s, background 0.2s;
+    position: relative;
   }
 
   .critical-item:hover {
@@ -440,6 +441,142 @@
     border: 1px solid var(--text-3);
     flex-shrink: 0;
     margin-top: 4px;
+  }
+
+  /* ── Critical Few: Editable ── */
+  .cf-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .cf-add-btn {
+    background: var(--orange-dim);
+    color: var(--orange);
+    border: 1px solid rgba(247,147,26,0.25);
+    border-radius: var(--radius-sm);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .cf-add-btn:hover {
+    background: rgba(247,147,26,0.22);
+    border-color: var(--orange);
+  }
+
+  .cf-add-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .cf-remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-3);
+    cursor: pointer;
+    font-size: 16px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s, background 0.15s;
+  }
+
+  .critical-item:hover .cf-remove-btn {
+    opacity: 1;
+  }
+
+  .cf-remove-btn:hover {
+    color: var(--red);
+    background: var(--red-dim);
+  }
+
+  .cf-editable {
+    cursor: text;
+    outline: none;
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin: -2px -4px;
+    transition: background 0.15s;
+  }
+
+  .cf-editable:hover {
+    background: rgba(255,255,255,0.04);
+  }
+
+  .cf-editable:focus {
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 0 0 1px rgba(247,147,26,0.3);
+  }
+
+  .cf-editable[data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: var(--text-3);
+    pointer-events: none;
+  }
+
+  .cf-subtask-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .cf-subtask-remove {
+    background: none;
+    border: none;
+    color: var(--text-3);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0 2px;
+    margin-top: 0px;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+    flex-shrink: 0;
+  }
+
+  .cf-subtask-row:hover .cf-subtask-remove {
+    opacity: 1;
+  }
+
+  .cf-subtask-remove:hover {
+    color: var(--red);
+  }
+
+  .cf-add-subtask {
+    font-size: 11px;
+    color: var(--text-3);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 0;
+    margin-top: 4px;
+    font-family: var(--font);
+    transition: color 0.15s;
+  }
+
+  .cf-add-subtask:hover {
+    color: var(--orange);
+  }
+
+  .cf-count {
+    font-size: 11px;
+    color: var(--text-3);
+    font-weight: 500;
   }
 
   /* ── Grid Layouts ── */
@@ -1130,7 +1267,13 @@
     <!--  SECTION 1: CRITICAL FEW                           -->
     <!-- ─────────────────────────────────────────────────── -->
     <div>
-      <div class="section-label">CRITICAL FEW</div>
+      <div class="cf-header-row">
+        <div class="section-label" style="margin-bottom:0">CRITICAL FEW</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="cf-count" id="cf-count"></span>
+          <button class="cf-add-btn" id="cf-add-btn" onclick="cfAddItem()">+ Add</button>
+        </div>
+      </div>
       <div class="critical-few-grid" id="critical-few-grid">
         <!-- Populated by JS -->
       </div>
@@ -1475,6 +1618,7 @@ fetch('data.json?t=' + Date.now())
   .then(d => render(d))
   .catch(() => {
     console.warn('data.json not found, using fallback');
+    renderCriticalFewLocal();  // Critical Few from localStorage
     renderHabitsLocal();  // habits always render from localStorage
   });
 
@@ -1484,7 +1628,8 @@ function render(d) {
     document.getElementById('last-synced').textContent = timeAgo(meta.last_synced);
   }
 
-  renderCriticalFew(d.critical_few);
+  migrateCriticalFew(d.critical_few);  // one-time migration from data.json
+  renderCriticalFewLocal();  // Critical Few now self-contained via localStorage
   renderMeetings(d.upcoming_meetings);
   renderOverdueTasks(d.overdue_tasks);
   renderUpcomingTasks(d.upcoming_tasks);
@@ -1496,39 +1641,196 @@ function render(d) {
   renderVentures(d);
 }
 
-// ── Critical Few ──────────────────────────────────────────────────────
-function renderCriticalFew(cf) {
-  if (!cf || !cf.items) return;
+// ── Critical Few (Self-Contained, localStorage) ──────────────────────
+const CF_STORAGE_KEY = 'lifeos_critical_few';
+const CF_MIN = 3;
+const CF_MAX = 5;
+
+const CF_DEFAULTS = [
+  { content: 'Priority 1', description: '', subtasks: [] },
+  { content: 'Priority 2', description: '', subtasks: [] },
+  { content: 'Priority 3', description: '', subtasks: [] }
+];
+
+// Migrate from data.json into localStorage (runs once)
+function migrateCriticalFew(cf) {
+  if (!cf || !cf.items || localStorage.getItem('lifeos_cf_migrated')) return;
+  const existing = loadCriticalFew();
+  // Only migrate if localStorage is empty (defaults)
+  if (existing._migrated) return;
+  const items = cf.items.map(item => ({
+    content: item.content || '',
+    description: item.description || '',
+    subtasks: (item.subtasks || []).slice()
+  }));
+  // Enforce min/max
+  while (items.length < CF_MIN) items.push({ content: '', description: '', subtasks: [] });
+  if (items.length > CF_MAX) items.length = CF_MAX;
+  saveCriticalFew(items);
+  localStorage.setItem('lifeos_cf_migrated', 'true');
+}
+
+function loadCriticalFew() {
+  try {
+    const raw = localStorage.getItem(CF_STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch(e) {}
+  return CF_DEFAULTS.map(d => ({...d, subtasks: [...d.subtasks]}));
+}
+
+function saveCriticalFew(items) {
+  localStorage.setItem(CF_STORAGE_KEY, JSON.stringify(items));
+}
+
+function renderCriticalFewLocal() {
+  const items = loadCriticalFew();
   const grid = document.getElementById('critical-few-grid');
+  const countEl = document.getElementById('cf-count');
+  const addBtn = document.getElementById('cf-add-btn');
   grid.innerHTML = '';
 
-  cf.items.forEach((item, i) => {
+  countEl.textContent = items.length + '/' + CF_MAX;
+  addBtn.disabled = items.length >= CF_MAX;
+
+  items.forEach((item, i) => {
     const el = document.createElement('div');
     el.className = 'critical-item';
 
-    let subtasksHTML = '';
+    // Subtasks HTML (editable)
+    let subtasksHTML = '<div class="subtask-list">';
     if (item.subtasks && item.subtasks.length) {
-      subtasksHTML = `<div class="subtask-list">` +
-        item.subtasks.map(s => `
-          <div class="subtask">
-            <div class="subtask-dot"></div>
-            <span>${s}</span>
-          </div>`).join('') +
-        `</div>`;
+      item.subtasks.forEach((s, si) => {
+        subtasksHTML += `
+          <div class="cf-subtask-row">
+            <div class="subtask-dot" style="margin-top:5px"></div>
+            <span class="cf-editable subtask" contenteditable="true"
+              data-placeholder="Subtask..."
+              data-idx="${i}" data-sidx="${si}"
+              onblur="cfSaveSubtask(this)"
+              onkeydown="cfSubtaskKey(event, this)">${escHTML(s)}</span>
+            <button class="cf-subtask-remove" onclick="cfRemoveSubtask(${i},${si})" title="Remove subtask">&times;</button>
+          </div>`;
+      });
     }
+    subtasksHTML += '</div>';
+    subtasksHTML += `<button class="cf-add-subtask" onclick="cfAddSubtask(${i})">+ subtask</button>`;
 
-    const descHTML = item.description
-      ? `<div class="critical-desc">${item.description}</div>`
+    // Remove button (hidden if at minimum)
+    const removeHTML = items.length > CF_MIN
+      ? `<button class="cf-remove-btn" onclick="cfRemoveItem(${i})" title="Remove">&times;</button>`
       : '';
 
     el.innerHTML = `
+      ${removeHTML}
       <div class="critical-number">0${i + 1}</div>
-      <div class="critical-title">${item.content}</div>
-      ${descHTML}
+      <div class="critical-title cf-editable" contenteditable="true"
+        data-placeholder="What matters most?"
+        data-idx="${i}" data-field="content"
+        onblur="cfSaveField(this)"
+        onkeydown="cfFieldKey(event, this)">${escHTML(item.content)}</div>
+      <div class="critical-desc cf-editable" contenteditable="true"
+        data-placeholder="Add detail or context..."
+        data-idx="${i}" data-field="description"
+        onblur="cfSaveField(this)"
+        onkeydown="cfFieldKey(event, this)">${escHTML(item.description)}</div>
       ${subtasksHTML}
     `;
     grid.appendChild(el);
   });
+}
+
+function escHTML(str) {
+  if (!str) return '';
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Save title / description on blur
+function cfSaveField(el) {
+  const items = loadCriticalFew();
+  const idx = +el.dataset.idx;
+  const field = el.dataset.field;
+  items[idx][field] = el.textContent.trim();
+  saveCriticalFew(items);
+}
+
+// Enter → blur (don't allow newlines in title/desc)
+function cfFieldKey(e, el) {
+  if (e.key === 'Enter') { e.preventDefault(); el.blur(); }
+}
+
+// Save subtask text on blur
+function cfSaveSubtask(el) {
+  const items = loadCriticalFew();
+  const idx = +el.dataset.idx;
+  const sidx = +el.dataset.sidx;
+  const text = el.textContent.trim();
+  if (text === '' && items[idx].subtasks.length > 0) {
+    // Empty subtask → remove it
+    items[idx].subtasks.splice(sidx, 1);
+    saveCriticalFew(items);
+    renderCriticalFewLocal();
+    return;
+  }
+  items[idx].subtasks[sidx] = text;
+  saveCriticalFew(items);
+}
+
+// Enter on subtask → add new subtask below; Backspace on empty → remove
+function cfSubtaskKey(e, el) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    cfSaveSubtask(el);
+    cfAddSubtask(+el.dataset.idx, +el.dataset.sidx + 1);
+  }
+  if (e.key === 'Backspace' && el.textContent.trim() === '') {
+    e.preventDefault();
+    cfRemoveSubtask(+el.dataset.idx, +el.dataset.sidx);
+  }
+}
+
+function cfAddSubtask(itemIdx, atPosition) {
+  const items = loadCriticalFew();
+  const pos = atPosition !== undefined ? atPosition : items[itemIdx].subtasks.length;
+  items[itemIdx].subtasks.splice(pos, 0, '');
+  saveCriticalFew(items);
+  renderCriticalFewLocal();
+  // Focus the new subtask
+  const grid = document.getElementById('critical-few-grid');
+  const card = grid.children[itemIdx];
+  if (card) {
+    const subs = card.querySelectorAll('.cf-subtask-row .cf-editable');
+    if (subs[pos]) subs[pos].focus();
+  }
+}
+
+function cfRemoveSubtask(itemIdx, subIdx) {
+  const items = loadCriticalFew();
+  items[itemIdx].subtasks.splice(subIdx, 1);
+  saveCriticalFew(items);
+  renderCriticalFewLocal();
+}
+
+function cfAddItem() {
+  const items = loadCriticalFew();
+  if (items.length >= CF_MAX) return;
+  items.push({ content: '', description: '', subtasks: [] });
+  saveCriticalFew(items);
+  renderCriticalFewLocal();
+  // Focus the new item's title
+  const grid = document.getElementById('critical-few-grid');
+  const newCard = grid.children[items.length - 1];
+  if (newCard) {
+    const title = newCard.querySelector('.critical-title');
+    if (title) title.focus();
+  }
+}
+
+function cfRemoveItem(idx) {
+  const items = loadCriticalFew();
+  if (items.length <= CF_MIN) return;
+  items.splice(idx, 1);
+  saveCriticalFew(items);
+  renderCriticalFewLocal();
 }
 
 // ── Meetings ──────────────────────────────────────────────────────────
