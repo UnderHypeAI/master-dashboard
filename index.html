@@ -2128,8 +2128,8 @@ function renderHabitsLocal() {
     `;
   }).join('');
 
-  // Build history and compute stats
-  const history = buildHabitHistory(28);
+  // Build history and compute stats (27 past days + today = 28 boxes)
+  const history = buildHabitHistory(27);
   const daysWithData = history.filter(h => h.status !== null);
   const greenDays = daysWithData.filter(h => h.status === 'green').length;
   const rate = daysWithData.length > 0 ? (greenDays / daysWithData.length) * 100 : 0;
