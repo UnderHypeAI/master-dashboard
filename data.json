@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-12T18:46:21.805886+00:00"
+    "last_synced": "2026-04-12T19:43:18.997046+00:00"
   },
   "upcoming_meetings": [
     {
@@ -34,27 +34,6 @@
   ],
   "overdue_tasks": [
     {
-      "id": "6gJvq8MJHgmRwcXg",
-      "content": "Text Nik (West Idaho BJJ) re: proposal PDFs + quick 20-min in-person",
-      "due": "2026-04-08",
-      "project": "Inbox",
-      "priority": 4
-    },
-    {
-      "id": "6gJvq993g4rJ9Qhg",
-      "content": "Follow up w/ Josh (MAR Candle Co) \u2014 log outcome of 3/24 + next phase",
-      "due": "2026-04-08",
-      "project": "Inbox",
-      "priority": 4
-    },
-    {
-      "id": "6gJvq9q78r7h62h8",
-      "content": "Update CRM: Ken Craig \u2014 log outcome of 3/24 consult + update stage/next step",
-      "due": "2026-04-09",
-      "project": "Inbox",
-      "priority": 3
-    },
-    {
       "id": "6gJWr8QVWgF7RJcM",
       "content": "Ask Silas if he wants the job",
       "due": "2026-04-09",
@@ -67,27 +46,6 @@
       "due": "2026-04-10",
       "project": "Home Projects",
       "priority": 1
-    },
-    {
-      "id": "6gMJph4M8gv74wMg",
-      "content": "CRM follow-up: Shani Razor (UnderHype) \u2014 schedule intro / partnership call",
-      "due": "2026-04-10",
-      "project": "Inbox",
-      "priority": 3
-    },
-    {
-      "id": "6gMJphRpj78rpjQ8",
-      "content": "CRM follow-up: Patriot Auto Glass (Matt) \u2014 reach out + book discovery call",
-      "due": "2026-04-10",
-      "project": "Inbox",
-      "priority": 2
-    },
-    {
-      "id": "6gMJphwX7QMhWGH8",
-      "content": "CRM follow-up: Apparel Company (Jake) \u2014 get status + decide if split record vs HODL Card",
-      "due": "2026-04-10",
-      "project": "Inbox",
-      "priority": 2
     },
     {
       "id": "6g9wRMxvPvH34jGM",
@@ -304,11 +262,11 @@
     "date": "2026-04-12",
     "items": [
       {
-        "name": "100 Pushups",
+        "name": "10 Pullups",
         "completed": false
       },
       {
-        "name": "10 Pullups",
+        "name": "100 Pushups",
         "completed": false
       },
       {
