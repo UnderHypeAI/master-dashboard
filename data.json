@@ -157,7 +157,10 @@
         "completed": false
       }
     ],
-    "all_done_today": false
+    "all_done_today": false,
+    "history": [
+      { "date": "2026-04-11", "completed": 1 }
+    ]
   },
   "banking": {
     "accounts": [

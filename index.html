@@ -255,16 +255,33 @@
     filter: brightness(1.2);
   }
 
-  .habit-day.green {
-    background: var(--green);
+  /* 1 of 3 exercises — muted green */
+  .habit-day.green-1 {
+    background: #1a6b3a;
+    border-color: transparent;
+    box-shadow: 0 0 4px rgba(26,107,58,0.3);
+  }
+
+  /* 2 of 3 exercises — brighter green */
+  .habit-day.green-2 {
+    background: #2ecc71;
     border-color: transparent;
     box-shadow: 0 0 6px rgba(46,204,113,0.4);
   }
 
-  .habit-day.yellow {
-    background: var(--yellow);
+  /* 3 of 3 exercises — brightest green with shine */
+  .habit-day.green-3 {
+    background: linear-gradient(135deg, #2ecc71 0%, #58e89e 45%, #a0ffc8 55%, #2ecc71 100%);
+    background-size: 200% 200%;
     border-color: transparent;
-    box-shadow: 0 0 6px rgba(241,196,15,0.35);
+    box-shadow: 0 0 10px rgba(46,204,113,0.55), 0 0 20px rgba(46,204,113,0.2), inset 0 0 6px rgba(255,255,255,0.15);
+    animation: shineSlide 3s ease-in-out infinite;
+  }
+
+  @keyframes shineSlide {
+    0%   { background-position: 200% 200%; }
+    50%  { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
   }
 
   .habit-day.red {
@@ -279,20 +296,30 @@
     z-index: 10;
   }
 
+  /* green-3 today: combine pulse + shine */
+  .habit-day.today.green-3 {
+    animation: shineSlide 3s ease-in-out infinite, todayPulse 2.4s ease-in-out infinite;
+  }
+
   /* Unchecked today: subtle white border pulse */
-  .habit-day.today:not(.green):not(.yellow) {
+  .habit-day.today:not(.green-1):not(.green-2):not(.green-3) {
     border-color: rgba(255,255,255,0.25);
     background: rgba(255,255,255,0.06);
   }
 
-  /* Partial today: gold glow */
-  .habit-day.today.yellow {
-    box-shadow: 0 0 8px rgba(241,196,15,0.5), 0 0 16px rgba(241,196,15,0.15);
+  /* Partial today (1 of 3): muted green glow */
+  .habit-day.today.green-1 {
+    box-shadow: 0 0 8px rgba(26,107,58,0.5), 0 0 16px rgba(26,107,58,0.15);
   }
 
-  /* All-done today: green glow */
-  .habit-day.today.green {
+  /* Partial today (2 of 3): brighter green glow */
+  .habit-day.today.green-2 {
     box-shadow: 0 0 8px rgba(46,204,113,0.55), 0 0 16px rgba(46,204,113,0.2);
+  }
+
+  /* All-done today: brightest green glow */
+  .habit-day.today.green-3 {
+    box-shadow: 0 0 12px rgba(46,204,113,0.65), 0 0 24px rgba(46,204,113,0.25), inset 0 0 6px rgba(255,255,255,0.15);
   }
 
   @keyframes todayPulse {
@@ -349,10 +376,11 @@
     flex-shrink: 0;
   }
 
-  .habit-legend-swatch.green  { background: var(--green); }
-  .habit-legend-swatch.yellow { background: var(--yellow); }
-  .habit-legend-swatch.red    { background: var(--red); }
-  .habit-legend-swatch.empty  { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); }
+  .habit-legend-swatch.green-3 { background: #2ecc71; box-shadow: 0 0 4px rgba(46,204,113,0.5); }
+  .habit-legend-swatch.green-2 { background: #2ecc71; }
+  .habit-legend-swatch.green-1 { background: #1a6b3a; }
+  .habit-legend-swatch.red     { background: var(--red); }
+  .habit-legend-swatch.empty   { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); }
 
   .habit-streak-row {
     display: flex;
@@ -2027,6 +2055,22 @@ function migrateHabitHistory(habits) {
   localStorage.setItem('lifeos_habits_migrated', 'true');
 }
 
+// One-time fix: Aaron completed 100 push-ups on Apr 11 before midnight
+// but the sync captured it as 0/3. Seed the correct data.
+(function fixApr11Habits() {
+  const key = 'lifeos_habits';
+  try {
+    const raw = localStorage.getItem(key);
+    const data = raw ? JSON.parse(raw) : {};
+    if (!data['2026-04-11']) {
+      data['2026-04-11'] = { pushups: true, pullups: false, squats: false };
+    } else if (!data['2026-04-11'].pushups) {
+      data['2026-04-11'].pushups = true;
+    }
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch(e) { /* silent */ }
+})();
+
 // Get today's date string in Boise timezone
 function getTodayBoise() {
   const now = new Date();
@@ -2095,8 +2139,9 @@ function buildHabitHistory(numDays) {
       const total = HABIT_DEFS.length;
       const completed = HABIT_DEFS.filter(h => dayData[h.id]).length;
       let status;
-      if (completed === total) status = 'green';
-      else if (completed > 0) status = 'yellow';
+      if (completed === total) status = 'green-3';
+      else if (completed === 2) status = 'green-2';
+      else if (completed === 1) status = 'green-1';
       else status = 'red';
       history.push({ date: dateStr, status, completed, total, d: new Date(d), isToday: i === 0 });
     } else {
@@ -2131,26 +2176,28 @@ function renderHabitsLocal() {
   // Build history and compute stats (27 past days + today = 28 boxes)
   const history = buildHabitHistory(27);
   const daysWithData = history.filter(h => h.status !== null);
-  const greenDays = daysWithData.filter(h => h.status === 'green').length;
-  const rate = daysWithData.length > 0 ? (greenDays / daysWithData.length) * 100 : 0;
+  const greenDays = daysWithData.filter(h => h.status === 'green-3').length;
+  const activeDays = daysWithData.filter(h => h.status && h.status.startsWith('green')).length;
+  const rate = daysWithData.length > 0 ? (activeDays / daysWithData.length) * 100 : 0;
 
-  // Current streak: consecutive greens walking back
-  // Skip today (last entry) unless it's already green — today is still in progress
+  // Current streak: consecutive days with any exercise, walking back
+  // Skip today (last entry) unless it already has exercise — today is still in progress
+  const isGreen = s => s && s.startsWith('green');
   let currentStreak = 0;
-  const startIdx = (history.length > 0 && history[history.length - 1].isToday && history[history.length - 1].status !== 'green')
+  const startIdx = (history.length > 0 && history[history.length - 1].isToday && !isGreen(history[history.length - 1].status))
     ? history.length - 2
     : history.length - 1;
   for (let i = startIdx; i >= 0; i--) {
-    if (history[i].status === 'green') currentStreak++;
+    if (isGreen(history[i].status)) currentStreak++;
     else break;
   }
 
-  // Personal best: longest consecutive green run (look back 90 days)
+  // Personal best: longest consecutive active run (look back 90 days)
   const allHistory = buildHabitHistory(90);
   let bestStreak = 0;
   let run = 0;
   for (let i = 0; i < allHistory.length; i++) {
-    if (allHistory[i].status === 'green') {
+    if (isGreen(allHistory[i].status)) {
       run++;
       if (run > bestStreak) bestStreak = run;
     } else {
@@ -2159,10 +2206,10 @@ function renderHabitsLocal() {
   }
   if (currentStreak > bestStreak) bestStreak = currentStreak;
 
-  const rateColor = rate >= 50 ? 'var(--green)' : rate > 20 ? 'var(--yellow)' : 'var(--red)';
+  const rateColor = rate >= 50 ? 'var(--green)' : rate > 20 ? '#1a6b3a' : 'var(--red)';
 
   stats.innerHTML = `
-    <div class="habit-stat-item">30-day rate: <span style="color:${daysWithData.length > 0 ? rateColor : 'var(--text-2)'};">${daysWithData.length > 0 ? Math.round(rate) + '%' : '\u2014'}</span></div>
+    <div class="habit-stat-item">30-day active rate: <span style="color:${daysWithData.length > 0 ? rateColor : 'var(--text-2)'};">${daysWithData.length > 0 ? Math.round(rate) + '%' : '\u2014'}</span></div>
     <div class="habit-stat-item">Streak: <span>${currentStreak ? currentStreak + ' day' + (currentStreak !== 1 ? 's' : '') : '\u2014'}</span></div>
     <div class="habit-goal-note">Goal: 50%+ \u00b7 Aim: daily</div>
   `;
@@ -2184,7 +2231,7 @@ function renderHabitTrackerLocal(history, currentStreak, bestStreak) {
   const pbClass       = bestStreak > 0    ? 'pb-on'     : '';
   const streakSub     = currentStreak > 0
     ? (currentStreak === 1 ? 'Keep it going!' : `${currentStreak} ${streakUnit} strong`)
-    : 'Hit all 3 to start';
+    : 'Do any exercise to start';
   const pbSub = bestStreak > 0
     ? `${bestStreak} ${pbUnit} in a row`
     : 'No streak yet';
@@ -2231,8 +2278,9 @@ function renderHabitTrackerLocal(history, currentStreak, bestStreak) {
     </div>
     <div class="habit-tracker-grid">${gridHtml}</div>
     <div class="habit-tracker-legend">
-      <span class="habit-legend-item"><span class="habit-legend-swatch green"></span>All done</span>
-      <span class="habit-legend-item"><span class="habit-legend-swatch yellow"></span>Partial</span>
+      <span class="habit-legend-item"><span class="habit-legend-swatch green-3"></span>3/3</span>
+      <span class="habit-legend-item"><span class="habit-legend-swatch green-2"></span>2/3</span>
+      <span class="habit-legend-item"><span class="habit-legend-swatch green-1"></span>1/3</span>
       <span class="habit-legend-item"><span class="habit-legend-swatch red"></span>Missed</span>
       <span class="habit-legend-item"><span class="habit-legend-swatch empty"></span>No data</span>
     </div>
