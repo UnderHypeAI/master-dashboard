@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-12T14:47:19.505708+00:00"
+    "last_synced": "2026-04-12T17:44:28.311039+00:00"
   },
   "upcoming_meetings": [
     {
@@ -299,5 +299,23 @@
     "active_projects": 2,
     "monthly_expenses": 3200,
     "maintenance_overdue": 0
+  },
+  "habits": {
+    "date": "2026-04-12",
+    "items": [
+      {
+        "name": "100 Pushups",
+        "completed": false
+      },
+      {
+        "name": "50 Squats",
+        "completed": false
+      },
+      {
+        "name": "10 Pullups",
+        "completed": false
+      }
+    ],
+    "all_done_today": false
   }
 }
