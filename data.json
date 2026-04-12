@@ -1,41 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-12T16:46:59.731885+00:00"
-  },
-  "critical_few": {
-    "last_synced": "2026-04-05T23:35:00.000000+00:00",
-    "source": "todoist",
-    "project": "Critical Few",
-    "items": [
-      {
-        "id": "6gJF5PjQ6m7RFP43",
-        "content": "Help make Coleen's visit better",
-        "subtasks": [
-          "Make sure room and bathroom are clean"
-        ]
-      },
-      {
-        "id": "6gJF5VxcqJ6358X3",
-        "content": "Take steps forward with business ventures",
-        "description": "Top focus: 4EVR.ink launch \u2192 UnderHype freemium \u2192 Patient Gangster, Emmett Weekly, MAR Candle Co.",
-        "subtasks": []
-      },
-      {
-        "id": "6gJF5qJ8m7fqpj63",
-        "content": "Get Personal OS built for further efficiency",
-        "subtasks": [
-          "Build simpler Todoist system",
-          "Transition to Mercury Bank",
-          "Iterate Master Dash",
-          "Create weekly cadence"
-        ]
-      },
-      {
-        "id": "6gJFPF7GCCjV85V3",
-        "content": "Finish Taxes",
-        "subtasks": []
-      }
-    ]
+    "last_synced": "2026-04-12T14:47:19.505708+00:00"
   },
   "upcoming_meetings": [
     {
@@ -141,30 +106,6 @@
       "priority": 4
     }
   ],
-  "habits": {
-    "date": "2026-04-12",
-    "items": [
-      {
-        "name": "50 Squats",
-        "completed": false
-      },
-      {
-        "name": "10 Pullups",
-        "completed": false
-      },
-      {
-        "name": "100 Pushups",
-        "completed": false
-      }
-    ],
-    "all_done_today": false,
-    "history": [
-      {
-        "date": "2026-04-11",
-        "completed": 1
-      }
-    ]
-  },
   "banking": {
     "accounts": [
       {

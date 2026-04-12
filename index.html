@@ -1688,13 +1688,11 @@ function render(d) {
     document.getElementById('last-synced').textContent = timeAgo(meta.last_synced);
   }
 
-  migrateCriticalFew(d.critical_few);  // one-time migration from data.json
-  renderCriticalFewLocal();  // Critical Few now self-contained via localStorage
+  renderCriticalFewLocal();  // Critical Few is fully self-contained via localStorage
   renderMeetings(d.upcoming_meetings);
   renderOverdueTasks(d.overdue_tasks);
   renderUpcomingTasks(d.upcoming_tasks);
-  migrateHabitHistory(d.habits);  // one-time migration from data.json
-  renderHabitsLocal();  // habits now self-contained via localStorage
+  renderHabitsLocal();  // habits are fully self-contained via localStorage
   renderFinancial(d.financial_targets);
   renderMining(d.melear_mining);
   renderBanking(d.banking);
@@ -1713,22 +1711,7 @@ const CF_DEFAULTS = [
 ];
 
 // Migrate from data.json into localStorage (runs once)
-function migrateCriticalFew(cf) {
-  if (!cf || !cf.items || localStorage.getItem('lifeos_cf_migrated')) return;
-  const existing = loadCriticalFew();
-  // Only migrate if localStorage is empty (defaults)
-  if (existing._migrated) return;
-  const items = cf.items.map(item => ({
-    content: item.content || '',
-    description: item.description || '',
-    subtasks: (item.subtasks || []).slice()
-  }));
-  // Enforce min/max
-  while (items.length < CF_MIN) items.push({ content: '', description: '', subtasks: [] });
-  if (items.length > CF_MAX) items.length = CF_MAX;
-  saveCriticalFew(items);
-  localStorage.setItem('lifeos_cf_migrated', 'true');
-}
+// migrateCriticalFew removed — Critical Few is dashboard-only (localStorage)
 
 function loadCriticalFew() {
   try {
@@ -2024,36 +2007,7 @@ const HABIT_DEFS = [
 
 const HABITS_STORAGE_KEY = 'lifeos_habits';
 
-// Migrate existing data.json history into localStorage (runs once)
-function migrateHabitHistory(habits) {
-  if (!habits || !habits.history || localStorage.getItem('lifeos_habits_migrated')) return;
-  const data = loadHabitData();
-  let migrated = 0;
-  habits.history.forEach(h => {
-    if (h.date && !data[h.date]) {
-      data[h.date] = {};
-      // Map completed count back to individual habits
-      const completedCount = h.completed || 0;
-      HABIT_DEFS.forEach((def, i) => {
-        data[h.date][def.id] = i < completedCount;
-      });
-      migrated++;
-    }
-  });
-  // Also migrate today's state if present
-  if (habits.items && habits.date) {
-    const today = habits.date;
-    if (!data[today]) data[today] = {};
-    habits.items.forEach(item => {
-      const match = HABIT_DEFS.find(d => d.name === item.name);
-      if (match && data[today][match.id] === undefined) {
-        data[today][match.id] = item.completed;
-      }
-    });
-  }
-  if (migrated > 0) saveHabitData(data);
-  localStorage.setItem('lifeos_habits_migrated', 'true');
-}
+// migrateHabitHistory removed — Habits are dashboard-only (localStorage)
 
 // One-time fix: Aaron completed 100 push-ups on Apr 11 before midnight
 // but the sync captured it as 0/3. Seed the correct data.
