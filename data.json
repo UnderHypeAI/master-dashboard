@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-12T14:47:19.505708+00:00"
+    "last_synced": "2026-04-12T15:50:29.771926+00:00"
   },
   "critical_few": {
     "last_synced": "2026-04-05T23:35:00.000000+00:00",
@@ -145,11 +145,11 @@
     "date": "2026-04-12",
     "items": [
       {
-        "name": "100 Pushups",
+        "name": "10 Pullups",
         "completed": false
       },
       {
-        "name": "10 Pullups",
+        "name": "100 Pushups",
         "completed": false
       },
       {
@@ -159,7 +159,10 @@
     ],
     "all_done_today": false,
     "history": [
-      { "date": "2026-04-11", "completed": 1 }
+      {
+        "date": "2026-04-11",
+        "completed": 1
+      }
     ]
   },
   "banking": {
