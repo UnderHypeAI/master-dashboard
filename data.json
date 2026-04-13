@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-13T15:42:32.710938+00:00"
+    "last_synced": "2026-04-13T16:41:56.134203+00:00"
   },
   "upcoming_meetings": [
     {
@@ -268,7 +268,7 @@
     "date": "2026-04-13",
     "items": [
       {
-        "name": "100 Pushups",
+        "name": "50 Squats",
         "completed": false
       },
       {
@@ -276,7 +276,7 @@
         "completed": false
       },
       {
-        "name": "50 Squats",
+        "name": "100 Pushups",
         "completed": false
       }
     ],
