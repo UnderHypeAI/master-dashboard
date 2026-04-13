@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-13T05:49:59.958976+00:00"
+    "last_synced": "2026-04-13T06:47:58.221578+00:00"
   },
   "upcoming_meetings": [
     {
@@ -30,6 +30,13 @@
       "end": "2026-04-16T01:00:00+00:00",
       "location": null,
       "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-16T23:00:00+00:00",
+      "end": "2026-04-17T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
     }
   ],
   "overdue_tasks": [
@@ -53,9 +60,7 @@
       "due": "2026-04-11",
       "project": "Property",
       "priority": 1
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gJWmwggfXCFvm5V",
       "content": "Order swag for the Bitcoin Conference",
@@ -64,6 +69,7 @@
       "priority": 4
     }
   ],
+  "upcoming_tasks": [],
   "banking": {
     "accounts": [
       {
@@ -259,18 +265,18 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-04-12",
+    "date": "2026-04-13",
     "items": [
-      {
-        "name": "10 Pullups",
-        "completed": false
-      },
       {
         "name": "50 Squats",
         "completed": false
       },
       {
         "name": "100 Pushups",
+        "completed": false
+      },
+      {
+        "name": "10 Pullups",
         "completed": false
       }
     ],
