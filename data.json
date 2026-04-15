@@ -1,15 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-04-15T05:42:30.966575+00:00"
+    "last_synced": "2026-04-15T06:41:52.997432+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-04-14T23:00:00+00:00",
-      "end": "2026-04-15T02:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Jiu Jitsu",
       "start": "2026-04-15T21:30:00+00:00",
@@ -236,7 +229,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-04-14",
+    "date": "2026-04-15",
     "items": [
       {
         "name": "Unknown Habit",
