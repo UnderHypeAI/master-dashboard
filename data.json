@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-16T16:44:22.713752+00:00"
+    "last_synced": "2026-04-16T17:50:15.170265+00:00"
   },
   "upcoming_meetings": [
     {
@@ -21,6 +21,13 @@
       "title": "Follow up: Idaho Seller's Permit (4EVR.INK LLC)",
       "start": "2026-04-17T15:00:00+00:00",
       "end": "2026-04-17T15:30:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Follow up w Clint",
+      "start": "2026-04-17T16:00:00+00:00",
+      "end": "2026-04-17T16:30:00+00:00",
       "location": null,
       "is_all_day": false
     },
