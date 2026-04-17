@@ -1,29 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-04-17T05:48:31.911254+00:00"
+    "last_synced": "2026-04-17T06:45:25.948417+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Send Shawn Iran Video",
-      "start": "2026-04-16T15:00:00+00:00",
-      "end": "2026-04-16T15:30:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-04-16T23:00:00+00:00",
-      "end": "2026-04-17T02:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Call Clint",
-      "start": "2026-04-17T01:00:00+00:00",
-      "end": "2026-04-17T02:15:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Follow up: Idaho Seller's Permit (4EVR.INK LLC)",
       "start": "2026-04-17T15:00:00+00:00",
@@ -43,6 +22,13 @@
       "start": "2026-04-17T19:00:00+00:00",
       "end": "2026-04-17T21:00:00+00:00",
       "location": "Google Meet",
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-20T23:00:00+00:00",
+      "end": "2026-04-21T02:00:00+00:00",
+      "location": null,
       "is_all_day": false
     }
   ],
@@ -130,9 +116,7 @@
       "due": "2026-04-15",
       "project": "4EVR.ink",
       "priority": 4
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gPMF8F4GVQjwMqV",
       "content": "End-to-end test: Stripe checkout \u2192 declaration \u2192 success page \u2192 certificate",
@@ -160,7 +144,9 @@
       "due": "2026-04-16",
       "project": "4EVR.ink",
       "priority": 3
-    },
+    }
+  ],
+  "upcoming_tasks": [
     {
       "id": "6gPMFJ2jMVRjW2V3",
       "content": "Inform Kristo of official launch date (Apr 27) and next steps",
@@ -448,7 +434,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-04-16",
+    "date": "2026-04-17",
     "items": [
       {
         "name": "50 Squats",
