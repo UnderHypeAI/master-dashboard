@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-17T03:43:08.855829+00:00"
+    "last_synced": "2026-04-17T04:47:58.590871+00:00"
   },
   "upcoming_meetings": [
     {
@@ -46,8 +46,213 @@
       "is_all_day": false
     }
   ],
-  "overdue_tasks": [],
-  "upcoming_tasks": [],
+  "overdue_tasks": [
+    {
+      "id": "6gPMF8Cp4HMHJhrV",
+      "content": "Set BTC_PRIVATE_KEY on Railway \u2014 flip Bitcoin from demo to live",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 4
+    },
+    {
+      "id": "6gPMF8Fvj4xXPGPV",
+      "content": "Fund Inscriptions wallet with sats for launch-week OP_RETURN volume",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 4
+    },
+    {
+      "id": "6gPWMM39jcf5XVj3",
+      "content": "Order Prodigi POD samples \u2014 quality check before Bitcoin 2026",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 4
+    },
+    {
+      "id": "6gPWMPGxp2fRhp23",
+      "content": "Order sample: Declaration Sticker (Prodigi GLOBAL-STK-3x3)",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPWMPPXXpwFC9C3",
+      "content": "Order sample: Declaration Mug 11oz (Prodigi GLOBAL-MUG-11OZ)",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPXJjFhH8P5gqXV",
+      "content": "Order sample: Acrylic Panel 8\u00d712\" (Prodigi GLOBAL-MOU-ACRY-8X12)",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPXJjGGqwvjH8WV",
+      "content": "Order sample: Declaration Magnet (Prodigi GLOBAL-MAG-6x6)",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPXJjHVxCmMFq4V",
+      "content": "Order sample: Metal Print 8\u00d712\" (Prodigi GLOBAL-MET-8X12)",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPXJjQ5q8Cp3P3V",
+      "content": "Order sample: Declaration Postcard (Prodigi GLOBAL-PST-FAP-A6)",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMF89p6JcQ957V",
+      "content": "Confirm all Railway environment variables are production-ready",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 4
+    },
+    {
+      "id": "6gPMFVrf84MWMqGV",
+      "content": "Confirm LLC approval status with Idaho Secretary of State",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMF8JF2v73R7C3",
+      "content": "Configure Revenue wallet address as OpenNode settlement destination",
+      "due": "2026-04-15",
+      "project": "4EVR.ink",
+      "priority": 4
+    }
+  ],
+  "upcoming_tasks": [
+    {
+      "id": "6gPMF8F4GVQjwMqV",
+      "content": "End-to-end test: Stripe checkout \u2192 declaration \u2192 success page \u2192 certificate",
+      "due": "2026-04-16",
+      "project": "4EVR.ink",
+      "priority": 4
+    },
+    {
+      "id": "6gPMF8GJX8fH22F3",
+      "content": "End-to-end test: OpenNode Bitcoin payment \u2192 webhook \u2192 OP_RETURN broadcast",
+      "due": "2026-04-16",
+      "project": "4EVR.ink",
+      "priority": 4
+    },
+    {
+      "id": "6gPMFHwv3cmCmHw3",
+      "content": "Design and order QR code display cards with UTM tracking",
+      "due": "2026-04-16",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMF8GMwCW7r5x3",
+      "content": "Test failure paths: payment declined, BTC broadcast fail, network timeout",
+      "due": "2026-04-16",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFJ2jMVRjW2V3",
+      "content": "Inform Kristo of official launch date (Apr 27) and next steps",
+      "due": "2026-04-17",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFJ3FWgFfXcr3",
+      "content": "Send Kristo a Signal message with affiliate link \u2014 have him sign up and test",
+      "due": "2026-04-17",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFF52JpRGj5qV",
+      "content": "Full mobile QA pass \u2014 iPhone + Android",
+      "due": "2026-04-17",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFF7F7Xq2rMCV",
+      "content": "Refine and improve the Sealed page",
+      "due": "2026-04-17",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFHwqx8PmFrpV",
+      "content": "Prepare elevator pitch \u2014 one-liner and 30-second version",
+      "due": "2026-04-17",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFW8c47XJjFc3",
+      "content": "Verify Terms of Service and Privacy Policy are live and linked on site",
+      "due": "2026-04-17",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gMgWX6gM3mHq4p8",
+      "content": "Treat the lawn for dandelions",
+      "due": "2026-04-18",
+      "project": "Promised",
+      "priority": 1
+    },
+    {
+      "id": "6gPMFF4XxxrFVf83",
+      "content": "Verify order bump add-ons working in checkout flow",
+      "due": "2026-04-18",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFJ526Rm6Pc33",
+      "content": "Brief Kristo on Bitcoin Conference plans \u2014 coordinate attendance",
+      "due": "2026-04-18",
+      "project": "4EVR.ink",
+      "priority": 2
+    },
+    {
+      "id": "6gPMFVqxfw6CCfP3",
+      "content": "Review refund/dispute policy for inscription purchases",
+      "due": "2026-04-18",
+      "project": "4EVR.ink",
+      "priority": 2
+    },
+    {
+      "id": "6gPMFF65F5VWhqv3",
+      "content": "Cross-browser testing \u2014 Chrome, Safari, Firefox (desktop + mobile)",
+      "due": "2026-04-18",
+      "project": "4EVR.ink",
+      "priority": 2
+    },
+    {
+      "id": "6gPMFHxXqW2Jpw9V",
+      "content": "Print physical certificate samples as proof of concept",
+      "due": "2026-04-18",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFPrJWwqFW7RV",
+      "content": "Prepare printed affiliate one-pagers for the conference",
+      "due": "2026-04-19",
+      "project": "4EVR.ink",
+      "priority": 3
+    }
+  ],
   "banking": {
     "accounts": [
       {
@@ -246,15 +451,15 @@
     "date": "2026-04-16",
     "items": [
       {
-        "name": "Unknown Habit",
+        "name": "100 Pushups",
         "completed": false
       },
       {
-        "name": "Unknown Habit",
+        "name": "10 Pullups",
         "completed": false
       },
       {
-        "name": "Unknown Habit",
+        "name": "50 Squats",
         "completed": false
       }
     ],
