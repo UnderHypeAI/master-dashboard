@@ -1,33 +1,33 @@
 {
   "_meta": {
-    "last_synced": "2026-04-18T05:42:52.860593+00:00"
+    "last_synced": "2026-04-18T06:43:20.353509+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Follow up: Idaho Seller's Permit (4EVR.INK LLC)",
-      "start": "2026-04-17T15:00:00+00:00",
-      "end": "2026-04-17T15:30:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Follow up w Clint",
-      "start": "2026-04-17T16:00:00+00:00",
-      "end": "2026-04-17T16:30:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": " Kristo / Aaron",
-      "start": "2026-04-17T19:00:00+00:00",
-      "end": "2026-04-17T19:45:00+00:00",
-      "location": "Google Meet",
-      "is_all_day": false
-    },
     {
       "title": "Jiu Jitsu",
       "start": "2026-04-20T23:00:00+00:00",
       "end": "2026-04-21T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "60 Minute Meeting with Andrew Dooley",
+      "start": "2026-04-21T17:30:00+00:00",
+      "end": "2026-04-21T18:30:00+00:00",
+      "location": "Google Meet (instructions in description)",
+      "is_all_day": false
+    },
+    {
+      "title": "Aaron Melear: 60 Minute Meeting",
+      "start": "2026-04-21T17:30:00+00:00",
+      "end": "2026-04-21T18:30:00+00:00",
+      "location": "Google Meet (instructions in description)",
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-21T23:00:00+00:00",
+      "end": "2026-04-22T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -144,9 +144,7 @@
       "due": "2026-04-16",
       "project": "4EVR.ink",
       "priority": 3
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gPMFJ2jMVRjW2V3",
       "content": "Inform Kristo of official launch date (Apr 27) and next steps",
@@ -188,7 +186,9 @@
       "due": "2026-04-17",
       "project": "4EVR.ink",
       "priority": 3
-    },
+    }
+  ],
+  "upcoming_tasks": [
     {
       "id": "6gMgWX6gM3mHq4p8",
       "content": "Treat the lawn for dandelions",
@@ -237,6 +237,27 @@
       "due": "2026-04-19",
       "project": "4EVR.ink",
       "priority": 3
+    },
+    {
+      "id": "6gPMFPrHmmJH88HV",
+      "content": "Prepare Nostr launch announcement",
+      "due": "2026-04-21",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFPw9g3cCw4XV",
+      "content": "Write launch X thread \u2014 announcement + demo",
+      "due": "2026-04-21",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFQ2fhjc2jGm3",
+      "content": "Identify 3-5 Bitcoin Conference attendees to recruit as affiliates on-site",
+      "due": "2026-04-21",
+      "project": "4EVR.ink",
+      "priority": 2
     }
   ],
   "banking": {
@@ -434,7 +455,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-04-17",
+    "date": "2026-04-18",
     "items": [
       {
         "name": "50 Squats",
