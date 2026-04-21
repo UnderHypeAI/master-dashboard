@@ -1,19 +1,12 @@
 {
   "_meta": {
-    "last_synced": "2026-04-21T14:43:45.645897+00:00"
+    "last_synced": "2026-04-21T15:43:56.691144+00:00"
   },
   "upcoming_meetings": [
     {
       "title": "60 Minute Meeting with Andrew Dooley",
       "start": "2026-04-21T17:30:00+00:00",
-      "end": "2026-04-21T18:30:00+00:00",
-      "location": "Google Meet (instructions in description)",
-      "is_all_day": false
-    },
-    {
-      "title": "Aaron Melear: 60 Minute Meeting",
-      "start": "2026-04-21T17:30:00+00:00",
-      "end": "2026-04-21T18:30:00+00:00",
+      "end": "2026-04-21T18:00:00+00:00",
       "location": "Google Meet (instructions in description)",
       "is_all_day": false
     },
@@ -472,7 +465,7 @@
     "date": "2026-04-21",
     "items": [
       {
-        "name": "50 Squats",
+        "name": "100 Pushups",
         "completed": false
       },
       {
@@ -480,7 +473,7 @@
         "completed": false
       },
       {
-        "name": "100 Pushups",
+        "name": "50 Squats",
         "completed": false
       }
     ],
