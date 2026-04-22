@@ -1,22 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-04-22T05:41:49.600458+00:00"
+    "last_synced": "2026-04-22T06:44:15.655097+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "60 Minute Meeting with Andrew Dooley",
-      "start": "2026-04-21T17:30:00+00:00",
-      "end": "2026-04-21T18:00:00+00:00",
-      "location": "Google Meet (instructions in description)",
-      "is_all_day": false
-    },
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-04-21T23:00:00+00:00",
-      "end": "2026-04-22T02:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Jiu Jitsu",
       "start": "2026-04-22T21:30:00+00:00",
@@ -67,16 +53,16 @@
       "due": "2026-04-20",
       "project": "4EVR.ink",
       "priority": 3
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gPMFQ2fhjc2jGm3",
       "content": "Identify 3-5 Bitcoin Conference attendees to recruit as affiliates on-site",
       "due": "2026-04-21",
       "project": "4EVR.ink",
       "priority": 2
-    },
+    }
+  ],
+  "upcoming_tasks": [
     {
       "id": "6gPMFPqPpgcC6jH3",
       "content": "Draft r/Bitcoin post \u2014 educational, not promotional",
@@ -109,6 +95,27 @@
       "id": "6gPMFcq72JC6gg5V",
       "content": "Pre-write incident response plan for conference",
       "due": "2026-04-24",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFJ2M4rG2m34V",
+      "content": "Confirm travel logistics \u2014 flights, hotel, conference pass",
+      "due": "2026-04-25",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFJ4MjHxVm3PV",
+      "content": "Prepare live demo script \u2014 60-second walkthrough",
+      "due": "2026-04-25",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFVrv869CgX5V",
+      "content": "Verify all swag and printed materials received and packed for Vegas",
+      "due": "2026-04-25",
       "project": "4EVR.ink",
       "priority": 3
     }
@@ -308,10 +315,10 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-04-21",
+    "date": "2026-04-22",
     "items": [
       {
-        "name": "10 Pullups",
+        "name": "100 Pushups",
         "completed": false
       },
       {
@@ -319,7 +326,7 @@
         "completed": false
       },
       {
-        "name": "100 Pushups",
+        "name": "10 Pullups",
         "completed": false
       }
     ],
