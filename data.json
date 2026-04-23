@@ -1,15 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-04-23T05:48:24.431899+00:00"
+    "last_synced": "2026-04-23T06:42:46.261706+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-04-22T21:30:00+00:00",
-      "end": "2026-04-23T01:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Jiu Jitsu",
       "start": "2026-04-23T23:00:00+00:00",
@@ -60,16 +53,16 @@
       "due": "2026-04-21",
       "project": "4EVR.ink",
       "priority": 2
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gPMFPqPpgcC6jH3",
       "content": "Draft r/Bitcoin post \u2014 educational, not promotional",
       "due": "2026-04-22",
       "project": "4EVR.ink",
       "priority": 2
-    },
+    }
+  ],
+  "upcoming_tasks": [
     {
       "id": "6gPMFW2325XFcVHV",
       "content": "Final affiliate dashboard check \u2014 verify commission tracking working",
@@ -118,6 +111,27 @@
       "due": "2026-04-25",
       "project": "4EVR.ink",
       "priority": 3
+    },
+    {
+      "id": "6gPMF8GMwCW7r5x3",
+      "content": "Test failure paths: payment declined, BTC broadcast fail, network timeout",
+      "due": "2026-04-26",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6g9wRMxvPvH34jGM",
+      "content": "Fence Post Repairs",
+      "due": "2026-04-26",
+      "project": "Property",
+      "priority": 1
+    },
+    {
+      "id": "6gPMFVpcm4ppGmrV",
+      "content": "Full dress rehearsal \u2014 complete purchase flow as new customer on production",
+      "due": "2026-04-26",
+      "project": "4EVR.ink",
+      "priority": 4
     }
   ],
   "banking": {
@@ -315,14 +329,14 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-04-22",
+    "date": "2026-04-23",
     "items": [
       {
-        "name": "10 Pullups",
+        "name": "100 Pushups",
         "completed": false
       },
       {
-        "name": "100 Pushups",
+        "name": "10 Pullups",
         "completed": false
       },
       {
