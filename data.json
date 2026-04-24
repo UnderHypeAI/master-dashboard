@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-24T18:47:18.191230+00:00"
+    "last_synced": "2026-04-24T19:49:13.160164+00:00"
   },
   "upcoming_meetings": [
     {
@@ -12,13 +12,6 @@
     }
   ],
   "overdue_tasks": [
-    {
-      "id": "6gPMFVrf84MWMqGV",
-      "content": "Confirm LLC approval status with Idaho Secretary of State",
-      "due": "2026-04-15",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
     {
       "id": "6gPMFHwqx8PmFrpV",
       "content": "Prepare elevator pitch \u2014 one-liner and 30-second version",
@@ -92,6 +85,13 @@
       "priority": 3
     },
     {
+      "id": "6gPMFcqxjX5qrjWV",
+      "content": "Backup production database and document recovery procedure",
+      "due": "2026-04-24",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
       "id": "6gPMFJ2M4rG2m34V",
       "content": "Confirm travel logistics \u2014 flights, hotel, conference pass",
       "due": "2026-04-25",
@@ -132,13 +132,6 @@
       "due": "2026-04-26",
       "project": "4EVR.ink",
       "priority": 4
-    },
-    {
-      "id": "6gPMFcv8MRH68443",
-      "content": "Recruit affiliates in person at Bitcoin Conference",
-      "due": "2026-04-27",
-      "project": "4EVR.ink",
-      "priority": 2
     },
     {
       "id": "6gPMFcpcfG7fmfP3",
@@ -353,7 +346,7 @@
     "date": "2026-04-24",
     "items": [
       {
-        "name": "50 Squats",
+        "name": "10 Pullups",
         "completed": false
       },
       {
@@ -361,7 +354,7 @@
         "completed": false
       },
       {
-        "name": "10 Pullups",
+        "name": "50 Squats",
         "completed": false
       }
     ],
