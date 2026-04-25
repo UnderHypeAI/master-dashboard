@@ -1,12 +1,19 @@
 {
   "_meta": {
-    "last_synced": "2026-04-25T05:46:30.640563+00:00"
+    "last_synced": "2026-04-25T06:45:13.338733+00:00"
   },
   "upcoming_meetings": [
     {
       "title": "Jiu Jitsu",
       "start": "2026-04-27T23:00:00+00:00",
       "end": "2026-04-28T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-28T23:00:00+00:00",
+      "end": "2026-04-29T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -60,9 +67,7 @@
       "due": "2026-04-23",
       "project": "4EVR.ink",
       "priority": 3
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gPMFPxMPj9Pf57V",
       "content": "Pre-schedule launch day social posts for Apr 27",
@@ -90,7 +95,9 @@
       "due": "2026-04-24",
       "project": "4EVR.ink",
       "priority": 3
-    },
+    }
+  ],
+  "upcoming_tasks": [
     {
       "id": "6gPMFJ2M4rG2m34V",
       "content": "Confirm travel logistics \u2014 flights, hotel, conference pass",
@@ -343,18 +350,18 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-04-24",
+    "date": "2026-04-25",
     "items": [
       {
         "name": "100 Pushups",
         "completed": false
       },
       {
-        "name": "50 Squats",
+        "name": "10 Pullups",
         "completed": false
       },
       {
-        "name": "10 Pullups",
+        "name": "50 Squats",
         "completed": false
       }
     ],
