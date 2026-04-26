@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-26T04:42:49.876359+00:00"
+    "last_synced": "2026-04-26T05:48:54.069460+00:00"
   },
   "upcoming_meetings": [
     {
@@ -153,6 +153,13 @@
       "due": "2026-04-27",
       "project": "4EVR.ink",
       "priority": 2
+    },
+    {
+      "id": "6gPMFcw38VxXJPfV",
+      "content": "Do live inscriptions at the conference \u2014 demo for attendees",
+      "due": "2026-04-27",
+      "project": "4EVR.ink",
+      "priority": 3
     }
   ],
   "banking": {
@@ -357,11 +364,11 @@
         "completed": false
       },
       {
-        "name": "10 Pullups",
+        "name": "50 Squats",
         "completed": false
       },
       {
-        "name": "50 Squats",
+        "name": "10 Pullups",
         "completed": false
       }
     ],
