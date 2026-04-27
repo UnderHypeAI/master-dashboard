@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-27T01:41:59.033436+00:00"
+    "last_synced": "2026-04-27T02:49:45.140904+00:00"
   },
   "upcoming_meetings": [
     {
@@ -29,13 +29,6 @@
     {
       "id": "6gPMFHwqx8PmFrpV",
       "content": "Prepare elevator pitch \u2014 one-liner and 30-second version",
-      "due": "2026-04-17",
-      "project": "4EVR.ink",
-      "priority": 3
-    },
-    {
-      "id": "6gPMFW8c47XJjFc3",
-      "content": "Verify Terms of Service and Privacy Policy are live and linked on site",
       "due": "2026-04-17",
       "project": "4EVR.ink",
       "priority": 3
@@ -367,11 +360,11 @@
     "date": "2026-04-26",
     "items": [
       {
-        "name": "10 Pullups",
+        "name": "50 Squats",
         "completed": false
       },
       {
-        "name": "50 Squats",
+        "name": "10 Pullups",
         "completed": false
       },
       {
