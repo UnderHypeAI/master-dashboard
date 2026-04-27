@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-04-27T05:44:32.962702+00:00"
+    "last_synced": "2026-04-27T06:44:06.447463+00:00"
   },
   "upcoming_meetings": [
     {
@@ -21,6 +21,13 @@
       "title": "Jiu Jitsu",
       "start": "2026-04-29T21:30:00+00:00",
       "end": "2026-04-30T01:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-04-30T23:00:00+00:00",
+      "end": "2026-05-01T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -116,9 +123,7 @@
       "due": "2026-04-25",
       "project": "4EVR.ink",
       "priority": 3
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gPMF8GMwCW7r5x3",
       "content": "Test failure paths: payment declined, BTC broadcast fail, network timeout",
@@ -139,7 +144,9 @@
       "due": "2026-04-26",
       "project": "4EVR.ink",
       "priority": 4
-    },
+    }
+  ],
+  "upcoming_tasks": [
     {
       "id": "6gPMFcpcfG7fmfP3",
       "content": "Go live \u2014 publish launch X thread and Nostr announcement",
@@ -357,18 +364,18 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-04-26",
+    "date": "2026-04-27",
     "items": [
-      {
-        "name": "100 Pushups",
-        "completed": false
-      },
       {
         "name": "50 Squats",
         "completed": false
       },
       {
         "name": "10 Pullups",
+        "completed": false
+      },
+      {
+        "name": "100 Pushups",
         "completed": false
       }
     ],
