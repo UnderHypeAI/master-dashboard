@@ -1,25 +1,24 @@
 {
   "_meta": {
-    "last_synced": "2026-05-01T05:44:26.553311+00:00"
+    "last_synced": "2026-05-01T06:56:24.651245+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-04-30T23:00:00+00:00",
-      "end": "2026-05-01T02:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Fox Heating and Air - Fan Repair",
       "start": "2026-05-01T14:00:00+00:00",
       "end": "2026-05-01T17:30:00+00:00",
       "location": null,
       "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-05-04T23:00:00+00:00",
+      "end": "2026-05-05T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
     }
   ],
-  "overdue_tasks": [],
-  "upcoming_tasks": [
+  "overdue_tasks": [
     {
       "id": "6gPMFPqPpgcC6jH3",
       "content": "Draft r/Bitcoin post \u2014 educational, not promotional",
@@ -47,6 +46,22 @@
       "due": "2026-04-30",
       "project": "4EVR.ink",
       "priority": 2
+    }
+  ],
+  "upcoming_tasks": [
+    {
+      "id": "6gMgWX6gM3mHq4p8",
+      "content": "Treat the lawn for dandelions",
+      "due": "2026-05-04",
+      "project": "Promised",
+      "priority": 1
+    },
+    {
+      "id": "6g9wRMxvPvH34jGM",
+      "content": "Fence Post Repairs",
+      "due": "2026-05-04",
+      "project": "Property",
+      "priority": 1
     }
   ],
   "banking": {
@@ -244,7 +259,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-04-30",
+    "date": "2026-05-01",
     "items": [
       {
         "name": "Unknown Habit",
