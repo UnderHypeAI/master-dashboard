@@ -1,19 +1,26 @@
 {
   "_meta": {
-    "last_synced": "2026-05-02T05:52:58.908652+00:00"
+    "last_synced": "2026-05-02T06:52:05.399978+00:00"
   },
   "upcoming_meetings": [
     {
-      "title": "Fox Heating and Air - Fan Repair",
-      "start": "2026-05-01T14:00:00+00:00",
-      "end": "2026-05-01T17:30:00+00:00",
+      "title": "Jiu Jitsu",
+      "start": "2026-05-04T23:00:00+00:00",
+      "end": "2026-05-05T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Parton Mosquito Control",
+      "start": "2026-05-05T20:00:00+00:00",
+      "end": "2026-05-06T01:30:00+00:00",
       "location": null,
       "is_all_day": false
     },
     {
       "title": "Jiu Jitsu",
-      "start": "2026-05-04T23:00:00+00:00",
-      "end": "2026-05-05T02:00:00+00:00",
+      "start": "2026-05-05T23:00:00+00:00",
+      "end": "2026-05-06T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -259,7 +266,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-05-01",
+    "date": "2026-05-02",
     "items": [
       {
         "name": "Unknown Habit",
