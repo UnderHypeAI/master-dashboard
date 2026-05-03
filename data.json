@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-05-03T05:42:34.272232+00:00"
+    "last_synced": "2026-05-03T07:02:45.513415+00:00"
   },
   "upcoming_meetings": [
     {
@@ -21,6 +21,13 @@
       "title": "Jiu Jitsu",
       "start": "2026-05-05T23:00:00+00:00",
       "end": "2026-05-06T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-05-06T21:30:00+00:00",
+      "end": "2026-05-07T01:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -266,7 +273,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-05-02",
+    "date": "2026-05-03",
     "items": [
       {
         "name": "Unknown Habit",
