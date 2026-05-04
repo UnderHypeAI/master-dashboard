@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-05-04T13:44:15.221622+00:00"
+    "last_synced": "2026-05-04T14:47:43.978499+00:00"
   },
   "upcoming_meetings": [
     {
@@ -11,9 +11,23 @@
       "is_all_day": false
     },
     {
+      "title": "Homeschool",
+      "start": "2026-05-04T17:00:00+00:00",
+      "end": "2026-05-04T18:30:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
       "title": "Jiu Jitsu",
       "start": "2026-05-04T23:00:00+00:00",
       "end": "2026-05-05T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Homeschool",
+      "start": "2026-05-05T17:00:00+00:00",
+      "end": "2026-05-05T18:30:00+00:00",
       "location": null,
       "is_all_day": false
     },
@@ -32,9 +46,23 @@
       "is_all_day": false
     },
     {
+      "title": "Homeschool",
+      "start": "2026-05-06T17:00:00+00:00",
+      "end": "2026-05-06T18:30:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
       "title": "Jiu Jitsu",
       "start": "2026-05-06T21:30:00+00:00",
       "end": "2026-05-07T01:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Homeschool",
+      "start": "2026-05-07T17:00:00+00:00",
+      "end": "2026-05-07T18:30:00+00:00",
       "location": null,
       "is_all_day": false
     },
