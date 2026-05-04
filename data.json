@@ -1,8 +1,15 @@
 {
   "_meta": {
-    "last_synced": "2026-05-04T00:48:37.494666+00:00"
+    "last_synced": "2026-05-04T01:54:45.122266+00:00"
   },
   "upcoming_meetings": [
+    {
+      "title": "Eric\u2019s Sales Offer",
+      "start": "2026-05-04T16:00:00+00:00",
+      "end": "2026-05-04T17:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
     {
       "title": "Jiu Jitsu",
       "start": "2026-05-04T23:00:00+00:00",
