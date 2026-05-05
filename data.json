@@ -1,29 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-05-05T05:47:02.350089+00:00"
+    "last_synced": "2026-05-05T06:43:23.649931+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Eric\u2019s Sales Offer",
-      "start": "2026-05-04T16:00:00+00:00",
-      "end": "2026-05-04T17:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Homeschool",
-      "start": "2026-05-04T17:00:00+00:00",
-      "end": "2026-05-04T18:30:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-05-04T23:00:00+00:00",
-      "end": "2026-05-05T02:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Homeschool",
       "start": "2026-05-05T17:00:00+00:00",
@@ -109,9 +88,7 @@
       "due": "2026-04-30",
       "project": "4EVR.ink",
       "priority": 2
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gMgWX6gM3mHq4p8",
       "content": "Treat the lawn for dandelions",
@@ -127,6 +104,7 @@
       "priority": 1
     }
   ],
+  "upcoming_tasks": [],
   "banking": {
     "accounts": [
       {
@@ -322,7 +300,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-05-04",
+    "date": "2026-05-05",
     "items": [
       {
         "name": "Unknown Habit",
