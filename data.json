@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-05-09T17:47:59.541385+00:00"
+    "last_synced": "2026-05-09T18:57:36.101211+00:00"
   },
   "upcoming_meetings": [
     {
@@ -73,13 +73,6 @@
       "content": "Treat the lawn for dandelions",
       "due": "2026-05-04",
       "project": "Promised",
-      "priority": 1
-    },
-    {
-      "id": "6g9wRMxvPvH34jGM",
-      "content": "Fence Post Repairs",
-      "due": "2026-05-04",
-      "project": "Property",
       "priority": 1
     }
   ],
