@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-05-10T05:59:14.985571+00:00"
+    "last_synced": "2026-05-10T06:43:34.868201+00:00"
   },
   "upcoming_meetings": [
     {
@@ -35,6 +35,20 @@
       "title": "Jiu Jitsu",
       "start": "2026-05-12T23:00:00+00:00",
       "end": "2026-05-13T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Homeschool",
+      "start": "2026-05-13T17:00:00+00:00",
+      "end": "2026-05-13T18:30:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-05-13T21:30:00+00:00",
+      "end": "2026-05-14T01:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -272,7 +286,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-05-09",
+    "date": "2026-05-10",
     "items": [
       {
         "name": "Unknown Habit",
