@@ -1,29 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-05-16T05:48:28.191127+00:00"
+    "last_synced": "2026-05-16T06:46:01.931801+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "hold",
-      "start": "2026-05-15T16:00:00+00:00",
-      "end": "2026-05-15T21:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "4EVR.ink Weekly",
-      "start": "2026-05-15T16:00:00+00:00",
-      "end": "2026-05-15T17:30:00+00:00",
-      "location": "Google Meet",
-      "is_all_day": false
-    },
-    {
-      "title": "consulting hold - ",
-      "start": "2026-05-15T17:00:00+00:00",
-      "end": "2026-05-15T20:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "NW Submission Challenge",
       "start": "2026-05-16T23:00:00+00:00",
@@ -49,6 +28,20 @@
       "title": "Jiu Jitsu",
       "start": "2026-05-18T23:00:00+00:00",
       "end": "2026-05-19T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Homeschool",
+      "start": "2026-05-19T17:00:00+00:00",
+      "end": "2026-05-19T18:30:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-05-19T23:00:00+00:00",
+      "end": "2026-05-20T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -88,9 +81,7 @@
       "due": "2026-05-04",
       "project": "Promised",
       "priority": 1
-    }
-  ],
-  "upcoming_tasks": [
+    },
     {
       "id": "6gJWcr4HGvv6xcW3",
       "content": "Decide on Plan for Senior Project",
@@ -106,6 +97,7 @@
       "priority": 1
     }
   ],
+  "upcoming_tasks": [],
   "banking": {
     "accounts": [
       {
@@ -301,7 +293,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-05-15",
+    "date": "2026-05-16",
     "items": [
       {
         "name": "Unknown Habit",
