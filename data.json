@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-05-18T15:51:30.642586+00:00"
+    "last_synced": "2026-05-18T16:57:59.511192+00:00"
   },
   "upcoming_meetings": [
     {
@@ -8,6 +8,13 @@
       "start": "2026-05-18T17:00:00+00:00",
       "end": "2026-05-18T18:30:00+00:00",
       "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Aaron Melear / ASIC Plug/FarmGod",
+      "start": "2026-05-18T17:00:00+00:00",
+      "end": "2026-05-18T17:30:00+00:00",
+      "location": "Microsoft Teams Meeting",
       "is_all_day": false
     },
     {
@@ -49,6 +56,13 @@
       "title": "Homeschool",
       "start": "2026-05-21T17:00:00+00:00",
       "end": "2026-05-21T18:30:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "AlphaSights Interaction - Cybersecurity/Compliance Industry",
+      "start": "2026-05-21T21:00:00+00:00",
+      "end": "2026-05-21T21:30:00+00:00",
       "location": null,
       "is_all_day": false
     },
