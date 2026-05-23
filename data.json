@@ -1,29 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-05-23T05:44:33.142466+00:00"
+    "last_synced": "2026-05-23T06:44:38.423420+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "AlphaSights Interaction - Cyber Compliance Managed Services",
-      "start": "2026-05-22T16:00:00+00:00",
-      "end": "2026-05-22T17:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Aaron Melear and Wayne Marcel",
-      "start": "2026-05-22T17:00:00+00:00",
-      "end": "2026-05-22T17:30:00+00:00",
-      "location": "https://us02web.zoom.us/j/82066778396?pwd=2YUXLNJYrGkCiX5DV5vXvmYEUHOvze.1",
-      "is_all_day": false
-    },
-    {
-      "title": "4EVR.ink Weekly",
-      "start": "2026-05-22T18:00:00+00:00",
-      "end": "2026-05-22T19:30:00+00:00",
-      "location": "Google Meet",
-      "is_all_day": false
-    },
     {
       "title": "Homeschool",
       "start": "2026-05-25T17:00:00+00:00",
@@ -35,6 +14,34 @@
       "title": "Jiu Jitsu",
       "start": "2026-05-25T23:00:00+00:00",
       "end": "2026-05-26T02:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "AlphaSights Interaction - Cyber Compliance Managed Services",
+      "start": "2026-05-26T14:30:00+00:00",
+      "end": "2026-05-26T15:30:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Teeth whitening",
+      "start": "2026-05-26T16:30:00+00:00",
+      "end": "2026-05-26T21:00:00+00:00",
+      "location": "Boise Smile Design, 2455 N Milwaukee St, Boise, ID 83704, USA",
+      "is_all_day": false
+    },
+    {
+      "title": "Homeschool",
+      "start": "2026-05-26T17:00:00+00:00",
+      "end": "2026-05-26T18:30:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-05-26T23:00:00+00:00",
+      "end": "2026-05-27T02:00:00+00:00",
       "location": null,
       "is_all_day": false
     }
@@ -286,7 +293,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-05-22",
+    "date": "2026-05-23",
     "items": [
       {
         "name": "Unknown Habit",
