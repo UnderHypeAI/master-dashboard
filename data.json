@@ -1,29 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-05-28T05:57:50.998800+00:00"
+    "last_synced": "2026-05-28T06:52:02.498877+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Homeschool",
-      "start": "2026-05-27T17:00:00+00:00",
-      "end": "2026-05-27T18:30:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Alphasites Call ",
-      "start": "2026-05-27T19:00:00+00:00",
-      "end": "2026-05-27T20:15:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-05-27T21:30:00+00:00",
-      "end": "2026-05-28T01:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Homeschool",
       "start": "2026-05-28T17:00:00+00:00",
@@ -308,7 +287,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-05-27",
+    "date": "2026-05-28",
     "items": [
       {
         "name": "Unknown Habit",
