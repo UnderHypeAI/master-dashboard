@@ -1,8 +1,15 @@
 {
   "_meta": {
-    "last_synced": "2026-06-04T14:53:00.948325+00:00"
+    "last_synced": "2026-06-04T15:50:04.403192+00:00"
   },
   "upcoming_meetings": [
+    {
+      "title": "Consulting Call",
+      "start": "2026-06-04T16:00:00+00:00",
+      "end": "2026-06-04T17:15:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
     {
       "title": "Homeschool",
       "start": "2026-06-04T17:00:00+00:00",
