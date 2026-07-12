@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-07-11T06:03:53.657919+00:00"
+    "last_synced": "2026-07-12T06:05:40.541640+00:00"
   },
   "upcoming_meetings": [
     {
@@ -29,6 +29,27 @@
       "start": "2026-07-14T23:00:00+00:00",
       "end": "2026-07-15T02:00:00+00:00",
       "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Homeschool",
+      "start": "2026-07-15T17:00:00+00:00",
+      "end": "2026-07-15T18:30:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Jiu Jitsu",
+      "start": "2026-07-15T21:30:00+00:00",
+      "end": "2026-07-16T01:00:00+00:00",
+      "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "Malibu paperwork drop off",
+      "start": "2026-07-16T00:00:00+00:00",
+      "end": "2026-07-16T01:00:00+00:00",
+      "location": "682 W Laughton Dr, Meridian, ID 83646, USA",
       "is_all_day": false
     }
   ],
@@ -286,7 +307,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-07-11",
+    "date": "2026-07-12",
     "items": [
       {
         "name": "Unknown Habit",
