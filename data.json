@@ -1,22 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-07-13T06:08:55.207679+00:00"
+    "last_synced": "2026-07-14T06:05:21.179697+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Homeschool",
-      "start": "2026-07-13T17:00:00+00:00",
-      "end": "2026-07-13T18:30:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-07-13T23:00:00+00:00",
-      "end": "2026-07-14T02:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Homeschool",
       "start": "2026-07-14T17:00:00+00:00",
@@ -64,6 +50,13 @@
       "start": "2026-07-16T23:00:00+00:00",
       "end": "2026-07-17T02:00:00+00:00",
       "location": null,
+      "is_all_day": false
+    },
+    {
+      "title": "4EVR.ink Weekly",
+      "start": "2026-07-17T16:00:00+00:00",
+      "end": "2026-07-17T17:30:00+00:00",
+      "location": "Google Meet",
       "is_all_day": false
     }
   ],
@@ -321,7 +314,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-07-13",
+    "date": "2026-07-14",
     "items": [
       {
         "name": "Unknown Habit",
