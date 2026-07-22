@@ -1,29 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-07-21T06:06:14.493564+00:00"
+    "last_synced": "2026-07-22T06:05:30.537156+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Homeschool",
-      "start": "2026-07-21T17:00:00+00:00",
-      "end": "2026-07-21T18:30:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Dog food pickup",
-      "start": "2026-07-21T17:45:00+00:00",
-      "end": "2026-07-21T18:15:00+00:00",
-      "location": "Boise Cold Storage Co, 495 S 15th St, Boise, ID 83702, USA",
-      "is_all_day": false
-    },
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-07-21T23:00:00+00:00",
-      "end": "2026-07-22T02:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Homeschool",
       "start": "2026-07-22T17:00:00+00:00",
@@ -314,7 +293,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-07-21",
+    "date": "2026-07-22",
     "items": [
       {
         "name": "Unknown Habit",
