@@ -1,29 +1,8 @@
 {
   "_meta": {
-    "last_synced": "2026-09-02T06:01:37.832398+00:00"
+    "last_synced": "2026-09-03T06:03:06.874203+00:00"
   },
   "upcoming_meetings": [
-    {
-      "title": "Pestcom coming for Yellowjacket trap",
-      "start": "2026-09-02T14:00:00+00:00",
-      "end": "2026-09-02T16:15:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Homeschool",
-      "start": "2026-09-02T17:00:00+00:00",
-      "end": "2026-09-02T18:30:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
-    {
-      "title": "Jiu Jitsu",
-      "start": "2026-09-02T21:30:00+00:00",
-      "end": "2026-09-03T01:00:00+00:00",
-      "location": null,
-      "is_all_day": false
-    },
     {
       "title": "Call Matt Miller @541-968-2729",
       "start": "2026-09-03T16:00:00+00:00",
@@ -50,6 +29,13 @@
       "start": "2026-09-04T16:00:00+00:00",
       "end": "2026-09-04T17:30:00+00:00",
       "location": "Google Meet",
+      "is_all_day": false
+    },
+    {
+      "title": "Coffee with Justin ",
+      "start": "2026-09-04T18:30:00+00:00",
+      "end": "2026-09-04T19:30:00+00:00",
+      "location": null,
       "is_all_day": false
     }
   ],
@@ -307,7 +293,7 @@
     "maintenance_overdue": 0
   },
   "habits": {
-    "date": "2026-09-02",
+    "date": "2026-09-03",
     "items": [
       {
         "name": "Unknown Habit",
