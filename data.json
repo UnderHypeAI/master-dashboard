@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "last_synced": "2026-09-18T06:03:56.642046+00:00"
+    "last_synced": "2026-09-18T06:04:13.303323+00:00"
   },
   "upcoming_meetings": [
     {
@@ -39,7 +39,64 @@
       "is_all_day": false
     }
   ],
-  "overdue_tasks": [],
+  "overdue_tasks": [
+    {
+      "id": "6gPMFPqPpgcC6jH3",
+      "content": "Draft r/Bitcoin post \u2014 educational, not promotional",
+      "due": "2026-04-30",
+      "project": "4EVR.ink",
+      "priority": 2
+    },
+    {
+      "id": "6gPMFPwM8rmHG9w3",
+      "content": "Create a 30-second screen recording demo for social sharing",
+      "due": "2026-04-30",
+      "project": "4EVR.ink",
+      "priority": 3
+    },
+    {
+      "id": "6gPMFcpcfG7fmfP3",
+      "content": "Go live \u2014 publish launch X thread and Nostr announcement",
+      "due": "2026-04-30",
+      "project": "4EVR.ink",
+      "priority": 4
+    },
+    {
+      "id": "6gPMFcqFVmFfpMw3",
+      "content": "Post on r/Bitcoin \u2014 launch day",
+      "due": "2026-04-30",
+      "project": "4EVR.ink",
+      "priority": 2
+    },
+    {
+      "id": "6gMgWX6gM3mHq4p8",
+      "content": "Treat the lawn for dandelions",
+      "due": "2026-05-04",
+      "project": "Promised",
+      "priority": 1
+    },
+    {
+      "id": "6gJWcr4HGvv6xcW3",
+      "content": "Decide on Plan for Senior Project",
+      "due": "2026-05-15",
+      "project": "Homeschool",
+      "priority": 1
+    },
+    {
+      "id": "6gJWcxv8xRR2q6Q3",
+      "content": "Decide on a project",
+      "due": "2026-05-15",
+      "project": "Homeschool",
+      "priority": 1
+    },
+    {
+      "id": "6gJWcw3Mxr6Xqqj3",
+      "content": "Decide on Summer Work plan",
+      "due": "2026-05-29",
+      "project": "Homeschool",
+      "priority": 1
+    }
+  ],
   "upcoming_tasks": [],
   "banking": {
     "accounts": [
